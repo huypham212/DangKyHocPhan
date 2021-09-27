@@ -10,10 +10,13 @@ $arr = array(
     "Pháp" => "Paris"
 );
 
+//Dùng foreach để duyệt qua từng phần tử trong mảng liên hợp và in ra tên nước và thủ đô tương ứng
 foreach ($arr as $country => $capital) {
     echo ("Thủ đô của $$country là $capital.");
 }
 echo ("<br/><br/>");
+
+/*-----------------------------------------------------------------------------------------------*/
 
 //Câu 2
 echo ("Câu 2: Tìm giá trị trung bình của các phần tử mảng và hiển thị 5 phần tử nhỏ nhất và lớn nhất. <br/>");
@@ -33,12 +36,17 @@ for ($i = 0; $i < count($arr_num); $i++) {
 echo ("] <br/>");
 
 //Tìm trung bình cộng của mảng
+//Dùng vòng lặp chạy qua các phần tử của mảng và cộng dần các phần tử vào biến sum
 foreach ($arr_num as $num) {
     $sum += $num;
 }
+
+//Sau khi duyệt hết các phần tử sẽ in ra trung bình cộng của mảng bằng cách lấy giá trị của biến sum chia cho số lượng phần tử trong mảng
 echo ("Trung bình cộng của mảng là: " . $sum / count($arr_num) . "<br/>");
 
 //Tìm 5 giá trị nhỏ nhất
+//Hàm sort() sẽ sắp xếp mảng từ nhỏ đến lớn
+//Sau khi sắp xếp thì dùng vòng for in ra 5 giá trị đầu tiên của mảng
 sort($arr_num);
 echo ("5 phần tử nhỏ nhất trong mảng là: <br/>");
 echo ("[");
@@ -52,6 +60,8 @@ for ($i = 0; $i < 5; $i++) {
 echo ("] <br/>");
 
 //Tìm 5 giá trị lớn nhất
+//Hàm rsort() sẽ sắp xếp mảng từ lớn về nhỏ
+//Sau khi sắp xếp thì dùng vòng for in ra 5 giá trị đầu tiên của mảng
 rsort($arr_num);
 echo ("5 phần tử lớn nhất trong mảng là: <br/>");
 echo ("[");
