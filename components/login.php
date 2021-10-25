@@ -16,7 +16,7 @@
     header('Content-Type: text/html; charset=UTF-8');
 
     if (isset($_POST['dangnhap'])) {
-        include('/Xampp/htdocs/BTL/DangKyHocPhan/database/dbConn.php');
+        include('../database/dbConn.php');
 
         $masv = addslashes($_POST['masv']);
         $pass = addslashes($_POST['password']);
