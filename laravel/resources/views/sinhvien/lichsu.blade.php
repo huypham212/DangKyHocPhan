@@ -56,7 +56,7 @@
     </nav>
     <div class="main">
         <div style="width: 100%;">
-            <button style="width: 100%; background-color: #f2f4f6; color: #000000; text-align: start; border: 1px solid #979797; font-size: 20px; font-family: 'Nunito';" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">NĂM HỌC 2020-2021<i style="padding-left: 84%" class="fas fa-caret-right"></i></button>
+            <button type="button" class="collapse-button" data-toggle="collapse" data-target="#demo1">NĂM HỌC 2020-2021<i class="fas fa-caret-right"></i></button>
             <div id="demo1" class="collapse" style="background-color: #FFFFFF;">
                 <div style="background-color: #FFFFFF; padding-top: 28px; padding-left: 48px">
                     <h5 style="padding-left: 25px;">NĂM HỌC 2020-2021, HỌC KỲ 1</h5>
@@ -66,7 +66,7 @@
                 <div class="card-group">
                     <div class="card-item">
                         <div class="card text-white">
-                            <img src="../../assets/img-card.png" class="card-img-top card-image" alt="image">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
                             <div class="card-img-overlay">
                                 <div class="status">
                                     <p><b>Đã đăng ký</b></p>
@@ -91,13 +91,13 @@
                     </div>
                     <div class="card-item">
                         <div class="card text-white">
-                            <img src="../../assets/img-card.png" class="card-img-top card-image" alt="image">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
                             <div class="card-img-overlay">
                                 <div class="status">
                                     <p><b>Đã đăng ký</b></p>
                                 </div>
                                 <div class="detail">
-                                    <p><b>4034 - Cơ sở dữ liệu(L01)</b></p>
+                                    <p style="font-size: 18px;"><b>4034 - Cơ sở dữ liệu(L01)</b></p>
                                     <div class="row">
                                         <div class="col">
                                             <p class="card-content-title">Mã lớp học</p>
@@ -116,13 +116,13 @@
                     </div>
                     <div class="card-item">
                         <div class="card text-white">
-                            <img src="../../assets/img-card.png" class="card-img-top card-image" alt="image">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
                             <div class="card-img-overlay">
                                 <div class="status">
                                     <p><b>Đã đăng ký</b></p>
                                 </div>
                                 <div class="detail">
-                                    <p><b>4034 - Cơ sở dữ liệu(L01)</b></p>
+                                    <p style="font-size: 18px;"><b>4034 - Cơ sở dữ liệu(L01)</b></p>
                                     <div class="row">
                                         <div class="col">
                                             <p class="card-content-title">Mã lớp học</p>
@@ -141,13 +141,13 @@
                     </div>
                     <div class="card-item">
                         <div class="card text-white">
-                            <img src="../../assets/img-card.png" class="card-img-top card-image" alt="image">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
                             <div class="card-img-overlay">
                                 <div class="status">
                                     <p><b>Đã đăng ký</b></p>
                                 </div>
                                 <div class="detail">
-                                    <p><b>4034 - Cơ sở dữ liệu(L01)</b></p>
+                                    <p style="font-size: 18px;"><b>4034 - Cơ sở dữ liệu(L01)</b></p>
                                     <div class="row">
                                         <div class="col">
                                             <p class="card-content-title">Mã lớp học</p>
@@ -164,6 +164,57 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-item">
+                        <div class="card text-white">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
+                            <div class="card-img-overlay">
+                                <div class="status">
+                                    <p><b>Đã đăng ký</b></p>
+                                </div>
+                                <div class="detail">
+                                    <p style="font-size: 18px;"><b>4034 - Cơ sở dữ liệu(L01)</b></p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="card-content-title">Mã lớp học</p>
+                                            <p class="card-content-title">Giảng viên</p>
+                                            <p class="card-content-title">Số tín chỉ</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-content-text">CSDL01</p>
+                                            <p class="card-content-text">Đỗ Văn Tuấn</p>
+                                            <p class="card-content-text">03</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="card text-white">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
+                            <div class="card-img-overlay">
+                                <div class="status">
+                                    <p><b>Đã đăng ký</b></p>
+                                </div>
+                                <div class="detail">
+                                    <p style="font-size: 18px;"><b>4034 - Cơ sở dữ liệu(L01)</b></p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="card-content-title">Mã lớp học</p>
+                                            <p class="card-content-title">Giảng viên</p>
+                                            <p class="card-content-title">Số tín chỉ</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="card-content-text">CSDL01</p>
+                                            <p class="card-content-text">Đỗ Văn Tuấn</p>
+                                            <p class="card-content-text">03</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

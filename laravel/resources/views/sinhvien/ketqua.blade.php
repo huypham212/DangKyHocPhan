@@ -56,7 +56,7 @@
     </nav>
     <div class="main">
         <div style="width: 100%;">
-            <button style="width: 100%; background-color: #f2f4f6; color: #000000; text-align: start; border: 1px solid #979797; font-size: 20px; font-family: 'Nunito';" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">NĂM HỌC 2020-2021<i style="padding-left: 84%" class="fas fa-caret-right"></i></button>
+            <button type="button" class="collapse-button" data-toggle="collapse" data-target="#demo1">NĂM HỌC 2020-2021<i class="fas fa-caret-right"></i></button>
             <div id="demo1" class="collapse" style="background-color: #FFFFFF;">
                 <div style="background-color: #FFFFFF; padding-top: 28px; padding-left: 48px">
                     <h5 style="padding-left: 25px;">NĂM HỌC 2020-2021, HỌC KỲ 1</h5>

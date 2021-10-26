@@ -225,8 +225,20 @@
   }
   
   .collapse-button {
-    width: 100%; background-color: #f2f4f6; color: #000000; text-align: start; border: 0px solid #979797;
-  }
+    width: 100%;
+    line-height: 35px;
+    background-color: #f2f4f6;
+    color: #000000;
+    text-align: start;
+    border: 1px solid #979797;
+    font-size: 20px;
+    font-family: "Nunito";
+    padding-left: 15px;
+}
+
+.collapse-button i{
+    padding-left: 80%;
+}
   
   .fee{
     background-color: #FFFFFF;
