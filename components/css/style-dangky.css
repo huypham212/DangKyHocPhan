@@ -257,66 +257,12 @@
     padding-top: 5px;
   }
   
-  /*------------------Toggle button-------------------*/
-  
-  /* .switch {
-    position: relative;
-    display: inline-block;
-    width: 35px;
-    height: 20px;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 4px;
-    top: 2px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196f3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(16px);
-    -ms-transform: translateX(16px);
-    transform: translateX(13px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  } */
-  
   /*------------------Footer CSS----------------------*/
   .footer {
     width: 100%;
     height: 416px;
     background-image: url("../../assets/bg_footer.png");
     background-size: cover;
-    padding-left: 40px;
   }
   
   .logo-footer {
