@@ -1,0 +1,258 @@
+/*------------------Header CSS----------------------*/
+.header {
+  background-image: url("../../assets/bg_dashboard1.png");
+  background-size: cover;
+  width: 100%;
+  height: 697px;
+  margin-top: -17px;
+  padding-top: 16px;
+}
+
+.menu-header {
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-radius: 5px;
+  background-color: #000000;
+}
+
+.logo-header {
+  width: 78px;
+  height: 63px;
+  border-right: 1px solid lightgray;
+}
+
+.left-menu-header input {
+  width: 400px;
+  height: 40px;
+  float: left;
+  display: inline;
+  background-color: #f2f4f6;
+}
+
+.left-menu-header i {
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.right-menu-header {
+  padding-left: 880px;
+}
+
+.right-menu-header i {
+  color: black;
+  font-size: 20px;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.right-menu-header button {
+  display: inline;
+  border-radius: 5px;
+  width: 150px;
+  height: 40px;
+  border: 1px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #dddddd;
+}
+
+.intro-header {
+  padding-left: 10%;
+  padding-top: 12%;
+}
+
+.title-header {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 81.84px;
+  color: black;
+  font-family: "Nunito";
+}
+
+.content-header {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 34.1px;
+  color: black;
+  font-family: "Nunito";
+}
+
+.intro-header button {
+  margin-top: 35px;
+  border-radius: 160px;
+  border: 2px solid white;
+  color: white;
+  box-sizing: border-box;
+  background-color: transparent;
+  width: 211px;
+  height: 50px;
+  font-family: "Nunito";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24.55px;
+}
+
+/*------------------Main CSS----------------------*/
+.main {
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 144px;
+}
+
+.cntt {
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cntt h2 {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 35.46px;
+  color: #bd2a26;
+  text-transform: uppercase;
+}
+
+.ktdt {
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.ktdt h2 {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 35.46px;
+  color: #bd2a26;
+  text-transform: uppercase;
+}
+
+.card-group {
+  display: inline-block;
+  align-items: center;
+  align-content: center;
+  padding-left: 190px;
+}
+
+.card-item {
+  margin: 25px;
+  border: 0px;
+}
+
+.card-image {
+  width: 275px;
+  height: 185px;
+}
+
+.card-content-title {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 23px;
+}
+
+.card-content-text {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 19px;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 30px;
+}
+
+/*------------------Footer CSS----------------------*/
+.footer {
+  width: 100%;
+  height: 416px;
+  background-image: url("../../assets/bg_footer.png");
+  background-size: cover;
+  padding-left: 40px;
+}
+
+.logo-footer {
+  padding-top: 117px;
+  padding-left: 80px;
+}
+
+.info-footer {
+  display: list-item;
+  margin-top: -220px;
+  padding-left: 615px;
+}
+
+.info-footer h5 {
+  padding-bottom: 5px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  color: #bd2a26;
+  text-transform: uppercase;
+}
+.info-footer p {
+  font-family: "Nunito";
+  font-weight: 400;
+  font-size: 19px;
+  color: black;
+  padding-bottom: 10px;
+}
+.line-1 {
+  padding-bottom: 33px;
+}
+
+.link-footer {
+  display: list-item;
+  margin-top: -295px;
+  padding-left: 1200px;
+}
+
+.link-footer h5 {
+  padding-bottom: 5px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  color: #bd2a26;
+  text-transform: uppercase;
+}
+.link-footer p {
+  font-family: "Nunito";
+  font-weight: 400;
+  font-size: 19px;
+  color: black;
+  padding-bottom: 10px;
+}
+
+.link-footer a {
+  color: black;
+}
+
+.link-footer a:hover {
+  color: cornflowerblue;
+  text-decoration: underline;
+}
+
+.line-2 {
+  padding-bottom: 33px;
+}
+
+/*-------------IMPORT FONT---------------*/
+@font-face {
+  font-family: "Nunito";
+  src: url("../../font/Nunito/Nunito-Regular.ttf");
+}
