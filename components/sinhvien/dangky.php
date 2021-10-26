@@ -102,19 +102,13 @@
             <div class="card-body">
                 <div>
                     <h4>Khoá DHCN5 - Ngành Công nghệ thông tin</h4>
-                    <!-- <div class="toggle-btn">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div> -->
                 </div>
                 <div class="nav-danhsach">
                     <p>DANH SÁCH LỚP HỌC PHẦN CÓ THỂ ĐĂNG KÝ HỌC KỲ 1 NĂM HỌC 2020 - 2021</p>
                 </div>
 
                 <div style="width: 100%;">
-                    <button style="width: 100%; background-color: #f2f4f6; color: #000000; text-align: start; border: 1px solid #979797; font-size: 20px; font-family: 'Nunito';" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">Cơ sở dữ liệu - 4023<i style="padding-left: 84%" class="fas fa-caret-left"></i></button>
+                    <button style="width: 100%; background-color: #f2f4f6; color: #000000; text-align: start; border: 1px solid #979797; font-size: 20px; font-family: 'Nunito';" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">Cơ sở dữ liệu - 4023<i style="padding-left: 84%" class="fas fa-caret-right"></i></button>
                     <div id="demo1" class="collapse">
                         <table class="table table-hover">
                             <thead class="thead-light">
@@ -140,7 +134,7 @@
                                     </td>
                                     <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
                                     <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
+                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
                                 </tr>
                                 <tr>
                                     <td class="align-middle" style='text-align:center;'>1</td>
@@ -152,7 +146,7 @@
                                     </td>
                                     <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
                                     <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
+                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
                                 </tr>
                                 <tr>
                                     <td class="align-middle" style='text-align:center;'>1</td>
@@ -164,14 +158,14 @@
                                     </td>
                                     <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
                                     <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
+                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div style="width: 100%;">
-                <button style="width: 100%; background-color: #f2f4f6; color: #000000; text-align: start; border: 1px solid #979797; font-size: 20px; font-family: 'Nunito'; display: inlline" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo2">Cơ sở dữ liệu - 4023<i style="padding-left: 84%" class="fas fa-caret-left"></i></button>
+                <button style="width: 100%; background-color: #f2f4f6; color: #000000; text-align: start; border: 1px solid #979797; font-size: 20px; font-family: 'Nunito'; display: inlline" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo2">Cơ sở dữ liệu - 4023<i style="padding-left: 84%" class="fas fa-caret-right"></i></button>
                     <div id="demo2" class="collapse">
                         <table class="table table-hover">
                             <thead class="thead-light">
@@ -197,7 +191,7 @@
                                     </td>
                                     <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
                                     <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
+                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
                                 </tr>
                                 <tr>
                                     <td class="align-middle" style='text-align:center;'>1</td>
@@ -209,7 +203,7 @@
                                     </td>
                                     <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
                                     <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
+                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
                                 </tr>
                                 <tr>
                                     <td class="align-middle" style='text-align:center;'>1</td>
@@ -221,14 +215,14 @@
                                     </td>
                                     <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
                                     <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
+                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div style="width: 100%;">
-                <button style="width: 100%; background-color: #f2f4f6; color: #000000; text-align: start; border: 1px solid #979797; font-size: 20px; font-family: 'Nunito';" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo3">Cơ sở dữ liệu - 4023<i style="padding-left: 84%" class="fas fa-caret-left"></i></button>
+                <button style="width: 100%; background-color: #f2f4f6; color: #000000; text-align: start; border: 1px solid #979797; font-size: 20px; font-family: 'Nunito';" type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo3">Cơ sở dữ liệu - 4023<i style="padding-left: 84%" class="fas fa-caret-right"></i></button>
                     <div id="demo3" class="collapse">
                         <table class="table table-hover">
                             <thead class="thead-light">
@@ -254,7 +248,7 @@
                                     </td>
                                     <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
                                     <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
+                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
                                 </tr>
                                 <tr>
                                     <td class="align-middle" style='text-align:center;'>1</td>
@@ -266,7 +260,7 @@
                                     </td>
                                     <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
                                     <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
+                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
                                 </tr>
                                 <tr>
                                     <td class="align-middle" style='text-align:center;'>1</td>
@@ -278,7 +272,7 @@
                                     </td>
                                     <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
                                     <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
+                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
                                 </tr>
                             </tbody>
                         </table>
