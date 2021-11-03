@@ -1,6 +1,6 @@
 /*------------------Header CSS----------------------*/
 .header {
-    background-image: url("../img/bg_user.png");
+    background-image: url("../../img/bg_user.png");
     background-size: cover;
     width: 100%;
     height: 490px;
@@ -187,33 +187,41 @@
     background-color: #e5e5e5;
   }
   
-  .card {
-    border-radius: 10px;
-    margin-bottom: 48px;
+  .nav-danhsach{
+    width: 100%;
+    line-height: 30px;
+    margin-bottom: 30px;
+    background-color: #F2F4F6;
+    display: inline-flex;
+    padding-top: 1%;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center
   }
   
-  .card-header {
-    background-color: #ffffff;
-  }
-  
-  .card-title {
-    color: #979797;
+  .nav-danhsach p{
+    color: #E02626;
     font-family: "Nunito";
-    font-style: normal;
     font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-    padding-bottom: 36px;
+    font-size: 20px;
   }
   
-  .card-text {
-    color: #000000;
+  .nav-ketqua{
+    width: 100%;
+    line-height: 30px;
+    margin-bottom: 30px;
+    background-color: #F2F4F6;
+    display: inline-flex;
+    padding-left: 81%;
+    padding-top: 1%;
+    border-radius: 5px;
+  }
+  
+  .nav-ketqua p{
+    font-size: 18px;
     font-family: "Nunito";
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-    padding-bottom: 36px;
+    padding-right: 10px;
+    padding-top: 5px;
   }
   
   .collapse-button {
@@ -232,64 +240,24 @@
     padding-left: 80%;
 }
   
-  .card-group {
-    align-items: center;
-    align-content: center;
-    justify-content: center;
+  .fee{
+    background-color: #FFFFFF;
   }
   
-  .card-item {
-    margin: 25px;
-    border: 0px;
-    margin-bottom: -25px;
-  }
-  
-  .card-image {
-    width: 264px;
-    height: 360px;
-  }
-  
-  .status {
-    line-height: 47px;
-    padding-bottom: 50px;
-    padding-top: 25px;
-  }
-  
-  .status p {
-    text-align: center;
-    background-color: rgba(217, 37, 28, 0.7);
-    border: 1px solid #979797;
-  }
-  
-  .card-content-title{
-    font-family: "Nunito";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 25px;
-    text-align: center;
-    color: #ffffff;
-    padding-top: 10px;
-  }
-  
-  .card-content-text{
-    font-family: "Nunito";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 19px;
+  .fee p {
     text-align: end;
-    color: #ffffff;
-    padding-top: 10px;
+    margin-right: 15px;
+    font-family: "Nunito";
   }
-
-  .detail {
-    margin-top: 15px;
-}
-
-  .col p {
-    margin-top: -8px;
-}
+  
+  .fee button {
+    background: #FFFFFF;
+    border: 1px solid #D9251C;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-left: 90%;
+    margin-bottom: 15px;
+  }
 
 /*------------------Footer CSS----------------------*/
 .footer {
