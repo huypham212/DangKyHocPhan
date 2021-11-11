@@ -1,3 +1,8 @@
+body{
+    background-image: url('../../img/bg_admin.png');
+    background-size: cover;
+}
+
 /*------------------Header CSS----------------------*/
 
 .menu-header {
@@ -209,19 +214,46 @@
 }
 
 .collapse-button {
+    display: inline;
     width: 100%;
-    line-height: 35px;
     background-color: #f2f4f6;
     color: #000000;
     text-align: start;
     border: 1px solid #979797;
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Nunito";
     padding-left: 15px;
 }
 
-.collapse-button i{
-    padding-left: 90%;
+.collapse-button-text{
+    color: black;
+    width: 500px;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    margin-bottom: -16px;
+}
+
+.collapse-button-icon{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 25px;
+    margin-bottom: 5px;
+}
+
+.collapse-button-sv-icon{
+    margin-left: 90%;
+}
+
+.collapse-button-lophp-icon{
+    margin-left: 80%;
+}
+
+.button-create{
+    display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-danhsach {
@@ -231,6 +263,7 @@
     background-color: #f2f4f6;
     display: inline-flex;
     padding-top: 1%;
+    padding-bottom: 1%;
     border-radius: 5px;
     /* align-items: center;
     justify-content: center; */
@@ -246,11 +279,16 @@
 .nav-danhsach-left{
     justify-content: flex-start;
     margin-left: 15px;
+    display: inline-flex;
+}
+
+.nav-danhsach-left i{
+    padding-top: 13px;
 }
 
 .nav-danhsach-right{
     justify-content: end;
-    margin-left: 730px;
+    margin-right: 12.8px;
 }
 
 .nav-ketqua {
@@ -270,6 +308,15 @@
     padding-right: 10px;
     padding-top: 5px;
 }
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
 
 /*------------------Footer CSS----------------------*/
 .footer {

@@ -10682,7 +10682,6 @@ body.side-nav-on-action .u-content {
     min-height: 3.75rem;
   }
   .u-header-left {
-    width: 15rem;
     text-align: left;
     transition: width .2s ease-in;
   }
@@ -11099,7 +11098,6 @@ body.side-nav-on-action .u-content {
   height: 100%;
   opacity: 0;
   width: 15rem;
-  background-color: #fff;
   transition: width .2s ease-in, left .2s ease-in;
 }
 

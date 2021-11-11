@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/style-dangky.css">
+    <link rel="stylesheet" href="css/sinhvien/style-dangky.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/312ace3ead.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -49,9 +49,9 @@
     </div>
     <nav class="navbar order-last order-lg-0 menu-navbar">
         <ul>
-            <li><a class="nav-link active" href="./dangky.php"><span class="style-active">Đăng ký học phần</span></a></li>
-            <li><a class="nav-link" href="./ketqua.php">Kết quả đăng ký</a></li>
-            <li><a class="nav-link" href="./lichsu.php">Lịch sử đăng ký</a></li>
+            <li><a class="nav-link active" href="{{ route('dangky') }}"><span class="style-active">Đăng ký học phần</span></a></li>
+            <li><a class="nav-link" href="{{ route('ketqua') }}">Kết quả đăng ký</a></li>
+            <li><a class="nav-link" href="{{ route('lichsu') }}">Lịch sử đăng ký</a></li>
         </ul>
     </nav>
     <div class="main">

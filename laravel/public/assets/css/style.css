@@ -202,7 +202,7 @@ img.u-avatar--xs {
 
 /*menu sidebar start*/
 .u-sidebar-inner {
-	padding: 30px 20px;
+	margin: 35px 0px;
 	width: 250px;
 }
 
@@ -687,9 +687,6 @@ img.u-avatar--xs {
 
 
 /*routines page start*/
-.table-routines {
-
-}
 .table-routines tbody td {
 	padding: 5px 10px;
 	border: 1px solid #FA5D4E;
