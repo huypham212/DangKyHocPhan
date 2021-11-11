@@ -37,3 +37,38 @@ Route::get('/ketqua', function () {
 Route::get('/lichsu', function () {
     return view('sinhvien.lichsu');
 })->name('lichsu');
+
+//Route to admin dashboard
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->name('admin');
+
+//Route to admin sinhvien
+Route::get('/sinhvien', function () {
+    return view('admin.sinhvien');
+})->name('sinhvien');
+
+//Route to admin giangvien
+Route::get('/giangvien', function () {
+    return view('admin.giangvien');
+})->name('giangvien');
+
+//Route to admin lop
+Route::get('/lop', function () {
+    return view('admin.lop');
+})->name('lop');
+
+//Route to admin monhoc
+Route::get('/monhoc', function () {
+    return view('admin.monhoc');
+})->name('monhoc');
+
+//Route to admin lophp
+Route::get('/lophp', function () {
+    return view('admin.lophp');
+})->name('lophp');
+
+//Route to admin sv-mh
+Route::get('/state', function () {
+    return view('admin.sv-mh');
+})->name('state');
