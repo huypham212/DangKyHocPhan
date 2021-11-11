@@ -23,6 +23,11 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+//Route to reset password
+Route::get('/password', function () {
+    return view('password');
+})->name('password'); 
+
 //Route to dangky
 Route::get('/dangky', function () {
     return view('sinhvien.dangky');
