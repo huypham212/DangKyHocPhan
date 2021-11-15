@@ -83,7 +83,7 @@
 
                         <!-- sinhvien -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('sinhvien') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('sinhvien.index') }}">
                                 <i class="fas fa-user-check u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Sinh viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -113,7 +113,7 @@
 
                         <!-- giangvien -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link active" href="{{ route('giangvien') }}">
+                            <a class="u-sidebar-nav-menu__link active" href="{{ route('giangvien.index') }}">
                                 <i class="fas fa-stopwatch u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Giảng viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -143,7 +143,7 @@
 
                         <!-- lop -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('lop') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('lop.index') }}">
                                 <i class="fas fa-question u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -173,7 +173,7 @@
 
                         <!-- monhoc -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc.index') }}">
                                 <i class="fas fa-home u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -203,7 +203,7 @@
 
                         <!-- lophocphan -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('lophp') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('lophp.index') }}">
                                 <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp học phần</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -233,7 +233,7 @@
 
                         <!-- Trạng thái môn học -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('state') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('svmh.index') }}">
                                 <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Trạng thái môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -282,9 +282,9 @@
                             <div class="nav-danhsach-right">
                                 <button type="button" class="btn btn-outline-danger" data-toggle="modal"
                                     data-target="#exampleModalCenter">Thêm giảng viên</button>
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLongTitle">Thêm giảng viên</h5>
@@ -294,12 +294,51 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                ...
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Thoát</button>
-                                                <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+                                                <form>
+                                                    <div class="form-row">
+                                                      <div class="form-group col-md-6">
+                                                        <label for="inputMaSV">Mã Giảng viên</label>
+                                                        <input type="text" class="form-control" id="inputMaSV">
+                                                      </div>
+                                                      <div class="form-group col-md-6">
+                                                        <label for="inputHoTen">Họ và tên</label>
+                                                        <input type="text" class="form-control" id="inputHoTen" placeholder="Nguyễn Văn A">
+                                                      </div>
+                                                    </div>
+                                                      <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label for="inputGioiTinh">Giới tính</label>
+                                                        <div>
+                                                          <div class="form-check form-check-inline">
+                                                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="optionNam">
+                                                              <label class="form-check-label" for="inlineRdNam">Nam</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="optionNu">
+                                                              <label class="form-check-label" for="inlineRdNu">Nữ</label>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                      </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label for="inputEmail">Email</label>
+                                                            <input type="email" class="form-control" id="inputEmail">
+                                                          </div>
+                                                          <div class="form-group col-md-6">
+                                                            <label for="inputLop">Khoa</label>
+                                                            <select id="inputLop" class="form-control">
+                                                                <option selected>...</option>
+                                                                @foreach ($dataKhoa as $khoa)
+                                                                <option value="{{ $khoa->MaKhoa }}">{{ $khoa->MaKhoa }} - {{ $khoa->TenKhoa }}</option>
+                                                                @endforeach
+                                                              </select>
+                                                          </div>
+                                                    </div>
+                                                    <div class="button-create">
+                                                        <button type="submit" class="btn btn-outline-danger">Tạo</button>
+                                                    </div>
+                                                  </form>
                                             </div>
                                         </div>
                                     </div>
@@ -328,70 +367,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($dataGV as $gv)
                                     <tr>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>GV001
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{  $index++ }}</td>
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->MaGV }}
                                         </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Nguyễn Văn Hoàn</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Nam
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->TenGV }}</td>
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->GioiTinh }}
                                         </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>
-                                            hoan@gmail.com</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>CNTT
-                                        </td>
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->Email }}</td>
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->MaKhoa }}</td>
                                         <td class="align-middle" style='text-align:center'>
-                                            <a href="#"><i class="far fa-edit"></i></a>
+                                            <a href="#" name="{{ $gv->MaGV }}"><i class="far fa-edit"></i></a>
                                             <a href="#"><i class="far fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>GV001
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Nguyễn Văn Hoàn</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Nam
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>
-                                            hoan@gmail.com</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>CNTT
-                                        </td>
-                                        <td class="align-middle" style='text-align:center'>
-                                            <a href="#"><i class="far fa-edit"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>GV001
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Nguyễn Văn Hoàn</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Nam
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>
-                                            hoan@gmail.com</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>CNTT
-                                        </td>
-                                        <td class="align-middle" style='text-align:center'>
-                                            <a href="#"><i class="far fa-edit"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>GV001
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Nguyễn Văn Hoàn</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Nam
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>
-                                            hoan@gmail.com</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>CNTT
-                                        </td>
-                                        <td class="align-middle" style='text-align:center'>
-                                            <a href="#"><i class="far fa-edit"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
+                                    
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -83,7 +83,7 @@
 
                         <!-- sinhvien -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('sinhvien') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('sinhvien.index') }}">
                                 <i class="fas fa-user-check u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Sinh viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -113,7 +113,7 @@
 
                         <!-- giangvien -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('giangvien') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('giangvien.index') }}">
                                 <i class="fas fa-stopwatch u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Giảng viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -143,7 +143,7 @@
 
                         <!-- lop -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('lop') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('lop.index') }}">
                                 <i class="fas fa-question u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -173,7 +173,7 @@
 
                         <!-- monhoc -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc.index') }}">
                                 <i class="fas fa-home u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -203,7 +203,7 @@
 
                         <!-- lophocphan -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link active" href="{{ route('lophp') }}">
+                            <a class="u-sidebar-nav-menu__link active" href="{{ route('lophp.index') }}">
                                 <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp học phần</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -233,7 +233,7 @@
 
                         <!-- Trạng thái môn học -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('state') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('svmh.index') }}">
                                 <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Trạng thái môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -307,13 +307,13 @@
                             </div>
                         </div>
 
+                        @foreach ($dataMH as $mh)
                         <div style="width: 100%;">
                             <button type="button" class="collapse-button" data-toggle="collapse"
-                                data-target="#tbl1">
-                                <p class="collapse-button-text">4321 - Quản trị mạng</p>
-                                <i class="fas fa-caret-right collapse-button-icon"></i></button>
-                            </button>
-                            <div id="tbl1" class="collapse">
+                                data-target="#{{ $mh->MaMH }}"><p class="collapse-button-text">
+                                    {{ $mh->MaMH }} - {{ $mh->TenMH }}</p>
+                                <i class="fas fa-caret-right collapse-button-lophp-icon"></i></button></button>
+                            <div id="{{ $mh->MaMH }}" class="collapse">
                                 <table class="table table-hover">
                                     <thead class="thead-light">
                                         <tr>
@@ -323,8 +323,6 @@
                                                 Mã lớp HP</th>
                                             <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
                                                 Tên lớp HP</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Số TC</th>
                                             <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
                                                 Thời gian</th>
                                             <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
@@ -338,195 +336,34 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <p hidden>{{ $index = 1 }}</p>
+                                        @foreach ($dataLopHP as $lophp)
+                                        @if ($lophp->MaMH == $mh->MaMH)
                                         <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>QTM-01
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng - 01</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $index++ }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lophp->MaLopHP }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lophp->TenLopHP }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lophp->ThoiGian }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lophp->DiaDiem }}</td>
+                                            @foreach ($dataGV as $gv)
+                                                @if ($gv->MaGV == $lophp->MaGV)
+                                                <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->TenGV }}</td>
+                                                @endif
+                                            @endforeach
                                             <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                03</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>15/09/2021 - 31/10/2021
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>B302</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                Nguyễn Văn Hoàn</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                20/30</td>
+                                                20/{{ $lophp->SiSo }}</td>
                                             <td class="align-middle" style='text-align:center'>
                                                 <a href="#"><i class="far fa-edit"></i></a>
                                                 <a href="#"><i class="far fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>QTM-01
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng - 01</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                03</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>15/09/2021 - 31/10/2021
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>B302</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                Nguyễn Văn Hoàn</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                20/30</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
+                                        @endif
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-
-                        <div style="width: 100%;">
-                            <button type="button" class="collapse-button" data-toggle="collapse"
-                                data-target="#tbl2"><p class="collapse-button-text">
-                                    4310 - Lập trình C#</p>
-                                <i class="fas fa-caret-right collapse-button-icon"></i></button></button>
-                            <div id="tbl2" class="collapse">
-                                <table class="table table-hover">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                STT</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Mã lớp HP</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Tên lớp HP</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Số TC</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Thời gian</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Địa điểm</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Giảng viên</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Sỉ số</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Trạng thái</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>QTM-01
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng - 01</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                03</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>15/09/2021 - 31/10/2021
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>B302</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                Nguyễn Văn Hoàn</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                20/30</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>QTM-01
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng - 01</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                03</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>15/09/2021 - 31/10/2021
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>B302</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                Nguyễn Văn Hoàn</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                20/30</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div style="width: 100%;">
-                            <button type="button" class="collapse-button" data-toggle="collapse"
-                                data-target="#tbl3">
-                                <p class="collapse-button-text">4311 - Quản lý phần mềm</p>
-                                <i class="fas fa-caret-right collapse-button-icon"></i></button>
-                            <div id="tbl3" class="collapse">
-                                <table class="table table-hover">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                STT</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Mã lớp HP</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Tên lớp HP</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Số TC</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Thời gian</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Địa điểm</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Giảng viên</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Sỉ số</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Trạng thái</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>QTM-01
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng - 01</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                03</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>15/09/2021 - 31/10/2021
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>B302</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                Nguyễn Văn Hoàn</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                20/30</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>QTM-01
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng - 01</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                03</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>15/09/2021 - 31/10/2021
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>B302</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                Nguyễn Văn Hoàn</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                20/30</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>

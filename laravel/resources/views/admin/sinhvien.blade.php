@@ -65,25 +65,17 @@
         <aside id="sidebar" class="u-sidebar">
             <div class="u-sidebar-inner bg-gradient bdrs-30">
                 <header class="u-sidebar-header">
-                    <a class="u-sidebar-logo" href="index.html">
+                    <a class="u-sidebar-logo" href="#">
                         <img class="img-fluid" src="assets/img/logo.png" width="124" alt="Stream Dashboard">
                     </a>
                 </header>
 
                 <nav class="u-sidebar-nav">
                     <ul class="u-sidebar-nav-menu u-sidebar-nav-menu--top-level">
-                        <!-- Dashboard -->
-                        {{-- <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('admin') }}">
-                                <i class="fas fa-tachometer-alt u-sidebar-nav-menu__item-icon"></i>
-                                <span class="u-sidebar-nav-menu__item-title">Dashboard</span>
-                            </a>
-                        </li> --}}
-                        <!-- End Dashboard -->
 
                         <!-- sinhvien -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link active" href="{{ route('sinhvien') }}">
+                            <a class="u-sidebar-nav-menu__link active" href="{{ route('sinhvien.index') }}">
                                 <i class="fas fa-user-check u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Sinh viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -113,7 +105,7 @@
 
                         <!-- giangvien -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('giangvien') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('giangvien.index') }}">
                                 <i class="fas fa-stopwatch u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Giảng viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -143,7 +135,7 @@
 
                         <!-- lop -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('lop') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('lop.index') }}">
                                 <i class="fas fa-question u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -173,7 +165,7 @@
 
                         <!-- monhoc -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc.index') }}">
                                 <i class="fas fa-home u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -203,7 +195,7 @@
 
                         <!-- lophocphan -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('lophp') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('lophp.index') }}">
                                 <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp học phần</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -233,7 +225,7 @@
 
                         <!-- Trạng thái môn học -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('state') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('svmh.index') }}">
                                 <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Trạng thái môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -345,9 +337,9 @@
                                                             <label for="inputLop">Lớp</label>
                                                             <select id="inputLop" class="form-control">
                                                                 <option selected>...</option>
-                                                                <option>DHCN4A - Đại học công nghệ 4A</option>
-                                                                <option>DHCN4B - Đại học công nghệ 4B</option>
-                                                                <option>DHCN5 - Đại học công nghệ 5</option>
+                                                                <option value="DHCN4A">DHCN4A - Đại học công nghệ 4A</option>
+                                                                <option value="DHCN4B">DHCN4B - Đại học công nghệ 4B</option>
+                                                                <option value="DHCN5">DHCN5 - Đại học công nghệ 5</option>
                                                               </select>
                                                           </div>
                                                           <div class="form-group col-md-6">
@@ -372,11 +364,12 @@
                             </div>
                         </div>
 
+                        @foreach ($dataLop as $lop)
                         <div style="width: 100%;">
                             <button type="button" class="collapse-button" data-toggle="collapse"
-                                data-target="#dhcn4">DHCN4<i class="fas fa-caret-right collapse-button-sv-icon"></i></button>
-                            <div id="dhcn4" class="collapse table-wrapper-scroll-y my-custom-scrollbar">
-                                <table class="table table-hover table-striped mb-0">
+                                data-target="#{{ $lop->MaLop }}">{{ $lop->MaLop }}<i class="fas fa-caret-right collapse-button-sv-icon"></i></button>
+                            <div id="{{ $lop->MaLop }}" class="collapse table-wrapper-scroll-y my-custom-scrollbar">
+                                <table class="table table-hover">
                                     <thead class="thead-light">
                                         <tr>
                                             <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
@@ -402,229 +395,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <p hidden>{{ $index = 1; }}</p>
+                                        @foreach ($dataSV as $sv)
+                                            @if ($lop->MaLop == $sv->MaLop && $sv != null)
                                         <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>18DC010
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Phạm
-                                                Nguyễn Thanh Huy</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                02/01/2000</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Nam
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Khánh
-                                                Hoà</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                huy@gmail.com</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC010</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>CNPM
-                                            </td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $index++ }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $sv->MaSV }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $sv->TenSV }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ date('d-m-Y', strtotime($sv->DoB)) }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $sv->GioiTinh }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $sv->DiaChi }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $sv->Email }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $sv->MatKhau }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $sv->MaNganh }}</td>
                                             <td class="align-middle" style='text-align:center'>
                                                 <a href="#"><i class="far fa-edit"></i></a>
                                                 <a href="#"><i class="far fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>2</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC004</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Chu
-                                                Thị Thu Hải</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                16/08/2000</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Nữ
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quảng
-                                                Ninh</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                hai@gmail.com</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC004</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>CNPM
-                                            </td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>3</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC012</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Lưu
-                                                Hoàng Long</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                01/01/2000</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Nam
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Khánh
-                                                Hoà</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                long@gmail.com</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC012</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>CNPM
-                                            </td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>2</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC024</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Hồ Thị
-                                                Ái Vân Uyên</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                01/01/2000</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Nữ
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Khánh
-                                                Hoà</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                uyen@gmail.com</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC024</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>CNPM
-                                            </td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
+                                            @endif
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div style="width: 100%;">
-                            <button type="button" class="collapse-button" data-toggle="collapse"
-                                data-target="#dhcn5">DHCN5<i class="fas fa-caret-right collapse-button-sv-icon"></i></button>
-                            <div id="dhcn5" class="collapse table-wrapper-scroll-y my-custom-scrollbar">
-                                <table class="table table-hover table-striped mb-0">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                STT</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Mã sinh viên</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Họ và tên</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Ngày sinh</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Giới tính</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Địa chỉ</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Email</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Mật khẩu</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Mã ngành</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Trạng thái</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC010</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Phạm
-                                                Nguyễn Thanh Huy</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                02/01/2000</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Nam
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Khánh
-                                                Hoà</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                huy@gmail.com</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC010</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>CNPM
-                                            </td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>2</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC004</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Chu
-                                                Thị Thu Hải</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                16/08/2000</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Nữ
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quảng
-                                                Ninh</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                hai@gmail.com</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC004</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>CNPM
-                                            </td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>3</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC012</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Lưu
-                                                Hoàng Long</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                01/01/2000</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Nam
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Khánh
-                                                Hoà</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                long@gmail.com</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC012</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>CNPM
-                                            </td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>2</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC024</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Hồ Thị
-                                                Ái Vân Uyên</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                01/01/2000</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Nữ
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Khánh
-                                                Hoà</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                uyen@gmail.com</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                18DC024</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>CNPM
-                                            </td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>

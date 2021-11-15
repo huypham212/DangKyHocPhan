@@ -83,7 +83,7 @@
 
                         <!-- sinhvien -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('sinhvien') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('sinhvien.index') }}">
                                 <i class="fas fa-user-check u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Sinh viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -113,7 +113,7 @@
 
                         <!-- giangvien -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('giangvien') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('giangvien.index') }}">
                                 <i class="fas fa-stopwatch u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Giảng viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -143,7 +143,7 @@
 
                         <!-- lop -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link active" href="{{ route('lop') }}">
+                            <a class="u-sidebar-nav-menu__link active" href="{{ route('lop.index') }}">
                                 <i class="fas fa-question u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -173,7 +173,7 @@
 
                         <!-- monhoc -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc.index') }}">
                                 <i class="fas fa-home u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -203,7 +203,7 @@
 
                         <!-- lophocphan -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('lophp') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('lophp.index') }}">
                                 <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp học phần</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -233,7 +233,7 @@
 
                         <!-- Trạng thái môn học -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('state') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('svmh.index') }}">
                                 <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Trạng thái môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -320,78 +320,25 @@
                                         <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
                                             Niên khoá</th>
                                         <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                            Sỉ số</th>
-                                        <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
                                             Mã khoa</th>
                                         <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
                                             Trạng thái</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($data as $lop)
                                     <tr>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>DHCN5
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Đại học công nghệ 5</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>2018-2022
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>
-                                            26</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>CNTT
-                                        </td>
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $index }}</td>
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lop->MaLop }}</td>
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lop->TenLop }}</td>
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lop->NienKhoa }}</td>
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lop->MaKhoa }}</td>
                                         <td class="align-middle" style='text-align:center'>
                                             <a href="#"><i class="far fa-edit"></i></a>
                                             <a href="#"><i class="far fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>DHCN5
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Đại học công nghệ 5</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>2018-2022
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>
-                                            26</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>CNTT
-                                        </td>
-                                        <td class="align-middle" style='text-align:center'>
-                                            <a href="#"><i class="far fa-edit"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>DHCN5
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Đại học công nghệ 5</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>2018-2022
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>
-                                            26</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>CNTT
-                                        </td>
-                                        <td class="align-middle" style='text-align:center'>
-                                            <a href="#"><i class="far fa-edit"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>DHCN5
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>Đại học công nghệ 5</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>2018-2022
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>
-                                            26</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>CNTT
-                                        </td>
-                                        <td class="align-middle" style='text-align:center'>
-                                            <a href="#"><i class="far fa-edit"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

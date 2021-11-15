@@ -14,7 +14,8 @@
         <div class="card-body card-content">
             <img src="{{ URL::to('/') }}/img/logo.png" width="64.3px" height="109px" alt="logo">
             <h5 class="card-title">ĐĂNG NHẬP</h5>
-            <form method="POST" action="login.php">
+            <form method="POST" action="{{ url('/login') }}">
+                @csrf
                 <div class="container card-form">
                     <div class="inputContainer">
                         <i class="fa fa-user icon"> </i>
@@ -24,9 +25,9 @@
                         <i class="fas fa-lock icon"></i>
                         <input class="card-form-input" type="password" placeholder="Nhập mật khẩu" name="password" required>
                     </div>
-                    <a class="card-form-link" href="#">Quên tên đăng nhập hoặc mật khẩu?</a>
+                    <a class="card-form-link" href="{{ route('password') }}">Quên tên đăng nhập hoặc mật khẩu?</a>
                     <div class="btn-login">
-                        <button name="dangnhap" onclick="window.location='{{ route('dangky') }}'">Đăng nhập</button>
+                        <button name="dangnhap">Đăng nhập</button>
                     </div>
                     <div class="toggle-btn">
                         <label class="switch">

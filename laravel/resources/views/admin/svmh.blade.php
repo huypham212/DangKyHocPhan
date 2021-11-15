@@ -83,7 +83,7 @@
 
                         <!-- sinhvien -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('sinhvien') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('sinhvien.index') }}">
                                 <i class="fas fa-user-check u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Sinh viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -113,7 +113,7 @@
 
                         <!-- giangvien -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('giangvien') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('giangvien.index') }}">
                                 <i class="fas fa-stopwatch u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Giảng viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -143,7 +143,7 @@
 
                         <!-- lop -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('lop') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('lop.index') }}">
                                 <i class="fas fa-question u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -173,7 +173,7 @@
 
                         <!-- monhoc -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc.index') }}">
                                 <i class="fas fa-home u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -203,7 +203,7 @@
 
                         <!-- lophocphan -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('lophp') }}">
+                            <a class="u-sidebar-nav-menu__link" href="{{ route('lophp.index') }}">
                                 <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp học phần</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -233,7 +233,7 @@
 
                         <!-- Trạng thái môn học -->
                         <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link active" href="{{ route('state') }}">
+                            <a class="u-sidebar-nav-menu__link active" href="{{ route('svmh.index') }}">
                                 <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Trạng thái môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
@@ -306,12 +306,13 @@
                             </div> --}}
                         </div>
 
+                        @foreach ($dataSV as $sv) 
                         <div style="width: 100%;">
                             <button type="button" class="collapse-button" data-toggle="collapse"
-                                data-target="#_18DC010">
-                                <p class="collapse-button-text">18DC010 - Phạm Nguyễn Thanh Huy</p>
+                                data-target="#_{{ $sv->MaSV }}">
+                                <p class="collapse-button-text">{{ $sv->MaSV }} - {{ $sv->TenSV }}</p>
                                 <i class="fas fa-caret-right collapse-button-icon"></i></button>
-                            <div id="_18DC010" class="collapse table-wrapper-scroll-y my-custom-scrollbar">
+                            <div id="_{{ $sv->MaSV }}" class="collapse table-wrapper-scroll-y my-custom-scrollbar">
                                 <table class="table table-hover table-striped mb-0">
                                     <thead class="thead-light">
                                         <tr>
@@ -326,214 +327,44 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
+                                        <p hidden>{{ $index = 1 }}</p>
+                                        @foreach ($dataSVMH as $svmh)
+                                            @if ($svmh->MaSV == $sv->MaSV)
+                                            <tr>
+                                                <td class="align-middle" style='text-align:center; font-size:14px'>{{ $index++ }}</td>
+                                                <td class="align-middle" style='text-align:center; font-size:14px'>{{ $svmh->MaMH }}</td>
+                                                @foreach ($dataMH as $mh)
+                                                    @if ($mh->MaMH == $svmh->MaMH)
+                                                    <td class="align-middle" style='text-align:center; font-size:14px'>{{ $mh->TenMH }}</td>
+                                                    @endif
+                                                @endforeach
+                                                <td class="align-middle" style='text-align:center'>
+                                                    <select class="form-control" id="stateSelect" disabled>
+                                                        @if ($svmh->TrangThai == "Đã hoàn thành")
+                                                        <option>Đang học</option>
+                                                        <option>Đã huỷ</option>
+                                                        <option selected>Đã hoàn thành</option>
+                                                        @else
+                                                            @if ($svmh->TrangThai == "Đã huỷ")
+                                                            <option>Đang học</option>
+                                                            <option selected>Đã huỷ</option>
+                                                            <option>Đã hoàn thành</option>
+                                                            @else
+                                                            <option selected>Đang học</option>
+                                                            <option>Đã huỷ</option>
+                                                            <option>Đã hoàn thành</option>
+                                                            @endif
+                                                        @endif
+                                                      </select>
+                                                </td>
+                                            </tr>
+                                            @endif
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div style="width: 100%;">
-                            <button type="button" class="collapse-button" data-toggle="collapse"
-                                data-target="#_18DC024">
-                                <p class="collapse-button-text">18DC024 - Hồ Thị Ái Vân Uyên</p>
-                                <i class="fas fa-caret-right collapse-button-icon"></i></button>
-                            <div id="_18DC024" class="collapse table-wrapper-scroll-y my-custom-scrollbar">
-                                <table class="table table-hover table-striped mb-0">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                STT</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Mã môn học</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Tên môn học</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Trạng thái</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div style="width: 100%;">
-                            <button type="button" class="collapse-button" data-toggle="collapse"
-                                data-target="#_18dc004">
-                                <p class="collapse-button-text">18DC004 - Chu Thị Thu Hải</p>
-                                <i class="fas fa-caret-right collapse-button-icon"></i></button>
-                            <div id="_18dc004" class="collapse table-wrapper-scroll-y my-custom-scrollbar">
-                                <table class="table table-hover table-striped mb-0">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                STT</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Mã môn học</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Tên môn học</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Trạng thái</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>1</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>4321
-                                            </td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>Quản trị mạng</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <select class="form-control" id="stateSelect">
-                                                    <option>Đang học</option>
-                                                    <option>Đã huỷ</option>
-                                                    <option>Đã hoàn thành</option>
-                                                  </select>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        @endforeach
 
                         
 
