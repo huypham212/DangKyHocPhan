@@ -286,25 +286,26 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form>
+                                                <form action="{{ route('sinhvien.store') }}" method="POST">
+                                                    @csrf
                                                     <div class="form-row">
                                                       <div class="form-group col-md-6">
                                                         <label for="inputMaSV">Mã sinh viên</label>
-                                                        <input type="text" class="form-control" id="inputMaSV">
+                                                        <input type="text" class="form-control" name="addmasv">
                                                       </div>
                                                       <div class="form-group col-md-6">
                                                         <label for="inputHoTen">Họ và tên</label>
-                                                        <input type="text" class="form-control" id="inputHoTen" placeholder="Nguyễn Văn A">
+                                                        <input type="text" class="form-control" name="addtensv" placeholder="Nguyễn Văn A">
                                                       </div>
                                                     </div>
                                                     <div class="form-row">
                                                         <div class="form-group col-md-6">
                                                           <label for="inputDoB">Ngày sinh</label>
-                                                          <input type="date" class="form-control" id="inputDoB">
+                                                          <input type="date" class="form-control" name="adddob">
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label for="inputDiaChi">Địa chỉ</label>
-                                                            <input type="text" class="form-control" id="inputDiaChi">
+                                                            <input type="text" class="form-control" name="adddiachi">
                                                         </div>
                                                       </div>
                                                       <div class="form-row">
@@ -312,11 +313,11 @@
                                                             <label for="inputGioiTinh">Giới tính</label>
                                                         <div>
                                                           <div class="form-check form-check-inline">
-                                                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="optionNam">
+                                                              <input class="form-check-input" type="radio" name="addgioitinh" value="Nam">
                                                               <label class="form-check-label" for="inlineRdNam">Nam</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="optionNu">
+                                                              <input class="form-check-input" type="radio" name="addgioitinh" value="Nu">
                                                               <label class="form-check-label" for="inlineRdNu">Nữ</label>
                                                             </div>
                                                         </div>
@@ -325,31 +326,31 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-6">
                                                             <label for="inputEmail">Email</label>
-                                                            <input type="email" class="form-control" id="inputEmail">
+                                                            <input type="email" name="addemail" class="form-control">
                                                           </div>
                                                           <div class="form-group col-md-6">
                                                             <label for="inputMatKhau">Mật khẩu</label>
-                                                            <input type="password" class="form-control" id="inputMatKhau">
+                                                            <input type="password" name="addmatkhau" class="form-control">
                                                           </div>
                                                     </div>
                                                     <div class="form-row">
                                                         <div class="form-group col-md-6">
                                                             <label for="inputLop">Lớp</label>
-                                                            <select id="inputLop" class="form-control">
+                                                            <select name="addmalop" class="form-control">
                                                                 <option selected>...</option>
-                                                                <option value="DHCN4A">DHCN4A - Đại học công nghệ 4A</option>
-                                                                <option value="DHCN4B">DHCN4B - Đại học công nghệ 4B</option>
-                                                                <option value="DHCN5">DHCN5 - Đại học công nghệ 5</option>
-                                                              </select>
+                                                                @foreach ($dataLop as $lop)
+                                                                    <option value="{{ $lop->MaLop }}">{{ $lop->TenLop }}</option>
+                                                                @endforeach
+                                                            </select>
                                                           </div>
                                                           <div class="form-group col-md-6">
                                                             <label for="inputNganh">Ngành học</label>
-                                                            <select id="inputNganh" class="form-control">
+                                                            <select name="addmanganh" class="form-control">
                                                                 <option selected>...</option>
-                                                                <option>CNPM - Công nghệ phần mềm</option>
-                                                                <option>KTMT - Kỹ thuật máy tính</option>
-                                                                <option>KHMT - Khoa học máy tính</option>
-                                                              </select>
+                                                                @foreach ($dataNganh as $nganh)
+                                                                    <option value="{{ $nganh->MaNganh }}">{{ $nganh->TenNganh }}</option>
+                                                                @endforeach
+                                                            </select>
                                                           </div>
                                                     </div>
                                                     <div class="button-create">

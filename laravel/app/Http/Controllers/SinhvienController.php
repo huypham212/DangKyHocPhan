@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sinhvien;
 use App\Models\Lop;
+use App\Models\Nganh;
 use Illuminate\Http\Request;
 
 class SinhvienController extends Controller
@@ -15,11 +16,13 @@ class SinhvienController extends Controller
      */
     public function index()
     {
+        $dataNganh = Nganh::all();
         $dataSV = Sinhvien::all();
         $dataLop = Lop::all();
         return view('admin.sinhvien', [
             'dataSV' => $dataSV,
             'dataLop' => $dataLop,
+            'dataNganh' => $dataNganh,
             'index' => 1
         ]);
     }
@@ -31,7 +34,7 @@ class SinhvienController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -42,7 +45,21 @@ class SinhvienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $sv = Sinhvien::create([
+            'masv' => $request->input('addmasv'),
+            'tensv' => $request->input('addtensv'),
+            'dob' => $request->input('adddob'),
+            'gioitinh' => $request->input('addgioitinh'),
+            'diachi' => $request->input('adddiachi'),
+            'email' => $request->input('addemail'),
+            'matkhau' => $request->input('addmatkhau'),
+            'malop' => $request->input('addmalop'),
+            'manganh' => $request->input('addmanganh'),
+            'isfirstlogin' => 0
+        ]);
+
+        return redirect('/sinhvien');
     }
 
     /**

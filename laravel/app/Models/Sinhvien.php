@@ -10,4 +10,18 @@ class Sinhvien extends Model
     use HasFactory;
 
     protected $table = 'sinhvien';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'masv',
+        'tensv',
+        'dob',
+        'gioitinh',
+        'diachi',
+        'email',
+        'matkhau',
+        'malop',
+        'manganh',
+        'isfirstlogin'
+    ];
 }

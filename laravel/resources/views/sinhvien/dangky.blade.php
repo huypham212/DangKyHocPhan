@@ -37,8 +37,8 @@
                 <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" style="width: 150px;" alt="avatar"/>
             </div>
             <div class="info-content">
-                <h5>{{ $sv['TenSV'] }}</h5>
-                <p>Mã sinh viên: {{ $sv['MaSV'] }}</p>
+                <h5>ABC</h5>
+                <p>Mã sinh viên:</p>
                 <div class="info-tag">
                     <p class="info-tag-1">Khoá: DHCN5</p>
                     <p class="info-tag-2">Lớp học: 0</p>
