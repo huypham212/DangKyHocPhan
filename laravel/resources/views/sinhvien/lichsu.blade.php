@@ -28,7 +28,7 @@
                 <div class="right-menu-header">
                     <a href="#"><i class="far fa-bell"></i></a>
                     <a href="#"><i class="far fa-comment-dots"></i></a>
-                    <button id="btnLogin" onclick="window.location='{{ route('login') }}'">Đăng xuất</button>
+                    <button id="btnLogin" onclick="window.location='{{ route('logout') }}'">Đăng xuất</button>
                 </div>
             </div>
         </nav>
@@ -38,7 +38,7 @@
             </div>
             <div class="info-content">
                 <h5>Nguyễn Bình An</h5>
-                <p>Mã sinh viên: 18DC001</p>
+                <p>Mã sinh viên: {{ $masv }}</p>
                 <div class="info-tag">
                     <p class="info-tag-1">Khoá: DHCN5</p>
                     <p class="info-tag-2">Lớp học: 0</p>
@@ -49,9 +49,9 @@
     </div>
     <nav class="navbar order-last order-lg-0 menu-navbar">
         <ul>
-            <li><a class="nav-link" href="{{ route('dangky') }}">Đăng ký học phần</a></li>
-            <li><a class="nav-link" href="{{ route('ketqua') }}">Kết quả đăng ký</a></li>
-            <li><a class="nav-link active" href="{{ route('lichsu') }}"><span class="style-active">Lịch sử đăng ký</span></a></li>
+            <li><a class="nav-link" href="{{ route('dangky.index') }}">Đăng ký học phần</a></li>
+            <li><a class="nav-link" href="{{ route('ketqua.index') }}">Kết quả đăng ký</a></li>
+            <li><a class="nav-link active" href="{{ route('lichsu.index') }}"><span class="style-active">Lịch sử đăng ký</span></a></li>
         </ul>
     </nav>
     <div class="main">

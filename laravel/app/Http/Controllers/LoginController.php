@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\sinhvien;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -40,6 +41,7 @@ class LoginController extends Controller
                 $pass = implode(" ", array_column(json_decode($check_pass, true), 'MatKhau'));
                 
                 if($pass == $password){
+                    SESSION::put('masv', $masv);
                     return redirect('dangky');
                 }
                 else{
@@ -48,5 +50,11 @@ class LoginController extends Controller
 
             }
         }
+    }
+
+    public function log_out(){
+        SESSION::put('masv', null);
+
+        return redirect('login');
     }
 }

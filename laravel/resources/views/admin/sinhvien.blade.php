@@ -410,7 +410,7 @@
                                             <td class="align-middle" style='text-align:center; font-size:14px'>{{ $sv->MatKhau }}</td>
                                             <td class="align-middle" style='text-align:center; font-size:14px'>{{ $sv->MaNganh }}</td>
                                             <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
+                                                <a href="#" class="tooltip"><i class="far fa-edit"></i><span class="tooltiptext">Edit</span></a>
                                                 <a href="#"><i class="far fa-trash-alt"></i></a>
                                             </td>
                                         </tr>

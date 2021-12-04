@@ -18,14 +18,11 @@ use App\Http\Controllers\LoginController;
 Route::get('/', 'DashboardController@index')->name('dashboard');
 Route::get('/login', 'DashboardController@login')->name('login');
 
-//Sinhvien Route
-Route::get('/dangky', 'DashboardController@dangky')->name('dangky');
-Route::get('/ketqua', 'DashboardController@ketqua')->name('ketqua');
-Route::get('/lichsu', 'DashboardController@lichsu')->name('lichsu');
-
 //Login Route
 Route::post('/login', 'LoginController@valid_login');
+Route::get('/log_out', 'LoginController@log_out')->name('logout');
 Route::get('/dangky', 'LoginController@dangky')->name('dangky');
+
 
 //Route to reset password
 Route::get('/password', 'PasswordController@index')->name('password');
@@ -42,5 +39,8 @@ Route::resources([
     'dsdk' => 'DSDKController',
     'svmh' => 'SVMHController',
     'giangvien' => 'GiangvienController',
-    'thongbao' => 'ThongbaoController'
+    'thongbao' => 'ThongbaoController',
+    'dangky' => 'DangKyController',
+    'ketqua' => 'KetQuaController',
+    'lichsu' => 'LichSuController',
 ]);

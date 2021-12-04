@@ -8,7 +8,7 @@ class SvController extends Controller
 {
     public function dangky()
     {
-        return view('sinhvien.dangky');
+        
     }
 
     public function ketqua()
