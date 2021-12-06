@@ -10,4 +10,13 @@ class Lop extends Model
     use HasFactory;
 
     protected $table = 'lop';
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'malop',
+        'tenlop',
+        'nienkhoa',
+        'makhoa',
+    ];
 }

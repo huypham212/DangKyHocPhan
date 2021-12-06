@@ -10,4 +10,12 @@ class SVMH extends Model
     use HasFactory;
 
     protected $table = 'sv_mh';
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'masv',
+        'mamh',
+        'trangthai',
+    ];
 }
