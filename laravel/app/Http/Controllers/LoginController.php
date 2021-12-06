@@ -25,7 +25,7 @@ class LoginController extends Controller
         $password = $request->input('password');
 
         if($masv == 'admin' && $password == 'admin'){
-            return redirect('sinhvien');
+            return redirect(route('sinhvien.index'));
         }
         else{
             $check_sv = DB::table('sinhvien')->where('MaSV', $masv)->get();
