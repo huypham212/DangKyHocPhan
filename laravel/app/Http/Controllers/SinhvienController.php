@@ -19,7 +19,7 @@ class SinhvienController extends Controller
         $dataNganh = Nganh::all();
         $dataSV = Sinhvien::all();
         $dataLop = Lop::all();
-        return view('admin.sinhvien', [
+        return view('admin.sinhvien.danhsachSV', [
             'dataSV' => $dataSV,
             'dataLop' => $dataLop,
             'dataNganh' => $dataNganh,
@@ -34,7 +34,12 @@ class SinhvienController extends Controller
      */
     public function create()
     {
-        
+        $dataNganh = Nganh::all();
+        $dataLop = Lop::all();
+        return view('admin.sinhvien.themSV', [
+            'dataLop' => $dataLop,
+            'dataNganh' => $dataNganh
+        ]);
     }
 
     /**
@@ -47,15 +52,15 @@ class SinhvienController extends Controller
     {
         //dd($request->all());
         $sv = Sinhvien::create([
-            'masv' => $request->input('addmasv'),
-            'tensv' => $request->input('addtensv'),
-            'dob' => $request->input('adddob'),
-            'gioitinh' => $request->input('addgioitinh'),
-            'diachi' => $request->input('adddiachi'),
-            'email' => $request->input('addemail'),
-            'matkhau' => $request->input('addmatkhau'),
-            'malop' => $request->input('addmalop'),
-            'manganh' => $request->input('addmanganh'),
+            'masv' => $request->input('masv'),
+            'tensv' => $request->input('tensv'),
+            'dob' => $request->input('dob'),
+            'gioitinh' => $request->input('gioitinh'),
+            'diachi' => $request->input('diachi'),
+            'email' => $request->input('email'),
+            'matkhau' => $request->input('matkhau'),
+            'malop' => $request->input('malop'),
+            'manganh' => $request->input('manganh'),
             'isfirstlogin' => 0
         ]);
 
@@ -79,9 +84,18 @@ class SinhvienController extends Controller
      * @param  \App\Models\Sinhvien  $sinhvien
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sinhvien $sinhvien)
+    public function edit($masv)
     {
-        //
+        $dataSV = Sinhvien::where('MaSV', $masv)->get();
+        $dataNganh = Nganh::all();
+        $dataLop = Lop::all();
+
+        return view('admin.sinhvien.suaSV', [
+            'dataSV' => $dataSV,
+            'dataLop' => $dataLop,
+            'dataNganh' => $dataNganh,
+        ]);
+        
     }
 
     /**
@@ -91,9 +105,23 @@ class SinhvienController extends Controller
      * @param  \App\Models\Sinhvien  $sinhvien
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sinhvien $sinhvien)
+    public function update(Request $request, $masv)
     {
-        //
+        //dd($request->all());
+        $sv = Sinhvien::where('MaSV', $masv)->update([
+            'masv' => $request->input('masv'),
+            'tensv' => $request->input('tensv'),
+            'dob' => $request->input('dob'),
+            'gioitinh' => $request->input('gioitinh'),
+            'diachi' => $request->input('diachi'),
+            'email' => $request->input('email'),
+            'matkhau' => $request->input('matkhau'),
+            'malop' => $request->input('malop'),
+            'manganh' => $request->input('manganh'),
+            'isfirstlogin' => 0
+        ]);
+
+        return redirect('/sinhvien');
     }
 
     /**
@@ -102,8 +130,11 @@ class SinhvienController extends Controller
      * @param  \App\Models\Sinhvien  $sinhvien
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sinhvien $sinhvien)
+    public function destroy($masv)
     {
-        //
+        $sv = Sinhvien::where('MaSV', $masv)->delete();
+
+
+        return redirect('/sinhvien');
     }
 }
