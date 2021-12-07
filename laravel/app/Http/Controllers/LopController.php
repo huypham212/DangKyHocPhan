@@ -44,7 +44,7 @@ class LopController extends Controller
     public function store(Request $request)
     {
         $lop = Lop::create([
-            'malop' => $request->input('magv'),
+            'malop' => $request->input('malop'),
             'tenlop' => $request->input('tenlop'),
             'nienkhoa' => $request->input('nienkhoa'),
             'makhoa' => $request->input('makhoa')
