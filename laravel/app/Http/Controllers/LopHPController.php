@@ -20,7 +20,7 @@ class LopHPController extends Controller
         $dataMH = Monhoc::all();
         $dataGV = Giangvien::all();
 
-        return view('admin.lophp', [
+        return view('admin.lophp.danhsachLopHP', [
             'dataLopHP' => $dataLopHP,
             'dataMH' => $dataMH,
             'dataGV' => $dataGV,
@@ -35,7 +35,13 @@ class LopHPController extends Controller
      */
     public function create()
     {
-        //
+        $dataMH = Monhoc::all();
+        $dataGV = Giangvien::all();
+
+        return view('admin.lophp.themLopHP', [
+            'dataMH' => $dataMH,
+            'dataGV' => $dataGV,
+        ]);
     }
 
     /**
@@ -46,7 +52,17 @@ class LopHPController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lophp = LopHP::create([
+            'malophp' => $request->input('malophp'),
+            'tenlophp' => $request->input('tenlophp'),
+            'siso' => $request->input('siso'),
+            'thoigian' => $request->input('thoigian'),
+            'diadiem' => $request->input('diadiem'),
+            'magv' => $request->input('magv'),
+            'mamh' => $request->input('mamh')
+        ]);
+
+        return redirect('/lophp');
     }
 
     /**
@@ -55,7 +71,7 @@ class LopHPController extends Controller
      * @param  \App\Models\LopHP  $lopHP
      * @return \Illuminate\Http\Response
      */
-    public function show(LopHP $lopHP)
+    public function show($malophp)
     {
         //
     }
@@ -66,9 +82,17 @@ class LopHPController extends Controller
      * @param  \App\Models\LopHP  $lopHP
      * @return \Illuminate\Http\Response
      */
-    public function edit(LopHP $lopHP)
+    public function edit($malophp)
     {
-        //
+        $dataLopHP = LopHP::where('MaLopHP', $malophp)->get();
+        $dataMH = Monhoc::all();
+        $dataGV = Giangvien::all();
+
+        return view('admin.lophp.suaLopHP', [
+            'dataLopHP' => $dataLopHP,
+            'dataMH' => $dataMH,
+            'dataGV' => $dataGV
+        ]);
     }
 
     /**
@@ -78,9 +102,19 @@ class LopHPController extends Controller
      * @param  \App\Models\LopHP  $lopHP
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LopHP $lopHP)
+    public function update(Request $request, $malophp)
     {
-        //
+        $lophp = LopHP::where('MaLopHP', $malophp)->update([
+            'malophp' => $request->input('malophp'),
+            'tenlophp' => $request->input('tenlophp'),
+            'siso' => $request->input('siso'),
+            'thoigian' => $request->input('thoigian'),
+            'diadiem' => $request->input('diadiem'),
+            'magv' => $request->input('magv'),
+            'mamh' => $request->input('mamh')
+        ]);
+
+        return redirect('/lophp');
     }
 
     /**
@@ -89,8 +123,10 @@ class LopHPController extends Controller
      * @param  \App\Models\LopHP  $lopHP
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LopHP $lopHP)
+    public function destroy($malophp)
     {
-        //
+        $lophp = LopHP::where('MaLopHP', $malophp)->delete();
+
+        return redirect('/lophp');
     }
 }

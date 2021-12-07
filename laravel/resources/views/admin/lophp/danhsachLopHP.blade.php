@@ -158,30 +158,7 @@
                                 <i class="fas fa-search"></i>
                             </div>
                             <div class="nav-danhsach-right">
-                                <button type="button" class="btn btn-outline-danger" data-toggle="modal"
-                                    data-target="#exampleModalCenter">Thêm lớp học phần</button>
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Thêm lớp học phần</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                ...
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Thoát</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <button type="button" class="btn btn-outline-danger" onclick="window.location='{{ route('lophp.create') }}'">Thêm lớp học phần</button>
                             </div>
                         </div>
 
@@ -231,8 +208,19 @@
                                             <td class="align-middle" style='text-align:center; font-size:14px'>
                                                 20/{{ $lophp->SiSo }}</td>
                                             <td class="align-middle" style='text-align:center'>
-                                                <a href="#"><i class="far fa-edit"></i></a>
-                                                <a href="#"><i class="far fa-trash-alt"></i></a>
+                                                <form action="{{ route('lophp.destroy', $lophp->MaLopHP) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button
+                                                        style="width: 30px; height: 30px; padding-left: 7px; padding-top: 4px;"
+                                                        type="button" class="btn btn-success" title="Edit" onclick="window.location='{{ route('lophp.edit', $lophp->MaLopHP) }}'"><i
+                                                        class="far fa-edit"></i></button>
+    
+                                                    <button
+                                                        style="width: 30px; height: 30px; padding-left: 8px; padding-top: 4px;"
+                                                        type="submit" class="btn btn-danger" title="Delete"><i
+                                                        class="far fa-trash-alt"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                         @endif
