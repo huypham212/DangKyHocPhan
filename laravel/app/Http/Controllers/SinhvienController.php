@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Sinhvien;
 use App\Models\Lop;
 use App\Models\Nganh;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class SinhvienController extends Controller
@@ -16,13 +17,21 @@ class SinhvienController extends Controller
      */
     public function index()
     {
+        $exist_sv = DB::table('sinhvien')
+                        ->select(array('lop.malop', DB::raw('COUNT(sinhvien.masv) as siso')))
+                        ->join('lop', 'lop.malop', '=', 'sinhvien.malop')
+                        ->groupBy('lop.malop')
+                        ->get(); 
+        
         $dataNganh = Nganh::all();
         $dataSV = Sinhvien::all();
         $dataLop = Lop::all();
+        
         return view('admin.sinhvien.danhsachSV', [
             'dataSV' => $dataSV,
             'dataLop' => $dataLop,
             'dataNganh' => $dataNganh,
+            'exist_sv' => $exist_sv,
             'index' => 1
         ]);
     }
