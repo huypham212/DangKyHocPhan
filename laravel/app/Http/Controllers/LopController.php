@@ -108,6 +108,8 @@ class LopController extends Controller
      */
     public function destroy($malop)
     {
-        //
+        $lop = Lop::where('MaLop', $malop)->delete();
+
+        return redirect('/lop');
     }
 }

@@ -158,30 +158,7 @@
                                 <i class="fas fa-search"></i>
                             </div>
                             <div class="nav-danhsach-right">
-                                <button type="button" class="btn btn-outline-danger" data-toggle="modal"
-                                    data-target="#exampleModalCenter">Thêm môn học</button>
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Thêm môn học</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                ...
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Thoát</button>
-                                                <button type="button" class="btn btn-primary">Lưu thay đổi</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <button type="button" class="btn btn-outline-danger" onclick="window.location='{{ route('monhoc.create') }}'">Thêm môn học</button>
                             </div>
                         </div>
 
@@ -206,17 +183,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $mh)
+                                    @foreach ($dataMH as $mh)
                                     <tr>
                                         <td class="align-middle" style='text-align:center; font-size:14px'>{{ $index }}</td>
                                         <td class="align-middle" style='text-align:center; font-size:14px'>{{ $mh->MaMH }}</td>
                                         <td class="align-middle" style=' font-size:14px'>{{ $mh->TenMH }}</td>
                                         <td class="align-middle" style='text-align:center; font-size:14px'>{{ $mh->SoTC }}</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $mh->HocPhi }}đ</td>
+                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ number_format($mh->HocPhi, 0, ',', '.') }}đ</td>
                                         <td class="align-middle" style='text-align:center; font-size:14px'>{{ $mh->MaNganh }}</td>
                                         <td class="align-middle" style='text-align:center'>
-                                            <a href="#"><i class="far fa-edit"></i></a>
-                                            <a href="#"><i class="far fa-trash-alt"></i></a>
+                                            <form action="{{ route('monhoc.destroy', $mh->MaMH) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button
+                                                    style="width: 30px; height: 30px; padding-left: 7px; padding-top: 4px;"
+                                                    type="button" class="btn btn-success" title="Edit" onclick="window.location='{{ route('monhoc.edit', $mh->MaMH) }}'"><i
+                                                    class="far fa-edit"></i></button>
+
+                                                <button
+                                                    style="width: 30px; height: 30px; padding-left: 8px; padding-top: 4px;"
+                                                    type="submit" class="btn btn-danger" title="Delete"><i
+                                                    class="far fa-trash-alt"></i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
