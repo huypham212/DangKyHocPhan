@@ -15,11 +15,9 @@ class GiangvienController extends Controller
      */
     public function index()
     {   
-        $dataKhoa = Khoa::all();
         $dataGV = Giangvien::all();
         return view('admin.giangvien.danhsachGV', [
             'dataGV' => $dataGV,
-            'dataKhoa' => $dataKhoa,
             'index' => 1
         ]);
     }

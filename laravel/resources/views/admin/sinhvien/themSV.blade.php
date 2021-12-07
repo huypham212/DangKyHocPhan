@@ -18,7 +18,7 @@
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Components Vendor Styles -->
-    <link rel="stylesheet" href="./assets/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="{{ URL::to('/') }}/assets/vendor/font-awesome/css/all.min.css">
     {{-- <link rel="stylesheet" href="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"> --}}
     <link rel="stylesheet" href="{{ URL::to('/') }}/assets/css/nice-select.css">
     <link rel="stylesheet" href="{{ URL::to('/') }}/assets/css/jquery-ui.min.css">
@@ -78,7 +78,7 @@
                         <!-- sinhvien -->
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link active" href="{{ route('sinhvien.index') }}">
-                                <i class="fas fa-user-check u-sidebar-nav-menu__item-icon"></i>
+                                <i class="fas fa-user-graduate u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Sinh viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
@@ -89,7 +89,7 @@
                         <!-- giangvien -->
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link" href="{{ route('giangvien.index') }}">
-                                <i class="fas fa-stopwatch u-sidebar-nav-menu__item-icon"></i>
+                                <i class="fas fa-chalkboard-teacher u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Giảng viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
@@ -100,7 +100,7 @@
                         <!-- lop -->
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link" href="{{ route('lop.index') }}">
-                                <i class="fas fa-question u-sidebar-nav-menu__item-icon"></i>
+                                <i class="fas fa-school u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
@@ -111,7 +111,7 @@
                         <!-- monhoc -->
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc.index') }}">
-                                <i class="fas fa-home u-sidebar-nav-menu__item-icon"></i>
+                                <i class="fas fa-book-open u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
@@ -122,7 +122,7 @@
                         <!-- lophocphan -->
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link" href="{{ route('lophp.index') }}">
-                                <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
+                                <i class="fas fa-layer-group u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp học phần</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>

@@ -18,7 +18,7 @@
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Components Vendor Styles -->
-    <link rel="stylesheet" href="./assets/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="{{ URL::to('/') }}/assets/vendor/font-awesome/css/all.min.css">
     {{-- <link rel="stylesheet" href="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"> --}}
     <link rel="stylesheet" href="{{ URL::to('/') }}/assets/css/nice-select.css">
     <link rel="stylesheet" href="{{ URL::to('/') }}/assets/css/jquery-ui.min.css">
@@ -72,162 +72,59 @@
 
                 <nav class="u-sidebar-nav">
                     <ul class="u-sidebar-nav-menu u-sidebar-nav-menu--top-level">
-                        <!-- Dashboard -->
-                        {{-- <li class="u-sidebar-nav-menu__item">
-                            <a class="u-sidebar-nav-menu__link" href="{{ route('admin') }}">
-                                <i class="fas fa-tachometer-alt u-sidebar-nav-menu__item-icon"></i>
-                                <span class="u-sidebar-nav-menu__item-title">Dashboard</span>
-                            </a>
-                        </li> --}}
-                        <!-- End Dashboard -->
 
                         <!-- sinhvien -->
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link" href="{{ route('sinhvien.index') }}">
-                                <i class="fas fa-user-check u-sidebar-nav-menu__item-icon"></i>
+                                <i class="fas fa-user-graduate u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Sinh viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
                             </a>
-
-                            {{-- <ul id="sinhvien" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level"
-                                style="display: none;">
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="attendances-blank.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Danh sách sinh viên</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="attendances-list.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Thêm sinh viên</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="attendances-report-blank.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Sửa sinh viên</span>
-                                    </a>
-                                </li>
-                            </ul> --}}
                         </li>
                         <!-- End sinhvien -->
 
                         <!-- giangvien -->
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link active" href="{{ route('giangvien.index') }}">
-                                <i class="fas fa-stopwatch u-sidebar-nav-menu__item-icon"></i>
+                                <i class="fas fa-chalkboard-teacher u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Giảng viên</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
                             </a>
-
-                            {{-- <ul id="giangvien" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level"
-                                style="display: none;">
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="routines-mathmetics.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Danh sách giảng viên</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="routines-mathmetics-add.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Thêm giảng viên</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="routines-accounting.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Sửa giảng viên</span>
-                                    </a>
-                                </li>
-                            </ul> --}}
                         </li>
                         <!-- End giangvien -->
 
                         <!-- lop -->
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link" href="{{ route('lop.index') }}">
-                                <i class="fas fa-question u-sidebar-nav-menu__item-icon"></i>
+                                <i class="fas fa-school u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
                             </a>
-
-                            {{-- <ul id="lop" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level"
-                                style="display: none;">
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="questions-blank.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Danh sách lớp</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="questions-bank.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Thêm lớp</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="questions-add.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Sửa lớp</span>
-                                    </a>
-                                </li>
-                            </ul> --}}
                         </li>
                         <!-- End lop -->
 
                         <!-- monhoc -->
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link" href="{{ route('monhoc.index') }}">
-                                <i class="fas fa-home u-sidebar-nav-menu__item-icon"></i>
+                                <i class="fas fa-book-open u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Môn học</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
                             </a>
-
-                            {{-- <ul id="monhoc" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level"
-                                style="display: none;">
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="homework-blank.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Danh sách môn học</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="homework.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Thêm môn học</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="homework-add-new.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Sửa môn học</span>
-                                    </a>
-                                </li>
-                            </ul> --}}
                         </li>
                         <!-- End Homework -->
 
                         <!-- lophocphan -->
                         <li class="u-sidebar-nav-menu__item">
                             <a class="u-sidebar-nav-menu__link" href="{{ route('lophp.index') }}">
-                                <i class="fas fa-diagnoses u-sidebar-nav-menu__item-icon"></i>
+                                <i class="fas fa-layer-group u-sidebar-nav-menu__item-icon"></i>
                                 <span class="u-sidebar-nav-menu__item-title">Lớp học phần</span>
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
                             </a>
-
-                            {{-- <ul id="lophocphan" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level"
-                                style="display: none;">
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="online-exam-blank.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Danh sách lớp học phần</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="online-exams.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Thêm lớp học phần</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="online-exam-add.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Sửa lớp học phần</span>
-                                    </a>
-                                </li>
-                            </ul> --}}
                         </li>
                         <!-- End lophocphan -->
 
@@ -239,25 +136,6 @@
                                 <i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
                                 <span class="u-sidebar-nav-menu__indicator"></span>
                             </a>
-
-                            {{-- <ul id="lophocphan" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level"
-                                style="display: none;">
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="online-exam-blank.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Danh sách lớp học phần</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="online-exams.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Thêm lớp học phần</span>
-                                    </a>
-                                </li>
-                                <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="online-exam-add.html">
-                                        <span class="u-sidebar-nav-menu__item-title">Sửa lớp học phần</span>
-                                    </a>
-                                </li>
-                            </ul> --}}
                         </li>
                         <!-- End trạng thái môn học -->
                     </ul>
