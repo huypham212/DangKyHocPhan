@@ -3,13 +3,14 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/sinhvien/style-dangky.css">
+    <link rel="stylesheet" href="{{ URL::to('/') }}/css/sinhvien/style-dangky.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/312ace3ead.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {{-- <link rel="stylesheet" href="{{ URL::to('/') }}/css/admin/style-detail.css"> --}}
 </head>
 <title> Dashboard </title>
 </head>
@@ -68,7 +69,7 @@
                                 <p class="card-title">Hạn chế số sinh viên tối đa:</p>
                             </div>
                             <div class="col">
-                                <p class="card-text">0</p>
+                                <p class="card-text">3</p>
                                 <p class="card-text">Có</p>
                             </div>
                         </div>
@@ -91,187 +92,73 @@
         </div> 
         <div class="card">
             <div class="card-header">
-                <h6><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> Chương trình đào tạo</h6>
+                <h6><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo"/> Chương trình đào tạo</h6>
             </div>
             <div class="card-body">
                 <div>
-                    <h4>Khoá DHCN5 - Ngành Công nghệ thông tin</h4>
+                    <h4>Khoá {{ $lop }} - Ngành Công nghệ thông tin</h4>
                 </div>
                 <div class="nav-danhsach">
                     <p>DANH SÁCH LỚP HỌC PHẦN CÓ THỂ ĐĂNG KÝ HỌC KỲ 1 NĂM HỌC 2020 - 2021</p>
                 </div>
 
-                <div style="width: 100%;">
-                    <button type="button" class="collapse-button" data-toggle="collapse" data-target="#demo1">Cơ sở dữ liệu - 4023<i class="fas fa-caret-right"></i></button>
-                    <div id="demo1" class="collapse">
-                        <table class="table table-hover">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th style='text-align:center' scope="col">STT</th>
-                                    <th style='text-align:center' scope="col">Mã học phần</th>
-                                    <th style='text-align:center' scope="col">Lớp học phần</th>
-                                    <th style='text-align:center' scope="col">Số tín chỉ</th>
-                                    <th style='text-align:center' scope="col">Thời gian & Địa điểm</th>
-                                    <th style='text-align:center' scope="col">Giảng viên</th>
-                                    <th style='text-align:center' scope="col">Sỉ số</th>
-                                    <th style='text-align:center' scope="col">Trạng thái</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="align-middle" style='text-align:center;'>1</td>
-                                    <td class="align-middle" style='text-align:center'>4203</td>
-                                    <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                                    <td class="align-middle" style='text-align:center'>03</td>
-                                    <td class="align-middle" style='text-align:center; color: #979797;'>
-                                        Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng B302</p>
-                                    </td>
-                                    <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                                    <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle" style='text-align:center;'>1</td>
-                                    <td class="align-middle" style='text-align:center'>4203</td>
-                                    <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                                    <td class="align-middle" style='text-align:center'>03</td>
-                                    <td class="align-middle" style='text-align:center; color: #979797;'>
-                                        Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng B302</p>
-                                    </td>
-                                    <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                                    <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle" style='text-align:center;'>1</td>
-                                    <td class="align-middle" style='text-align:center'>4203</td>
-                                    <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                                    <td class="align-middle" style='text-align:center'>03</td>
-                                    <td class="align-middle" style='text-align:center; color: #979797;'>
-                                        Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng B302</p>
-                                    </td>
-                                    <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                                    <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div style="width: 100%;">
-                    <button type="button" class="collapse-button" data-toggle="collapse" data-target="#demo2">Cơ sở dữ liệu - 4023<i class="fas fa-caret-right"></i></button>
-                    <div id="demo2" class="collapse">
-                        <table class="table table-hover">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th style='text-align:center' scope="col">STT</th>
-                                    <th style='text-align:center' scope="col">Mã học phần</th>
-                                    <th style='text-align:center' scope="col">Lớp học phần</th>
-                                    <th style='text-align:center' scope="col">Số tín chỉ</th>
-                                    <th style='text-align:center' scope="col">Thời gian & Địa điểm</th>
-                                    <th style='text-align:center' scope="col">Giảng viên</th>
-                                    <th style='text-align:center' scope="col">Sỉ số</th>
-                                    <th style='text-align:center' scope="col">Trạng thái</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="align-middle" style='text-align:center;'>1</td>
-                                    <td class="align-middle" style='text-align:center'>4203</td>
-                                    <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                                    <td class="align-middle" style='text-align:center'>03</td>
-                                    <td class="align-middle" style='text-align:center; color: #979797;'>
-                                        Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng B302</p>
-                                    </td>
-                                    <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                                    <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle" style='text-align:center;'>1</td>
-                                    <td class="align-middle" style='text-align:center'>4203</td>
-                                    <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                                    <td class="align-middle" style='text-align:center'>03</td>
-                                    <td class="align-middle" style='text-align:center; color: #979797;'>
-                                        Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng B302</p>
-                                    </td>
-                                    <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                                    <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle" style='text-align:center;'>1</td>
-                                    <td class="align-middle" style='text-align:center'>4203</td>
-                                    <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                                    <td class="align-middle" style='text-align:center'>03</td>
-                                    <td class="align-middle" style='text-align:center; color: #979797;'>
-                                        Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng B302</p>
-                                    </td>
-                                    <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                                    <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div style="width: 100%;">
-                    <button type="button" class="collapse-button" data-toggle="collapse" data-target="#demo3">Cơ sở dữ liệu - 4023<i class="fas fa-caret-right"></i></button>
-                    <div id="demo3" class="collapse">
-                        <table class="table table-hover">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th style='text-align:center' scope="col">STT</th>
-                                    <th style='text-align:center' scope="col">Mã học phần</th>
-                                    <th style='text-align:center' scope="col">Lớp học phần</th>
-                                    <th style='text-align:center' scope="col">Số tín chỉ</th>
-                                    <th style='text-align:center' scope="col">Thời gian & Địa điểm</th>
-                                    <th style='text-align:center' scope="col">Giảng viên</th>
-                                    <th style='text-align:center' scope="col">Sỉ số</th>
-                                    <th style='text-align:center' scope="col">Trạng thái</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="align-middle" style='text-align:center;'>1</td>
-                                    <td class="align-middle" style='text-align:center'>4203</td>
-                                    <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                                    <td class="align-middle" style='text-align:center'>03</td>
-                                    <td class="align-middle" style='text-align:center; color: #979797;'>
-                                        Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng B302</p>
-                                    </td>
-                                    <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                                    <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle" style='text-align:center;'>1</td>
-                                    <td class="align-middle" style='text-align:center'>4203</td>
-                                    <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                                    <td class="align-middle" style='text-align:center'>03</td>
-                                    <td class="align-middle" style='text-align:center; color: #979797;'>
-                                        Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng B302</p>
-                                    </td>
-                                    <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                                    <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle" style='text-align:center;'>1</td>
-                                    <td class="align-middle" style='text-align:center'>4203</td>
-                                    <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                                    <td class="align-middle" style='text-align:center'>03</td>
-                                    <td class="align-middle" style='text-align:center; color: #979797;'>
-                                        Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng B302</p>
-                                    </td>
-                                    <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                                    <td class="align-middle" style='text-align:center'>10/30</td>
-                                    <td class="align-middle" style='text-align:center'><button type="button" class="btn btn-outline-danger"><b>Đăng ký</b></button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                @foreach ($dataMH as $mh)
+                    {{-- @foreach ($dataSVMH as $svmh)
+                        @if ($mh->MaMH == $svmh->MaMH) --}}
+                        <div style="width: 100%;">
+                            <button type="button" class="collapse-button" data-toggle="collapse"
+                                data-target="#{{ $mh->MaMH }}"><p class="collapse-button-text">{{ $mh->MaMH }} - {{ $mh->TenMH }}</p>
+                                <i class="fas fa-caret-right collapse-button-icon"></i></button></button>
+                            <div id="{{ $mh->MaMH }}" class="collapse">
+                                <table class="table table-hover">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th style='text-align:center' scope="col">STT</th>
+                                            <th style='text-align:center' scope="col">Mã học phần</th>
+                                            <th style='text-align:center' scope="col">Lớp học phần</th>
+                                            <th style='text-align:center' scope="col">Số tín chỉ</th>
+                                            <th style='text-align:center' scope="col">Thời gian & Địa điểm</th>
+                                            <th style='text-align:center' scope="col">Giảng viên</th>
+                                            <th style='text-align:center' scope="col">Sỉ số</th>
+                                            <th style='text-align:center' scope="col">Trạng thái</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <p hidden>{{ $index = 1 }}</p>
+                                        @foreach ($dataLopHP as $lophp)
+                                        @if ($lophp->MaMH == $mh->MaMH)
+                                        <tr>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $index++ }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lophp->MaMH }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lophp->TenLopHP }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $mh->SoTC }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'><p style="color: #000000;">{{ $lophp->ThoiGian }} - {{ $lophp->DiaDiem }}</p></td>
+                                            @foreach ($dataGV as $gv)
+                                                @if ($gv->MaGV == $lophp->MaGV)
+                                                <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->TenGV }}</td>
+                                                @endif
+                                            @endforeach
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>
+                                                0/{{ $lophp->SiSo }}</td>
+                                                <td class="align-middle" style='text-align:center'>
+                                                    <form action="{{ route('dangky.store') }}" method="POST">
+                                                    @csrf
+                                                        <div class="form-group">
+                                                            <input type="hidden"  class="form-control" name="malophp" value="{{ $lophp->MaLopHP }}">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-outline-danger"><b>Đăng ký</b></button>
+                                                    </form>                                                
+                                                </td>
+                                        </tr>
+                                        @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {{-- @endif
+                        @endforeach --}}
+                        @endforeach
             </div>
         </div>
 

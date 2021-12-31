@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use App\Models\LopHP;
+use App\Models\Monhoc;
+use App\Models\Giangvien;
+use App\Models\SVMH;
+use App\Models\DSDK;
 
 class DangKyController extends Controller
 {
@@ -23,10 +28,22 @@ class DangKyController extends Controller
         $lop_raw = DB::table('sinhvien')->where('MaSV', $masv)->select('MaLop')->get();
         $lop = implode(" ", array_column(json_decode($lop_raw, true), 'MaLop'));
 
+        $dataLopHP = LopHP::all();
+        $dataMH = Monhoc::all();
+        $dataGV = Giangvien::all();
+        $dataSVMH = SVMH::where('MaSV', $masv)->get(); 
+
+        //dd($dataMH, $dataSVMH);
+
         return view('sinhvien.dangky', [
             'masv' => $masv,
             'tensv' => $tensv,
-            'lop' => $lop
+            'lop' => $lop,
+            'dataLopHP' => $dataLopHP,
+            'dataMH' => $dataMH,
+            'dataGV' => $dataGV,
+            'dataSVMH' => $dataSVMH,
+            'index' => 1
         ]);
     }
 
@@ -48,7 +65,26 @@ class DangKyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $masv = SESSION::get('masv');
+        $malophp = $request->input('malophp');
+        $get_mamh = LopHP::where('MaLopHP', $malophp)->select('MaMH')->get();
+        $mamh = implode(" ", array_column(json_decode($get_mamh, true), 'MaMH'));
+        
+        //dd($masv, $malophp, $mamh);
+        $dsdk = DSDK::create([
+            'masv' => $masv,
+            'malophp' => $malophp,
+            'hocky' => 1,
+            'namhoc' => '2018-2019'
+        ]);
+
+        $svmh = SVMH::create([
+            'masv' => $masv,
+            'mamh' => $mamh,
+            'trangthai' => 'Đang hoàn thành'
+        ]);
+        
+        return redirect('/dangky');
     }
 
     /**

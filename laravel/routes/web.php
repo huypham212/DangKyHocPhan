@@ -28,6 +28,9 @@ Route::get('/dangky', 'LoginController@dangky')->name('dangky');
 Route::get('/password', 'PasswordController@index')->name('password');
 Route::post('/password', 'PasswordController@valid_password'); 
 
+// //Config route for DSDKController
+// Route::get('/dangky/{masv}/{malophp}','DangKyController@store')->name('dangky.store');
+// // onclick="window.location='{{ route('dangky.store', ['masv'=>$masv, 'malophp'=>$lophp->MaLopHP]) }}'"
 
 Route::resources([
     'khoa' => 'KhoaController',

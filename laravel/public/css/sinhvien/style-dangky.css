@@ -217,20 +217,44 @@
 }
 
 .collapse-button {
+    display: inline;
     width: 100%;
     line-height: 35px;
     background-color: #f2f4f6;
     color: #000000;
     text-align: start;
     border: 1px solid #979797;
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Nunito";
     padding-left: 15px;
 }
 
-.collapse-button i{
-    padding-left: 80%;
+.collapse-button .collapse-button-text {
+    color: black;
+    width: 500px;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    margin-bottom: -16px;
 }
+
+.collapse-button .collapse-button-icon{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 25px;
+    margin-bottom: 7px;
+    margin-top: -24px;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
 
 .nav-danhsach {
     width: 100%;
@@ -273,7 +297,7 @@
 .footer {
     width: 100%;
     height: 416px;
-    background-image: url("../img/bg_footer.png");
+    background-image: url("../../img/bg_footer.png");
     background-size: cover;
 }
 

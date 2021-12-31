@@ -193,18 +193,28 @@
                                                 <td class="align-middle" style='text-align:center'>
                                                     <select class="form-control" id="stateSelect" disabled>
                                                         @if ($svmh->TrangThai == "Đã hoàn thành")
-                                                        <option>Đang học</option>
-                                                        <option>Đã huỷ</option>
                                                         <option selected>Đã hoàn thành</option>
+                                                        <option>Đang hoàn thành</option>
+                                                        <option>Đã trượt</option>
+                                                        <option>Đã huỷ</option>
                                                         @else
                                                             @if ($svmh->TrangThai == "Đã huỷ")
-                                                            <option>Đang học</option>
-                                                            <option selected>Đã huỷ</option>
-                                                            <option>Đã hoàn thành</option>
+                                                                <option>Đã hoàn thành</option>
+                                                                <option>Đang hoàn thành</option>
+                                                                <option>Đã trượt</option>
+                                                                <option selected>Đã huỷ</option>
                                                             @else
-                                                            <option selected>Đang học</option>
-                                                            <option>Đã huỷ</option>
-                                                            <option>Đã hoàn thành</option>
+                                                                @if ($svmh->TrangThai == "Đang hoàn thành")
+                                                                    <option>Đã hoàn thành</option>
+                                                                    <option selected>Đang hoàn thành</option>
+                                                                    <option>Đã trượt</option>
+                                                                    <option>Đã huỷ</option>
+                                                                @else
+                                                                    <option>Đã hoàn thành</option>
+                                                                    <option>Đang hoàn thành</option>
+                                                                    <option selected>Đã trượt</option>
+                                                                    <option>Đã huỷ</option>
+                                                                @endif
                                                             @endif
                                                         @endif
                                                       </select>

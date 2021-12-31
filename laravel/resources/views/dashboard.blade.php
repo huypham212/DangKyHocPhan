@@ -209,7 +209,7 @@
             <img class="line-2" src="{{ URL::to('/') }}/img/Line.png" width="60px" alt="line">
             <p><a href="#">Tin tức sự kiện</a></p>
             <p><a href="#">Tin tuyển sinh</a></p>
-            <p><a href="#">E-learning</a></p>
+            <p><a href="https://elearning.tcu.edu.vn/" target="_blank">E-learning</a></p>
         </div>
     </div>
 </body>

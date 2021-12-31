@@ -167,7 +167,7 @@
                             <button type="button" class="collapse-button" data-toggle="collapse"
                                 data-target="#{{ $mh->MaMH }}"><p class="collapse-button-text">
                                     {{ $mh->MaMH }} - {{ $mh->TenMH }}</p>
-                                <i class="fas fa-caret-right collapse-button-lophp-icon"></i></button></button>
+                                <i class="fas fa-caret-right collapse-button-lophp-icon"></i></button>
                             <div id="{{ $mh->MaMH }}" class="collapse">
                                 <table class="table table-hover">
                                     <thead class="thead-light">

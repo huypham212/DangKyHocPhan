@@ -24,27 +24,29 @@ class LoginController extends Controller
         $masv = $request->input('masv');
         $password = $request->input('password');
 
-        if($masv == 'admin' && $password == 'admin'){
+        if($masv == 'admin' && $password == 'admin') {
             return redirect(route('sinhvien.index'));
         }
         else{
-            $check_sv = DB::table('sinhvien')->where('MaSV', $masv)->get();
-            $sv = json_decode($check_sv, true);
-            //echo $sv;
+            $check_sv = DB::table('sinhvien')->where('MaSV', $masv)->get()->toArray();
 
-            if($check_sv == null){
+            if($check_sv == null) {
                 return redirect()->back();
             }
-            else{
-                $check_pass = DB::table('sinhvien')->where('MaSV', $masv)->select('MatKhau')->get();
-
-                $pass = implode(" ", array_column(json_decode($check_pass, true), 'MatKhau'));
+            else {
                 
-                if($pass == $password){
+                if($check_sv[0]->MatKhau == $password) {
+
                     SESSION::put('masv', $masv);
-                    return redirect('dangky');
+                    if($check_sv[0]->isFirstLogin == 0) {
+                        return redirect('password');
+                    }
+                    else{
+                        return redirect('dangky');
+                    }
+                    
                 }
-                else{
+                else {
                     return redirect()->back();
                 }
 
@@ -52,7 +54,7 @@ class LoginController extends Controller
         }
     }
 
-    public function log_out(){
+    public function log_out() {
         SESSION::put('masv', null);
 
         return redirect('login');
