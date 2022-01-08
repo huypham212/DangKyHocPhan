@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ImportSVController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,9 @@ Route::get('/dangky', 'LoginController@dangky')->name('dangky');
 Route::get('/password', 'PasswordController@index')->name('password');
 Route::post('/password', 'PasswordController@valid_password'); 
 
-// //Config route for DSDKController
-// Route::get('/dangky/{masv}/{malophp}','DangKyController@store')->name('dangky.store');
-// // onclick="window.location='{{ route('dangky.store', ['masv'=>$masv, 'malophp'=>$lophp->MaLopHP]) }}'"
+//Route to ImportSV
+Route::post('import', [ImportSVController::class, 'import']);
+
 
 Route::resources([
     'khoa' => 'KhoaController',
