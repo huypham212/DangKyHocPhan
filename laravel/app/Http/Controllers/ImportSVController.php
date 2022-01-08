@@ -23,7 +23,7 @@ class ImportSVController extends Controller
         ]);
     }
 
-    public function import(Request $request)
+    public function importSV(Request $request)
     {
         $validatedData = $request->validate([
             'file' => 'required',

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImportSVController;
+use App\Http\Controllers\ImportGVController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +30,9 @@ Route::get('/dangky', 'LoginController@dangky')->name('dangky');
 Route::get('/password', 'PasswordController@index')->name('password');
 Route::post('/password', 'PasswordController@valid_password'); 
 
-//Route to ImportSV
-Route::post('import', [ImportSVController::class, 'import']);
-
+//Route to Import
+Route::post('importSV', [ImportSVController::class, 'importSV']);
+Route::post('importGV', [ImportGVController::class, 'importGV']);
 
 Route::resources([
     'khoa' => 'KhoaController',

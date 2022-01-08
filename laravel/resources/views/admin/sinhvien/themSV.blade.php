@@ -153,7 +153,7 @@
                         <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> THÊM SINH VIÊN</h3>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('import') }}" accept-charset="utf-8" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('importSV') }}" accept-charset="utf-8" enctype="multipart/form-data">
 
                             @csrf
                                     
