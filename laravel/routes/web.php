@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImportSVController;
 use App\Http\Controllers\ImportGVController;
 use App\Http\Controllers\ImportLopController;
+use App\Http\Controllers\ImportMHController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::post('/password', 'PasswordController@valid_password');
 Route::post('importSV', [ImportSVController::class, 'importSV']);
 Route::post('importGV', [ImportGVController::class, 'importGV']);
 Route::post('importLop', [ImportLopController::class, 'importLop']);
+Route::post('importMH', [ImportMHController::class, 'importMH']);
 
 Route::resources([
     'khoa' => 'KhoaController',

@@ -43,7 +43,8 @@ class MonhocController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $mamh = $request->input('mamh');
         //dd($request->all());
         $mh = Monhoc::create([
             'mamh' => $request->input('mamh'),
@@ -53,7 +54,7 @@ class MonhocController extends Controller
             'manganh' => $request->input('manganh')
         ]);
 
-        return redirect('/monhoc');
+        return back()->with('status', "Tạo thành công môn học có mã số $mamh");
     }
 
     /**
