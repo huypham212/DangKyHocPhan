@@ -44,7 +44,7 @@ class MonhocController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
         $mh = Monhoc::create([
             'mamh' => $request->input('mamh'),
             'tenmh' => $request->input('tenmh'),

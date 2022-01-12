@@ -16,7 +16,10 @@ class LopsImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Lop([
-            //
+            'malop'     => $row['malop'],
+            'tenlop'    => $row['tenlop'],
+            'nienkhoa'  => $row['nienkhoa'],
+            'makhoa'    => $row['makhoa'],
         ]);
     }
 }
