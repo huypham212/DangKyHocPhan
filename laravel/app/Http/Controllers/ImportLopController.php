@@ -28,7 +28,7 @@ class ImportLopController extends Controller
 
         Excel::import(new LopsImport,$request->file('file'));
 
-        return back();
+        return back()->with('status', 'Import thành công các lớp');
 
     }
 }

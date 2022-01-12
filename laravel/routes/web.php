@@ -6,6 +6,7 @@ use App\Http\Controllers\ImportSVController;
 use App\Http\Controllers\ImportGVController;
 use App\Http\Controllers\ImportLopController;
 use App\Http\Controllers\ImportMHController;
+use App\Http\Controllers\ImportLopHPController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::post('/password', 'PasswordController@valid_password');
 Route::post('importSV', [ImportSVController::class, 'importSV']);
 Route::post('importGV', [ImportGVController::class, 'importGV']);
 Route::post('importLop', [ImportLopController::class, 'importLop']);
+Route::post('importLopHP', [ImportLopHPController::class, 'importLopHP']);
 Route::post('importMH', [ImportMHController::class, 'importMH']);
 
 Route::resources([

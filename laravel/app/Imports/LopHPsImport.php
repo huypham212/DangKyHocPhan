@@ -16,7 +16,13 @@ class LopHPsImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new LopHP([
-            //
+            'malophp'   => $row['malophp'],
+            'tenlophp'  => $row['tenlophp'],
+            'siso'      => $row['siso'],
+            'thoigian'  => $row['thoigian'],
+            'diadiem'   => $row['diadiem'],
+            'magv'      => $row['magv'],
+            'mamh'      => $row['mamh'],
         ]);
     }
 }

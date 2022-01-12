@@ -15,7 +15,6 @@ class MonhocsImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        //dd($row);
         return new Monhoc([
             'mamh'      => $row['mamh'],
             'tenmh'     => $row['tenmh'],
