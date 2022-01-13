@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lop;
+use App\Models\Khoa;
 use Illuminate\Http\Request;
 
 class LopController extends Controller
@@ -13,9 +14,9 @@ class LopController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $data = Lop::all();
-        return view('admin.lop', [
+        return view('admin.lop.danhsachLop', [
             'data' => $data,
             'index' => 1
         ]);
@@ -28,7 +29,10 @@ class LopController extends Controller
      */
     public function create()
     {
-        //
+        $dataKhoa = Khoa::all();
+        return view('admin.lop.themLop', [
+            'dataKhoa' => $dataKhoa
+        ]);
     }
 
     /**
@@ -39,7 +43,14 @@ class LopController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lop = Lop::create([
+            'malop' => $request->input('malop'),
+            'tenlop' => $request->input('tenlop'),
+            'nienkhoa' => $request->input('nienkhoa'),
+            'makhoa' => $request->input('makhoa')
+        ]);
+
+        return redirect('/lop');
     }
 
     /**
@@ -59,9 +70,15 @@ class LopController extends Controller
      * @param  \App\Models\Lop  $lop
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lop $lop)
+    public function edit($malop)
     {
-        //
+        $dataKhoa = Khoa::all();
+        $dataLop = Lop::where('MaLop', $malop)->get();
+
+        return view('admin.lop.suaLop', [
+            'dataLop' => $dataLop,
+            'dataKhoa' => $dataKhoa,
+        ]);
     }
 
     /**
@@ -71,9 +88,16 @@ class LopController extends Controller
      * @param  \App\Models\Lop  $lop
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lop $lop)
+    public function update(Request $request, $malop)
     {
-        //
+        $lop = Lop::where('MaLop', $malop)->update([
+            'malop' => $request->input('magv'),
+            'tenlop' => $request->input('tenlop'),
+            'nienkhoa' => $request->input('nienkhoa'),
+            'makhoa' => $request->input('makhoa')
+        ]);
+
+        return redirect('/lop')->with('status', "Thay đổi thành công thông tin môn học $malop");
     }
 
     /**
@@ -82,8 +106,10 @@ class LopController extends Controller
      * @param  \App\Models\Lop  $lop
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lop $lop)
+    public function destroy($malop)
     {
-        //
+        $lop = Lop::where('MaLop', $malop)->delete();
+
+        return redirect('/lop')->with('status', "Xoá thành công môn học $malop");
     }
 }

@@ -19,7 +19,7 @@ class SVMHController extends Controller
         $dataSVMH = SVMH::all();
         $dataSV = Sinhvien::all();
         $dataMH = Monhoc::all();
-        return view('admin.svmh', [
+        return view('admin.svmh.danhsachSVMH', [
             'dataSVMH' => $dataSVMH,
             'dataSV' => $dataSV,
             'dataMH' => $dataMH,

@@ -14,12 +14,10 @@ class GiangvienController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $dataKhoa = Khoa::all();
+    {
         $dataGV = Giangvien::all();
-        return view('admin.giangvien', [
+        return view('admin.giangvien.danhsachGV', [
             'dataGV' => $dataGV,
-            'dataKhoa' => $dataKhoa,
             'index' => 1
         ]);
     }
@@ -31,7 +29,10 @@ class GiangvienController extends Controller
      */
     public function create()
     {
-        //
+        $dataKhoa = Khoa::all();
+        return view('admin.giangvien.themGV', [
+            'dataKhoa' => $dataKhoa
+        ]);
     }
 
     /**
@@ -42,7 +43,15 @@ class GiangvienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $gv = Giangvien::create([
+            'magv' => $request->input('magv'),
+            'tengv' => $request->input('hoten'),
+            'gioitinh' => $request->input('gioitinh'),
+            'email' => $request->input('email'),
+            'makhoa' => $request->input('makhoa')
+        ]);
+
+        return redirect('/giangvien');
     }
 
     /**
@@ -62,9 +71,14 @@ class GiangvienController extends Controller
      * @param  \App\Models\Giangvien  $giangvien
      * @return \Illuminate\Http\Response
      */
-    public function edit(Giangvien $giangvien)
+    public function edit($magv)
     {
-        //
+        $dataKhoa = Khoa::all();
+        $dataGV = Giangvien::where('MaGV', $magv)->get();
+        return view('admin.giangvien.suaGV', [
+            'dataGV' => $dataGV,
+            'dataKhoa' => $dataKhoa,
+        ]);
     }
 
     /**
@@ -74,9 +88,17 @@ class GiangvienController extends Controller
      * @param  \App\Models\Giangvien  $giangvien
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Giangvien $giangvien)
+    public function update(Request $request, $magv)
     {
-        //
+        $gv = Giangvien::where('MaGV', $magv)->create([
+            'magv' => $request->input('magv'),
+            'tengv' => $request->input('hoten'),
+            'gioitinh' => $request->input('gioitinh'),
+            'email' => $request->input('email'),
+            'makhoa' => $request->input('makhoa')
+        ]);
+
+        return redirect('/giangvien')->with('status', "Thay đổi thành công thông tin môn học $magv");
     }
 
     /**
@@ -85,8 +107,10 @@ class GiangvienController extends Controller
      * @param  \App\Models\Giangvien  $giangvien
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Giangvien $giangvien)
+    public function destroy($magv)
     {
-        //
+        $sv = Giangvien::where('MaGV', $magv)->delete();
+
+        return redirect('/giangvien')->with('status', "Xoá thành công môn học $magv");
     }
 }

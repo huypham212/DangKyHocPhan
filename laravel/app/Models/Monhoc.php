@@ -10,4 +10,14 @@ class Monhoc extends Model
     use HasFactory;
 
     protected $table = 'monhoc';
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'mamh',
+        'tenmh',
+        'sotc',
+        'hocphi',
+        'manganh'
+    ];
 }

@@ -10,4 +10,16 @@ class LopHP extends Model
     use HasFactory;
 
     protected $table = 'lop_hp';
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'malophp',
+        'tenlophp',
+        'siso',
+        'thoigian',
+        'diadiem',
+        'magv',
+        'mamh'
+    ];
 }

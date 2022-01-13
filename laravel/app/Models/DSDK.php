@@ -9,5 +9,13 @@ class DSDK extends Model
 {
     use HasFactory;
 
-    protected $table = 'ds-dangky';
+    protected $table = 'ds_dangky';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'masv',
+        'malophp',
+        'hocky',
+        'namhoc'
+    ];
 }

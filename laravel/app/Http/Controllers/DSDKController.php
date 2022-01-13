@@ -33,9 +33,17 @@ class DSDKController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $masv, $malophp)
     {
-        //
+        dd($masv, $malophp);
+        $dsdk = DSDK::create([
+            'masv' => $masv,
+            'malophp' => $malophp,
+            'hocky' => 1,
+            'namhoc' => 2018
+        ]);
+
+        return route('dangky.index');
     }
 
     /**

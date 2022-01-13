@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Monhoc;
+use App\Models\Nganh;
 use Illuminate\Http\Request;
 
 class MonhocController extends Controller
@@ -14,9 +15,9 @@ class MonhocController extends Controller
      */
     public function index()
     {
-        $data = Monhoc::all();
-        return view('admin.monhoc', [
-            'data' => $data,
+        $dataMH = Monhoc::all();
+        return view('admin.monhoc.danhsachMH', [
+            'dataMH' => $dataMH,
             'index' => 1
         ]);
     }
@@ -28,7 +29,11 @@ class MonhocController extends Controller
      */
     public function create()
     {
-        //
+        $dataNganh = Nganh::all();
+
+        return view('admin.monhoc.themMH', [
+            'dataNganh' => $dataNganh
+        ]);
     }
 
     /**
@@ -39,7 +44,17 @@ class MonhocController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mamh = $request->input('mamh');
+        //dd($request->all());
+        $mh = Monhoc::create([
+            'mamh' => $request->input('mamh'),
+            'tenmh' => $request->input('tenmh'),
+            'sotc' => $request->input('sotc'),
+            'hocphi' => $request->input('hocphi'),
+            'manganh' => $request->input('manganh')
+        ]);
+
+        return back()->with('status', "Tạo thành công môn học có mã số $mamh");
     }
 
     /**
@@ -59,9 +74,15 @@ class MonhocController extends Controller
      * @param  \App\Models\Monhoc  $monhoc
      * @return \Illuminate\Http\Response
      */
-    public function edit(Monhoc $monhoc)
+    public function edit($mamh)
     {
-        //
+        $dataMH = Monhoc::where('MaMH', $mamh)->get();
+        $dataNganh = Nganh::all();
+
+        return view('admin.monhoc.suaMH', [
+            'dataMH' => $dataMH,
+            'dataNganh' => $dataNganh
+        ]);
     }
 
     /**
@@ -71,9 +92,18 @@ class MonhocController extends Controller
      * @param  \App\Models\Monhoc  $monhoc
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Monhoc $monhoc)
+    public function update(Request $request, $mamh)
     {
-        //
+        //dd($request->all());
+        $mh = Monhoc::where('MaMH', $mamh)->update([
+            'mamh' => $request->input('mamh'),
+            'tenmh' => $request->input('tenmh'),
+            'sotc' => $request->input('sotc'),
+            'hocphi' => $request->input('hocphi'),
+            'manganh' => $request->input('manganh')
+        ]);
+
+        return redirect('/monhoc')->with('status', "Thay đổi thành công thông tin môn học $mamh");
     }
 
     /**
@@ -82,8 +112,10 @@ class MonhocController extends Controller
      * @param  \App\Models\Monhoc  $monhoc
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Monhoc $monhoc)
+    public function destroy($mamh)
     {
-        //
+        $mh = Monhoc::where('MaMH', $mamh)->delete();
+
+        return back()->with('status', "Xoá thành công môn học $mamh");
     }
 }

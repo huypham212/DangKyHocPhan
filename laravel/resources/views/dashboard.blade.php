@@ -4,7 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/style-dashboard.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/312ace3ead.js" crossorigin="anonymous"></script>
     <title> Dashboard </title>
 </head>
@@ -13,11 +14,13 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 26px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 26px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
@@ -191,7 +194,7 @@
         </div>
     </div>
 
-    
+
     <div class="footer">
         <div class="logo-footer">
             <img src="{{ URL::to('/') }}/img/logo_footer.png" width="468px" height="181px" alt="logo">
@@ -209,7 +212,7 @@
             <img class="line-2" src="{{ URL::to('/') }}/img/Line.png" width="60px" alt="line">
             <p><a href="#">Tin tức sự kiện</a></p>
             <p><a href="#">Tin tuyển sinh</a></p>
-            <p><a href="#">E-learning</a></p>
+            <p><a href="https://elearning.tcu.edu.vn/" target="_blank">E-learning</a></p>
         </div>
     </div>
 </body>

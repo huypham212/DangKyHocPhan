@@ -4,7 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/sinhvien/style-lichsu.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/312ace3ead.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -18,29 +19,32 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 20px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 20px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
                     <a href="#"><i class="far fa-bell"></i></a>
                     <a href="#"><i class="far fa-comment-dots"></i></a>
-                    <button id="btnLogin" onclick="window.location='{{ route('login') }}'">Đăng xuất</button>
+                    <button id="btnLogin" onclick="window.location='{{ route('logout') }}'">Đăng xuất</button>
                 </div>
             </div>
         </nav>
         <div class="info-header">
             <div class="info-img">
-                <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" style="width: 150px;" alt="avatar"/>
+                <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" style="width: 150px;"
+                    alt="avatar" />
             </div>
             <div class="info-content">
-                <h5>Nguyễn Bình An</h5>
-                <p>Mã sinh viên: 18DC001</p>
+                <h5>{{ $tensv }}</h5>
+                <p>Mã sinh viên: {{ $masv }}</p>
                 <div class="info-tag">
-                    <p class="info-tag-1">Khoá: DHCN5</p>
+                    <p class="info-tag-1">Khoá: {{ $lop }}</p>
                     <p class="info-tag-2">Lớp học: 0</p>
                 </div>
 
@@ -49,14 +53,16 @@
     </div>
     <nav class="navbar order-last order-lg-0 menu-navbar">
         <ul>
-            <li><a class="nav-link" href="{{ route('dangky') }}">Đăng ký học phần</a></li>
-            <li><a class="nav-link" href="{{ route('ketqua') }}">Kết quả đăng ký</a></li>
-            <li><a class="nav-link active" href="{{ route('lichsu') }}"><span class="style-active">Lịch sử đăng ký</span></a></li>
+            <li><a class="nav-link" href="{{ route('dangky.index') }}">Đăng ký học phần</a></li>
+            <li><a class="nav-link" href="{{ route('ketqua.index') }}">Kết quả đăng ký</a></li>
+            <li><a class="nav-link active" href="{{ route('lichsu.index') }}"><span class="style-active">Lịch sử
+                        đăng ký</span></a></li>
         </ul>
     </nav>
     <div class="main">
         <div style="width: 100%;">
-            <button type="button" class="collapse-button" data-toggle="collapse" data-target="#demo1">NĂM HỌC 2020-2021<i class="fas fa-caret-right"></i></button>
+            <button type="button" class="collapse-button" data-toggle="collapse" data-target="#demo1">NĂM HỌC
+                2020-2021<i class="fas fa-caret-right"></i></button>
             <div id="demo1" class="collapse" style="background-color: #FFFFFF;">
                 <div style="background-color: #FFFFFF; padding-top: 28px; padding-left: 48px">
                     <h5 style="padding-left: 25px;">NĂM HỌC 2020-2021, HỌC KỲ 1</h5>
@@ -66,7 +72,8 @@
                 <div class="card-group">
                     <div class="card-item">
                         <div class="card text-white">
-                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image"
+                                alt="image">
                             <div class="card-img-overlay">
                                 <div class="status">
                                     <p><b>Đã đăng ký</b></p>
@@ -91,7 +98,8 @@
                     </div>
                     <div class="card-item">
                         <div class="card text-white">
-                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image"
+                                alt="image">
                             <div class="card-img-overlay">
                                 <div class="status">
                                     <p><b>Đã đăng ký</b></p>
@@ -116,7 +124,8 @@
                     </div>
                     <div class="card-item">
                         <div class="card text-white">
-                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image"
+                                alt="image">
                             <div class="card-img-overlay">
                                 <div class="status">
                                     <p><b>Đã đăng ký</b></p>
@@ -141,7 +150,8 @@
                     </div>
                     <div class="card-item">
                         <div class="card text-white">
-                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image"
+                                alt="image">
                             <div class="card-img-overlay">
                                 <div class="status">
                                     <p><b>Đã đăng ký</b></p>
@@ -166,7 +176,8 @@
                     </div>
                     <div class="card-item">
                         <div class="card text-white">
-                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image"
+                                alt="image">
                             <div class="card-img-overlay">
                                 <div class="status">
                                     <p><b>Đã đăng ký</b></p>
@@ -191,7 +202,8 @@
                     </div>
                     <div class="card-item">
                         <div class="card text-white">
-                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image" alt="image">
+                            <img src="{{ URL::to('/') }}/img/img-card.png" class="card-img-top card-image"
+                                alt="image">
                             <div class="card-img-overlay">
                                 <div class="status">
                                     <p><b>Đã đăng ký</b></p>
@@ -214,7 +226,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
