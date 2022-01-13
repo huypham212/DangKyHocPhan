@@ -28,12 +28,18 @@ class DangKyController extends Controller
         $lop_raw = DB::table('sinhvien')->where('MaSV', $masv)->select('MaLop')->get();
         $lop = implode(" ", array_column(json_decode($lop_raw, true), 'MaLop'));
 
+        $exist_lophp = DB::table('lop_hp')
+                        ->select(array('monhoc.mamh', DB::raw('COUNT(lop_hp.malophp) as soluong')))
+                        ->join('monhoc', 'monhoc.mamh', '=', 'lop_hp.mamh')
+                        ->groupBy('monhoc.mamh')
+                        ->get();
+
         $dataLopHP = LopHP::all();
         $dataMH = Monhoc::all();
         $dataGV = Giangvien::all();
         $dataSVMH = SVMH::where('MaSV', $masv)->get(); 
 
-        //dd($dataMH, $dataSVMH);
+        //dd($dataMH, $dataSVMH, $exist_lophp);
 
         return view('sinhvien.dangky', [
             'masv' => $masv,
@@ -43,6 +49,7 @@ class DangKyController extends Controller
             'dataMH' => $dataMH,
             'dataGV' => $dataGV,
             'dataSVMH' => $dataSVMH,
+            'exist_lophp' => $exist_lophp,
             'index' => 1
         ]);
     }
@@ -83,8 +90,8 @@ class DangKyController extends Controller
             'mamh' => $mamh,
             'trangthai' => 'Đang hoàn thành'
         ]);
-        
-        return redirect('/dangky');
+
+        return back()->with('status', "Bạn đã đăng ký thành công vào lớp $malophp");
     }
 
     /**
@@ -116,9 +123,13 @@ class DangKyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $malophp)
     {
-        //
+        $current_siso = LopHP::where('MaLopHP', $malophp)->select('SiSo')->get();
+
+        $lophp = LopHP::where('MaLopHP', $malophp).update([
+            'siso' => $current_siso + 1
+        ]);
     }
 
     /**

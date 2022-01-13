@@ -25,6 +25,11 @@
                         <i class="fas fa-lock icon"></i>
                         <input class="card-form-input" type="password" placeholder="Nhập mật khẩu" name="password" required>
                     </div>
+                    @if(session('status'))
+                    <p style="color: red; text-align: left">
+                        {{ session('status') }}
+                    </p>
+                    @endif
                     <a class="card-form-link" href="{{ route('password') }}">Quên tên đăng nhập hoặc mật khẩu?</a>
                     <div class="btn-login">
                         <button name="dangnhap">Đăng nhập</button>

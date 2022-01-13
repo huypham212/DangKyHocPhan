@@ -147,10 +147,30 @@
         <div class="u-content">
             <div class="u-body">
                 @if(session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $('#myModal').modal('show');
+            });
+        </script>
+        @endif
+        <div class="modal" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-              @endif
+                <div class="modal-body">
+                  <p>{{session('status')}}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
                 <div class="card">
                     <div class="card-header">
                         <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> DANH

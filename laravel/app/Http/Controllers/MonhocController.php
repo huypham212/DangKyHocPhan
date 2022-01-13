@@ -103,7 +103,7 @@ class MonhocController extends Controller
             'manganh' => $request->input('manganh')
         ]);
 
-        return redirect('/monhoc');
+        return redirect('/monhoc')->with('status', "Thay đổi thành công thông tin môn học $mamh");
     }
 
     /**
@@ -116,6 +116,6 @@ class MonhocController extends Controller
     {
         $mh = Monhoc::where('MaMH', $mamh)->delete();
 
-        return redirect('/monhoc');
+        return redirect('/monhoc')->with('status', "Xoá thành công môn học $mamh");
     }
 }

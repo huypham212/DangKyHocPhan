@@ -31,7 +31,7 @@ class LoginController extends Controller
             $check_sv = DB::table('sinhvien')->where('MaSV', $masv)->get()->toArray();
 
             if($check_sv == null) {
-                return redirect()->back();
+                return back()->with('status', 'Không tồn tại mã sinh viên này!');
             }
             else {
                 
@@ -47,7 +47,7 @@ class LoginController extends Controller
                     
                 }
                 else {
-                    return redirect()->back();
+                    return back()->with('status', 'Sai mật khẩu!');
                 }
 
             }

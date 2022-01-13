@@ -164,7 +164,7 @@
                                 <button type="button" class="btn btn-outline-danger" onclick="window.location='{{ route('sinhvien.create') }}'">Thêm sinh viên</button>
                             </div>
                         </div>
-
+ 
                         @foreach ($dataLop as $lop)
                             @foreach ($exist_sv as $item)
                                 @if ($item->malop == $lop->MaLop)
