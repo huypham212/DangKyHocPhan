@@ -6,6 +6,7 @@ use App\Models\LopHP;
 use App\Models\Monhoc;
 use App\Models\Giangvien;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LopHPController extends Controller
 {
@@ -16,6 +17,12 @@ class LopHPController extends Controller
      */
     public function index()
     {
+        $exist_lophp = DB::table('lop_hp')
+            ->select(array('monhoc.mamh', DB::raw('COUNT(lop_hp.malophp) as soluong')))
+            ->join('monhoc', 'monhoc.mamh', '=', 'lop_hp.mamh')
+            ->groupBy('monhoc.mamh')
+            ->get();
+
         $dataLopHP = LopHP::all();
         $dataMH = Monhoc::all();
         $dataGV = Giangvien::all();
@@ -24,6 +31,7 @@ class LopHPController extends Controller
             'dataLopHP' => $dataLopHP,
             'dataMH' => $dataMH,
             'dataGV' => $dataGV,
+            'exist_lophp' => $exist_lophp,
             'index' => 1
         ]);
     }

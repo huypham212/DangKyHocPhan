@@ -148,10 +148,10 @@
 
         <div class="u-content">
             <div class="u-body">
-                @if(session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
                 @endif
                 <div class="card">
                     <div class="card-header">
