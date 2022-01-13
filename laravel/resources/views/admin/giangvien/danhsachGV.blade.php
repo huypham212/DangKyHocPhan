@@ -43,11 +43,13 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 20px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 20px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
@@ -148,17 +150,21 @@
             <div class="u-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> DANH
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
+                            DANH
                             SÁCH GIẢNG VIÊN</h3>
                     </div>
                     <div class="card-body">
                         <div class="nav-danhsach justify-content-between">
                             <div class="nav-danhsach-left">
-                                <input class="form-control mr-sm-2" style="width: 300px" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                                <input class="form-control mr-sm-2" style="width: 300px" type="search"
+                                    placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
                                 <i class="fas fa-search"></i>
                             </div>
                             <div class="nav-danhsach-right">
-                                <button type="button" class="btn btn-outline-danger" onclick="window.location='{{ route('giangvien.create') }}'">Thêm giảng viên</button>
+                                <button type="button" class="btn btn-outline-danger"
+                                    onclick="window.location='{{ route('giangvien.create') }}'">Thêm giảng
+                                    viên</button>
                             </div>
                         </div>
 
@@ -184,32 +190,40 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($dataGV as $gv)
-                                    <tr>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{  $index++ }}</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->MaGV }}
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->TenGV }}</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->GioiTinh }}
-                                        </td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->Email }}</td>
-                                        <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->MaKhoa }}</td>
-                                        <td class="align-middle" style='text-align:center'>
-                                            <form action="{{ route('giangvien.destroy', $gv->MaGV) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button
-                                                    style="width: 30px; height: 30px; padding-left: 7px; padding-top: 4px;"
-                                                    type="button" class="btn btn-success" title="Edit" onclick="window.location='{{ route('giangvien.edit', $gv->MaGV) }}'"><i
-                                                    class="far fa-edit"></i></button>
+                                        <tr>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>
+                                                {{ $index++ }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>
+                                                {{ $gv->MaGV }}
+                                            </td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>
+                                                {{ $gv->TenGV }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>
+                                                {{ $gv->GioiTinh }}
+                                            </td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>
+                                                {{ $gv->Email }}</td>
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>
+                                                {{ $gv->MaKhoa }}</td>
+                                            <td class="align-middle" style='text-align:center'>
+                                                <form action="{{ route('giangvien.destroy', $gv->MaGV) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button
+                                                        style="width: 30px; height: 30px; padding-left: 7px; padding-top: 4px;"
+                                                        type="button" class="btn btn-success" title="Edit"
+                                                        onclick="window.location='{{ route('giangvien.edit', $gv->MaGV) }}'"><i
+                                                            class="far fa-edit"></i></button>
 
-                                                <button
-                                                    style="width: 30px; height: 30px; padding-left: 8px; padding-top: 4px;"
-                                                    type="submit" class="btn btn-danger" title="Delete"><i
-                                                    class="far fa-trash-alt"></i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    
+                                                    <button
+                                                        style="width: 30px; height: 30px; padding-left: 8px; padding-top: 4px;"
+                                                        type="submit" class="btn btn-danger" title="Delete"><i
+                                                            class="far fa-trash-alt"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+
                                     @endforeach
                                 </tbody>
                             </table>
@@ -223,22 +237,23 @@
         </div>
     </main>
 
-     <!-- Global Vendor -->
-     <script src="{{ URL::to('/') }}/assets/vendor/jquery/dist/jquery.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
- 
-     <!-- Plugins -->
-     <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
-     <!-- Initialization  -->
-     <script src="{{ URL::to('/') }}/assets/js/sidebar-nav.js"></script>
-     <script src="{{ URL::to('/') }}/assets/js/main.js"></script>
-     <script src="{{ URL::to('/') }}/assets/js/dashboard-page-scripts.js"></script>
-     <!--<script src="assets/js/scripts.js"></script>-->
+    <!-- Global Vendor -->
+    <script src="{{ URL::to('/') }}/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
+    <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
+    <!-- Initialization  -->
+    <script src="{{ URL::to('/') }}/assets/js/sidebar-nav.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/main.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/dashboard-page-scripts.js"></script>
+    <!--<script src="assets/js/scripts.js"></script>-->
 </body>
 
 </html>

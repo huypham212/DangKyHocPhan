@@ -4,7 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/style-login.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/312ace3ead.js" crossorigin="anonymous"></script>
     <title> Login </title>
 </head>
@@ -19,16 +20,18 @@
                 <div class="container card-form">
                     <div class="inputContainer">
                         <i class="fa fa-user icon"> </i>
-                        <input class="card-form-input" type="text" placeholder="Nhập mã sinh viên" name="masv" required />
+                        <input class="card-form-input" type="text" placeholder="Nhập mã sinh viên" name="masv"
+                            required />
                     </div>
                     <div class="inputContainer">
                         <i class="fas fa-lock icon"></i>
-                        <input class="card-form-input" type="password" placeholder="Nhập mật khẩu" name="password" required>
+                        <input class="card-form-input" type="password" placeholder="Nhập mật khẩu" name="password"
+                            required>
                     </div>
-                    @if(session('status'))
-                    <p style="color: red; text-align: left">
-                        {{ session('status') }}
-                    </p>
+                    @if (session('status'))
+                        <p style="color: red; text-align: left">
+                            {{ session('status') }}
+                        </p>
                     @endif
                     <a class="card-form-link" href="{{ route('password') }}">Quên tên đăng nhập hoặc mật khẩu?</a>
                     <div class="btn-login">

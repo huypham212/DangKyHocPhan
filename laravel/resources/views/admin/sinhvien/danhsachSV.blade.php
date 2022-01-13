@@ -150,7 +150,8 @@
             <div class="u-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> DANH
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
+                            DANH
                             SÁCH SINH VIÊN</h3>
                     </div>
                     <div class="card-body">
@@ -161,113 +162,121 @@
                                 <i class="fas fa-search"></i>
                             </div>
                             <div class="nav-danhsach-right">
-                                <button type="button" class="btn btn-outline-danger" onclick="window.location='{{ route('sinhvien.create') }}'">Thêm sinh viên</button>
+                                <button type="button" class="btn btn-outline-danger"
+                                    onclick="window.location='{{ route('sinhvien.create') }}'">Thêm sinh
+                                    viên</button>
                             </div>
                         </div>
- 
+
                         @foreach ($dataLop as $lop)
                             @foreach ($exist_sv as $item)
                                 @if ($item->malop == $lop->MaLop)
-                                <div style="width: 100%;">
-                                    <button type="button" class="collapse-button" data-toggle="collapse"
-                                        data-target="#{{ $lop->MaLop }}">{{ $lop->MaLop }} - {{ $lop->TenLop }}<i
-                                            class="fas fa-caret-right collapse-button-sv-icon"></i></button>
-                                    <div id="{{ $lop->MaLop }}"
-                                        class="collapse my-custom-scrollbar">
-                                        <table class="table table-hover text-nowrap">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                    <th width="5" style='text-align:center; font-size:14px; font-weight:bold'
-                                                        scope="col">
-                                                        STT</th>
-                                                    <th style='text-align:center; font-size:14px; font-weight:bold'
-                                                        scope="col">
-                                                        Mã sinh viên</th>
-                                                    <th style='text-align:center; font-size:14px; font-weight:bold'
-                                                        scope="col">
-                                                        Họ và tên</th>
-                                                    <th style='text-align:center; font-size:14px; font-weight:bold'
-                                                        scope="col">
-                                                        Ngày sinh</th>
-                                                    <th style='text-align:center; font-size:14px; font-weight:bold'
-                                                        scope="col">
-                                                        Giới tính</th>
-                                                    <th style='text-align:center; font-size:14px; font-weight:bold'
-                                                        scope="col">
-                                                        Địa chỉ</th>
-                                                    <th style='text-align:center; font-size:14px; font-weight:bold'
-                                                        scope="col">
-                                                        Email</th>
-                                                    <th style='text-align:center; font-size:14px; font-weight:bold'
-                                                        scope="col">
-                                                        Mật khẩu</th>
-                                                    <th style='text-align:center; font-size:14px; font-weight:bold'
-                                                        scope="col">
-                                                        Mã ngành</th>
-                                                    <th style='text-align:center; font-size:14px; font-weight:bold'
-                                                        scope="col">
-                                                        Trạng thái</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <p hidden>{{ $index = 1 }}</p>
-                                                @foreach ($dataSV as $sv)
-                                                    @if ($lop->MaLop == $sv->MaLop && $sv != null)
-                                                        <tr>
-                                                            <td width="5" class="align-middle"
-                                                                style='text-align:center; font-size:14px; '>
-                                                                {{ $index++ }}</td>
-                                                            <td class="align-middle"
-                                                                style='text-align:start; font-size:14px'>
-                                                                {{ $sv->MaSV }}</td>
-                                                            <td class="align-middle"
-                                                                style='text-align:center; font-size:14px'>
-                                                                {{ $sv->TenSV }}</td>
-                                                            <td class="align-middle"
-                                                                style='text-align:center; font-size:14px'>
-                                                                {{ date('d-m-Y', strtotime($sv->DoB)) }}</td>
-                                                            <td class="align-middle"
-                                                                style='text-align:center; font-size:14px'>
-                                                                {{ $sv->GioiTinh }}</td>
-                                                            <td class="align-middle"
-                                                                style='text-align:center; font-size:14px'>
-                                                                {{ $sv->DiaChi }}</td>
-                                                            <td class="align-middle"
-                                                                style='text-align:center; font-size:14px'>
-                                                                {{ $sv->Email }}</td>
-                                                            <td class="align-middle"
-                                                                style='text-align:center; font-size:14px'>
-                                                                {{ $sv->MatKhau }}</td>
-                                                            <td class="align-middle"
-                                                                style='text-align:center; font-size:14px'>
-                                                                {{ $sv->MaNganh }}</td>
-                                                            <td class="align-middle" style='text-align:center'>
-                                                                
-                                                                <form action="{{ route('sinhvien.destroy', $sv->MaSV) }}" method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button
-                                                                        style="width: 30px; height: 30px; padding-left: 7px; padding-top: 4px;"
-                                                                        type="button" class="btn btn-success" title="Edit" onclick="window.location='{{ route('sinhvien.edit', $sv->MaSV) }}'"><i
-                                                                        class="far fa-edit"></i></button>
-    
-                                                                    <button
-                                                                        style="width: 30px; height: 30px; padding-left: 8px; padding-top: 4px;"
-                                                                        type="submit" class="btn btn-danger" title="Delete"><i
-                                                                        class="far fa-trash-alt"></i></button>
-                                                                </form>
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                                    <div style="width: 100%;">
+                                        <button type="button" class="collapse-button" data-toggle="collapse"
+                                            data-target="#{{ $lop->MaLop }}">{{ $lop->MaLop }} -
+                                            {{ $lop->TenLop }}<i
+                                                class="fas fa-caret-right collapse-button-sv-icon"></i></button>
+                                        <div id="{{ $lop->MaLop }}" class="collapse my-custom-scrollbar">
+                                            <table class="table table-hover text-nowrap">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th width="5"
+                                                            style='text-align:center; font-size:14px; font-weight:bold'
+                                                            scope="col">
+                                                            STT</th>
+                                                        <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                            scope="col">
+                                                            Mã sinh viên</th>
+                                                        <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                            scope="col">
+                                                            Họ và tên</th>
+                                                        <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                            scope="col">
+                                                            Ngày sinh</th>
+                                                        <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                            scope="col">
+                                                            Giới tính</th>
+                                                        <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                            scope="col">
+                                                            Địa chỉ</th>
+                                                        <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                            scope="col">
+                                                            Email</th>
+                                                        <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                            scope="col">
+                                                            Mật khẩu</th>
+                                                        <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                            scope="col">
+                                                            Mã ngành</th>
+                                                        <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                            scope="col">
+                                                            Trạng thái</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <p hidden>{{ $index = 1 }}</p>
+                                                    @foreach ($dataSV as $sv)
+                                                        @if ($lop->MaLop == $sv->MaLop && $sv != null)
+                                                            <tr>
+                                                                <td width="5" class="align-middle"
+                                                                    style='text-align:center; font-size:14px; '>
+                                                                    {{ $index++ }}</td>
+                                                                <td class="align-middle"
+                                                                    style='text-align:start; font-size:14px'>
+                                                                    {{ $sv->MaSV }}</td>
+                                                                <td class="align-middle"
+                                                                    style='text-align:center; font-size:14px'>
+                                                                    {{ $sv->TenSV }}</td>
+                                                                <td class="align-middle"
+                                                                    style='text-align:center; font-size:14px'>
+                                                                    {{ date('d-m-Y', strtotime($sv->DoB)) }}</td>
+                                                                <td class="align-middle"
+                                                                    style='text-align:center; font-size:14px'>
+                                                                    {{ $sv->GioiTinh }}</td>
+                                                                <td class="align-middle"
+                                                                    style='text-align:center; font-size:14px'>
+                                                                    {{ $sv->DiaChi }}</td>
+                                                                <td class="align-middle"
+                                                                    style='text-align:center; font-size:14px'>
+                                                                    {{ $sv->Email }}</td>
+                                                                <td class="align-middle"
+                                                                    style='text-align:center; font-size:14px'>
+                                                                    {{ $sv->MatKhau }}</td>
+                                                                <td class="align-middle"
+                                                                    style='text-align:center; font-size:14px'>
+                                                                    {{ $sv->MaNganh }}</td>
+                                                                <td class="align-middle" style='text-align:center'>
+
+                                                                    <form
+                                                                        action="{{ route('sinhvien.destroy', $sv->MaSV) }}"
+                                                                        method="POST">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button
+                                                                            style="width: 30px; height: 30px; padding-left: 7px; padding-top: 4px;"
+                                                                            type="button" class="btn btn-success"
+                                                                            title="Edit"
+                                                                            onclick="window.location='{{ route('sinhvien.edit', $sv->MaSV) }}'"><i
+                                                                                class="far fa-edit"></i></button>
+
+                                                                        <button
+                                                                            style="width: 30px; height: 30px; padding-left: 8px; padding-top: 4px;"
+                                                                            type="submit" class="btn btn-danger"
+                                                                            title="Delete"><i
+                                                                                class="far fa-trash-alt"></i></button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                </div>
                                 @endif
                             @endforeach
                         @endforeach
-                        
+
                     </div>
                 </div>
             </div>
@@ -281,7 +290,8 @@
     <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
     <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>

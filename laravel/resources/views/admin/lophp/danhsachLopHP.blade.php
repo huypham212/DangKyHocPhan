@@ -43,11 +43,13 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 20px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 20px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
@@ -148,87 +150,118 @@
             <div class="u-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> DANH
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
+                            DANH
                             SÁCH LỚP HỌC PHẦN</h3>
                     </div>
                     <div class="card-body">
                         <div class="nav-danhsach justify-content-between">
                             <div class="nav-danhsach-left">
-                                <input class="form-control mr-sm-2" style="width: 300px" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                                <input class="form-control mr-sm-2" style="width: 300px" type="search"
+                                    placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
                                 <i class="fas fa-search"></i>
                             </div>
                             <div class="nav-danhsach-right">
-                                <button type="button" class="btn btn-outline-danger" onclick="window.location='{{ route('lophp.create') }}'">Thêm lớp học phần</button>
+                                <button type="button" class="btn btn-outline-danger"
+                                    onclick="window.location='{{ route('lophp.create') }}'">Thêm lớp học
+                                    phần</button>
                             </div>
                         </div>
 
                         @foreach ($dataMH as $mh)
-                        <div style="width: 100%;">
-                            <button type="button" class="collapse-button" data-toggle="collapse"
-                                data-target="#{{ $mh->MaMH }}"><p class="collapse-button-text">
-                                    {{ $mh->MaMH }} - {{ $mh->TenMH }}</p>
-                                <i class="fas fa-caret-right collapse-button-lophp-icon"></i></button>
-                            <div id="{{ $mh->MaMH }}" class="collapse">
-                                <table class="table table-hover">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                STT</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Mã lớp HP</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Tên lớp HP</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Thời gian</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Địa điểm</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Giảng viên</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Sỉ số</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Trạng thái</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <p hidden>{{ $index = 1 }}</p>
-                                        @foreach ($dataLopHP as $lophp)
-                                        @if ($lophp->MaMH == $mh->MaMH)
-                                        <tr>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $index++ }}</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lophp->MaLopHP }}</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lophp->TenLopHP }}</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lophp->ThoiGian }}</td>
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>{{ $lophp->DiaDiem }}</td>
-                                            @foreach ($dataGV as $gv)
-                                                @if ($gv->MaGV == $lophp->MaGV)
-                                                <td class="align-middle" style='text-align:center; font-size:14px'>{{ $gv->TenGV }}</td>
+                            <div style="width: 100%;">
+                                <button type="button" class="collapse-button" data-toggle="collapse"
+                                    data-target="#{{ $mh->MaMH }}">
+                                    <p class="collapse-button-text">
+                                        {{ $mh->MaMH }} - {{ $mh->TenMH }}</p>
+                                    <i class="fas fa-caret-right collapse-button-lophp-icon"></i>
+                                </button>
+                                <div id="{{ $mh->MaMH }}" class="collapse">
+                                    <table class="table table-hover">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    STT</th>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    Mã lớp HP</th>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    Tên lớp HP</th>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    Thời gian</th>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    Địa điểm</th>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    Giảng viên</th>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    Sỉ số</th>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    Trạng thái</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <p hidden>{{ $index = 1 }}</p>
+                                            @foreach ($dataLopHP as $lophp)
+                                                @if ($lophp->MaMH == $mh->MaMH)
+                                                    <tr>
+                                                        <td class="align-middle"
+                                                            style='text-align:center; font-size:14px'>
+                                                            {{ $index++ }}</td>
+                                                        <td class="align-middle"
+                                                            style='text-align:center; font-size:14px'>
+                                                            {{ $lophp->MaLopHP }}</td>
+                                                        <td class="align-middle"
+                                                            style='text-align:center; font-size:14px'>
+                                                            {{ $lophp->TenLopHP }}</td>
+                                                        <td class="align-middle"
+                                                            style='text-align:center; font-size:14px'>
+                                                            {{ $lophp->ThoiGian }}</td>
+                                                        <td class="align-middle"
+                                                            style='text-align:center; font-size:14px'>
+                                                            {{ $lophp->DiaDiem }}</td>
+                                                        @foreach ($dataGV as $gv)
+                                                            @if ($gv->MaGV == $lophp->MaGV)
+                                                                <td class="align-middle"
+                                                                    style='text-align:center; font-size:14px'>
+                                                                    {{ $gv->TenGV }}</td>
+                                                            @endif
+                                                        @endforeach
+                                                        <td class="align-middle"
+                                                            style='text-align:center; font-size:14px'>
+                                                            {{ $lophp->SiSo }}/30</td>
+                                                        <td class="align-middle" style='text-align:center'>
+                                                            <form
+                                                                action="{{ route('lophp.destroy', $lophp->MaLopHP) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button
+                                                                    style="width: 30px; height: 30px; padding-left: 7px; padding-top: 4px;"
+                                                                    type="button" class="btn btn-success" title="Edit"
+                                                                    onclick="window.location='{{ route('lophp.edit', $lophp->MaLopHP) }}'"><i
+                                                                        class="far fa-edit"></i></button>
+
+                                                                <button
+                                                                    style="width: 30px; height: 30px; padding-left: 8px; padding-top: 4px;"
+                                                                    type="submit" class="btn btn-danger"
+                                                                    title="Delete"><i
+                                                                        class="far fa-trash-alt"></i></button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
                                                 @endif
                                             @endforeach
-                                            <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                {{ $lophp->SiSo }}/30</td>
-                                            <td class="align-middle" style='text-align:center'>
-                                                <form action="{{ route('lophp.destroy', $lophp->MaLopHP) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button
-                                                        style="width: 30px; height: 30px; padding-left: 7px; padding-top: 4px;"
-                                                        type="button" class="btn btn-success" title="Edit" onclick="window.location='{{ route('lophp.edit', $lophp->MaLopHP) }}'"><i
-                                                        class="far fa-edit"></i></button>
-    
-                                                    <button
-                                                        style="width: 30px; height: 30px; padding-left: 8px; padding-top: 4px;"
-                                                        type="submit" class="btn btn-danger" title="Delete"><i
-                                                        class="far fa-trash-alt"></i></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        @endif
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -245,7 +278,8 @@
     <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
     <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>

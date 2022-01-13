@@ -43,11 +43,13 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 20px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 20px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
@@ -148,84 +150,88 @@
             <div class="u-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />THÊM GIẢNG VIÊN</h3>
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />THÊM
+                            GIẢNG VIÊN</h3>
                     </div>
                     <div class="card-body">
                         @foreach ($dataGV as $gv)
-                        <form action="{{ route('giangvien.store') }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <div class="form-row">
-                              <div class="form-group col-md-6">
-                                <label for="inputMaGV">Mã Giảng viên</label>
-                                <input type="text" class="form-control" name="magv" value="{{ $gv->MaGV }}">
-                              </div>
-                              <div class="form-group col-md-6">
-                                <label for="inputHoTen">Họ và tên</label>
-                                <input type="text" class="form-control" name="hoten" value="{{ $gv->TenGV }}">
-                              </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputGioiTinh">Giới tính</label>
-                                    @if ($gv->GioiTinh == 'Nam')
+                            <form action="{{ route('giangvien.store') }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputMaGV">Mã Giảng viên</label>
+                                        <input type="text" class="form-control" name="magv"
+                                            value="{{ $gv->MaGV }}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputHoTen">Họ và tên</label>
+                                        <input type="text" class="form-control" name="hoten"
+                                            value="{{ $gv->TenGV }}">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputGioiTinh">Giới tính</label>
+                                        @if ($gv->GioiTinh == 'Nam')
                                             <div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="gioitinh" value="Nam" checked>
-                                                    <label class="form-check-label"
-                                                        for="inlineRdNam">Nam</label>
+                                                    <input class="form-check-input" type="radio" name="gioitinh"
+                                                        value="Nam" checked>
+                                                    <label class="form-check-label" for="inlineRdNam">Nam</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="gioitinh" value="Nu">
-                                                    <label class="form-check-label"
-                                                        for="inlineRdNu">Nữ</label>
+                                                    <input class="form-check-input" type="radio" name="gioitinh"
+                                                        value="Nu">
+                                                    <label class="form-check-label" for="inlineRdNu">Nữ</label>
                                                 </div>
                                             </div>
                                         @endif
                                         @if ($gv->GioiTinh == 'Nữ')
                                             <div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="gioitinh" value="Nam">
-                                                    <label class="form-check-label"
-                                                        for="inlineRdNam">Nam</label>
+                                                    <input class="form-check-input" type="radio" name="gioitinh"
+                                                        value="Nam">
+                                                    <label class="form-check-label" for="inlineRdNam">Nam</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="gioitinh" value="Nu" checked>
-                                                    <label class="form-check-label"
-                                                        for="inlineRdNu">Nữ</label>
+                                                    <input class="form-check-input" type="radio" name="gioitinh"
+                                                        value="Nu" checked>
+                                                    <label class="form-check-label" for="inlineRdNu">Nữ</label>
                                                 </div>
                                             </div>
                                         @endif
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail">Email</label>
-                                    <input type="email" class="form-control" name="email" value="{{ $gv->Email }}">
-                                  </div>
-                                  <div class="form-group col-md-6">
-                                    <label for="inputKhoa">Khoa</label>
-                                    <select name="makhoa" class="form-control">
-                                        <option>...</option>
-                                        @foreach ($dataKhoa as $khoa)
-                                            @if ($khoa->MaKhoa == $gv->MaKhoa)
-                                                <option value="{{ $khoa->MaKhoa }}" selected>{{ $khoa->MaKhoa }} - {{ $khoa->TenKhoa }}</option>
-                                            @else
-                                                <option value="{{ $khoa->MaKhoa }}">{{ $khoa->MaKhoa }} - {{ $khoa->TenKhoa }}</option>
-                                            @endif
-                                        @endforeach
-                                      </select>
-                                  </div>
-                            </div>
-                            <div class="button-create">
-                                <button style="margin-right: 5px" type="submit" class="btn btn-success">Lưu thay đổi</button>
-                                <button type="button" class="btn btn-danger" onclick="window.location='{{ route('giangvien.index') }}'">Thoát</button>
-                            </div>
-                          </form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail">Email</label>
+                                        <input type="email" class="form-control" name="email"
+                                            value="{{ $gv->Email }}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputKhoa">Khoa</label>
+                                        <select name="makhoa" class="form-control">
+                                            <option>...</option>
+                                            @foreach ($dataKhoa as $khoa)
+                                                @if ($khoa->MaKhoa == $gv->MaKhoa)
+                                                    <option value="{{ $khoa->MaKhoa }}" selected>
+                                                        {{ $khoa->MaKhoa }} - {{ $khoa->TenKhoa }}</option>
+                                                @else
+                                                    <option value="{{ $khoa->MaKhoa }}">{{ $khoa->MaKhoa }} -
+                                                        {{ $khoa->TenKhoa }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="button-create">
+                                    <button style="margin-right: 5px" type="submit" class="btn btn-success">Lưu thay
+                                        đổi</button>
+                                    <button type="button" class="btn btn-danger"
+                                        onclick="window.location='{{ route('giangvien.index') }}'">Thoát</button>
+                                </div>
+                            </form>
                         @endforeach
 
                     </div>
@@ -236,22 +242,23 @@
         </div>
     </main>
 
-     <!-- Global Vendor -->
-     <script src="{{ URL::to('/') }}/assets/vendor/jquery/dist/jquery.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
- 
-     <!-- Plugins -->
-     <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
-     <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
-     <!-- Initialization  -->
-     <script src="{{ URL::to('/') }}/assets/js/sidebar-nav.js"></script>
-     <script src="{{ URL::to('/') }}/assets/js/main.js"></script>
-     <script src="{{ URL::to('/') }}/assets/js/dashboard-page-scripts.js"></script>
-     <!--<script src="assets/js/scripts.js"></script>-->
+    <!-- Global Vendor -->
+    <script src="{{ URL::to('/') }}/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
+    <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
+    <!-- Initialization  -->
+    <script src="{{ URL::to('/') }}/assets/js/sidebar-nav.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/main.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/dashboard-page-scripts.js"></script>
+    <!--<script src="assets/js/scripts.js"></script>-->
 </body>
 
 </html>

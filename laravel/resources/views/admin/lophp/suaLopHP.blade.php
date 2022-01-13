@@ -43,11 +43,13 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 20px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 20px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
@@ -148,72 +150,84 @@
             <div class="u-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />SỬA LỚP HỌC PHẦN</h3>
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />SỬA
+                            LỚP HỌC PHẦN</h3>
                     </div>
                     <div class="card-body">
                         @foreach ($dataLopHP as $lophp)
-                        <form action="{{ route('lophp.update', $lophp->MaLopHP) }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <div class="form-row">
-                              <div class="form-group col-md-6">
-                                <label for="inputMaLop">Mã Lớp HP</label>
-                                <input type="text" class="form-control" name="malophp" value="{{ $lophp->MaLopHP }}">
-                              </div>
-                              <div class="form-group col-md-6">
-                                <label for="inputHoTen">Tên Lớp HP</label>
-                                <input type="text" class="form-control" name="tenlophp" value="{{ $lophp->TenLopHP }}">
-                              </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                  <label for="inputMaLop">Sỉ Số</label>
-                                  <input type="number" class="form-control" name="siso" min="1" value="{{ $lophp->SiSo }}">
+                            <form action="{{ route('lophp.update', $lophp->MaLopHP) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputMaLop">Mã Lớp HP</label>
+                                        <input type="text" class="form-control" name="malophp"
+                                            value="{{ $lophp->MaLopHP }}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputHoTen">Tên Lớp HP</label>
+                                        <input type="text" class="form-control" name="tenlophp"
+                                            value="{{ $lophp->TenLopHP }}">
+                                    </div>
                                 </div>
-                              </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                  <label for="inputMaLop">Thời Gian</label>
-                                  <input type="text" class="form-control" name="thoigian" value="{{ $lophp->ThoiGian }}">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputMaLop">Sỉ Số</label>
+                                        <input type="number" class="form-control" name="siso" min="1"
+                                            value="{{ $lophp->SiSo }}">
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                  <label for="inputHoTen">Địa Điểm</label>
-                                  <input type="text" class="form-control" name="diadiem" value="{{ $lophp->DiaDiem }}">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputMaLop">Thời Gian</label>
+                                        <input type="text" class="form-control" name="thoigian"
+                                            value="{{ $lophp->ThoiGian }}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputHoTen">Địa Điểm</label>
+                                        <input type="text" class="form-control" name="diadiem"
+                                            value="{{ $lophp->DiaDiem }}">
+                                    </div>
                                 </div>
-                              </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputKhoa">Môn Học</label>
-                                    <select name="mamh" class="form-control">
-                                        <option>...</option>
-                                        @foreach ($dataMH as $mh)
-                                            @if ($mh->MaMH == $lophp->MaMH)
-                                                <option value="{{ $mh->MaMH }}" selected>{{ $mh->MaMH }} - {{ $mh->TenMH }}</option>
-                                            @else
-                                                <option value="{{ $mh->MaMH }}">{{ $mh->MaMH }} - {{ $mh->TenMH }}</option>
-                                            @endif
-                                        @endforeach
-                                      </select>
-                                  </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputKhoa">Giảng viên</label>
-                                    <select name="magv" class="form-control">
-                                        <option>...</option>
-                                        @foreach ($dataGV as $gv)
-                                            @if ($gv->MaGV == $lophp->MaGV)
-                                                <option value="{{ $gv->MaGV }}" selected>{{ $gv->MaGV }} - {{ $gv->TenGV }}</option>
-                                            @else
-                                                <option value="{{ $gv->MaGV }}">{{ $gv->MaGV }} - {{ $gv->TenGV }}</option>
-                                            @endif
-                                        @endforeach
-                                      </select>
-                                  </div> 
-                            </div>
-                            <div class="button-create">
-                                <button style="margin-right: 5px" type="submit" class="btn btn-success">Lưu thay đổi</button>
-                                <button type="button" class="btn btn-danger" onclick="window.location='{{ route('lophp.index') }}'">Thoát</button>
-                            </div>
-                        </form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputKhoa">Môn Học</label>
+                                        <select name="mamh" class="form-control">
+                                            <option>...</option>
+                                            @foreach ($dataMH as $mh)
+                                                @if ($mh->MaMH == $lophp->MaMH)
+                                                    <option value="{{ $mh->MaMH }}" selected>{{ $mh->MaMH }} -
+                                                        {{ $mh->TenMH }}</option>
+                                                @else
+                                                    <option value="{{ $mh->MaMH }}">{{ $mh->MaMH }} -
+                                                        {{ $mh->TenMH }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputKhoa">Giảng viên</label>
+                                        <select name="magv" class="form-control">
+                                            <option>...</option>
+                                            @foreach ($dataGV as $gv)
+                                                @if ($gv->MaGV == $lophp->MaGV)
+                                                    <option value="{{ $gv->MaGV }}" selected>{{ $gv->MaGV }} -
+                                                        {{ $gv->TenGV }}</option>
+                                                @else
+                                                    <option value="{{ $gv->MaGV }}">{{ $gv->MaGV }} -
+                                                        {{ $gv->TenGV }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="button-create">
+                                    <button style="margin-right: 5px" type="submit" class="btn btn-success">Lưu thay
+                                        đổi</button>
+                                    <button type="button" class="btn btn-danger"
+                                        onclick="window.location='{{ route('lophp.index') }}'">Thoát</button>
+                                </div>
+                            </form>
                         @endforeach
                     </div>
                 </div>
@@ -230,7 +244,8 @@
     <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
     <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>

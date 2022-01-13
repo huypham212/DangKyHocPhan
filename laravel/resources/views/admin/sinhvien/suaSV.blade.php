@@ -68,7 +68,8 @@
             <div class="u-sidebar-inner bg-gradient bdrs-30">
                 <header class="u-sidebar-header">
                     <a class="u-sidebar-logo" href="#">
-                        <img class="img-fluid" src="{{ URL::to('/') }}/assets/img/logo.png" width="124" alt="Stream Dashboard">
+                        <img class="img-fluid" src="{{ URL::to('/') }}/assets/img/logo.png" width="124"
+                            alt="Stream Dashboard">
                     </a>
                 </header>
 
@@ -150,7 +151,8 @@
             <div class="u-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> SỬA SINH VIÊN</h3>
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> SỬA
+                            SINH VIÊN</h3>
                     </div>
                     <div class="card-body">
                         @foreach ($dataSV as $sv)
@@ -160,21 +162,25 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputMaSV">Mã sinh viên</label>
-                                        <input type="text" class="form-control" name="masv" value="{{ $sv->MaSV }}" >
+                                        <input type="text" class="form-control" name="masv"
+                                            value="{{ $sv->MaSV }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputHoTen">Họ và tên</label>
-                                        <input type="text" class="form-control" name="tensv" value="{{ $sv->TenSV }}">
+                                        <input type="text" class="form-control" name="tensv"
+                                            value="{{ $sv->TenSV }}">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputDoB">Ngày sinh</label>
-                                        <input type="date" class="form-control" name="dob" value="{{ $sv->DoB }}">
+                                        <input type="date" class="form-control" name="dob"
+                                            value="{{ $sv->DoB }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputDiaChi">Địa chỉ</label>
-                                        <input type="text" class="form-control" name="diachi" value="{{ $sv->DiaChi }}">
+                                        <input type="text" class="form-control" name="diachi"
+                                            value="{{ $sv->DiaChi }}">
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -183,32 +189,28 @@
                                         @if ($sv->GioiTinh == 'Nam')
                                             <div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="gioitinh" value="Nam" checked>
-                                                    <label class="form-check-label"
-                                                        for="inlineRdNam">Nam</label>
+                                                    <input class="form-check-input" type="radio" name="gioitinh"
+                                                        value="Nam" checked>
+                                                    <label class="form-check-label" for="inlineRdNam">Nam</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="gioitinh" value="Nu">
-                                                    <label class="form-check-label"
-                                                        for="inlineRdNu">Nữ</label>
+                                                    <input class="form-check-input" type="radio" name="gioitinh"
+                                                        value="Nu">
+                                                    <label class="form-check-label" for="inlineRdNu">Nữ</label>
                                                 </div>
                                             </div>
                                         @endif
                                         @if ($sv->GioiTinh == 'Nữ')
                                             <div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="gioitinh" value="Nam">
-                                                    <label class="form-check-label"
-                                                        for="inlineRdNam">Nam</label>
+                                                    <input class="form-check-input" type="radio" name="gioitinh"
+                                                        value="Nam">
+                                                    <label class="form-check-label" for="inlineRdNam">Nam</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="gioitinh" value="Nu" checked>
-                                                    <label class="form-check-label"
-                                                        for="inlineRdNu">Nữ</label>
+                                                    <input class="form-check-input" type="radio" name="gioitinh"
+                                                        value="Nu" checked>
+                                                    <label class="form-check-label" for="inlineRdNu">Nữ</label>
                                                 </div>
                                             </div>
                                         @endif
@@ -217,11 +219,13 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail">Email</label>
-                                        <input type="email" class="form-control" name="email" value="{{ $sv->Email }}">
+                                        <input type="email" class="form-control" name="email"
+                                            value="{{ $sv->Email }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputMatKhau">Mật khẩu</label>
-                                        <input type="password"  class="form-control" name="matkhau" value="{{ $sv->MatKhau }}">
+                                        <input type="password" class="form-control" name="matkhau"
+                                            value="{{ $sv->MatKhau }}">
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -231,10 +235,11 @@
                                             <option>...</option>
                                             @foreach ($dataLop as $lop)
                                                 @if ($lop->MaLop == $sv->MaLop)
-                                                    <option value="{{ $lop->MaLop }}" selected>{{ $lop->TenLop }}</option>
+                                                    <option value="{{ $lop->MaLop }}" selected>{{ $lop->TenLop }}
+                                                    </option>
                                                 @else
                                                     <option value="{{ $lop->MaLop }}">{{ $lop->TenLop }}</option>
-                                                @endif 
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
@@ -244,17 +249,21 @@
                                             <option>...</option>
                                             @foreach ($dataNganh as $nganh)
                                                 @if ($nganh->MaNganh == $sv->MaNganh)
-                                                    <option value="{{ $nganh->MaNganh }}" selected>{{ $nganh->MaNganh }}</option>
+                                                    <option value="{{ $nganh->MaNganh }}" selected>
+                                                        {{ $nganh->MaNganh }}</option>
                                                 @else
-                                                    <option value="{{ $nganh->MaNganh }}">{{ $nganh->MaNganh }}</option>
-                                                @endif 
+                                                    <option value="{{ $nganh->MaNganh }}">{{ $nganh->MaNganh }}
+                                                    </option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="button-create">
-                                    <button style="margin-right: 5px" type="submit" class="btn btn-success">Lưu thay đổi</button>
-                                    <button type="button" class="btn btn-danger" onclick="window.location='{{ route('sinhvien.index') }}'">Thoát</button>
+                                    <button style="margin-right: 5px" type="submit" class="btn btn-success">Lưu thay
+                                        đổi</button>
+                                    <button type="button" class="btn btn-danger"
+                                        onclick="window.location='{{ route('sinhvien.index') }}'">Thoát</button>
                                 </div>
                             </form>
                         @endforeach
@@ -271,7 +280,8 @@
     <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
     <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>

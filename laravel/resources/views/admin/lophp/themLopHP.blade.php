@@ -43,11 +43,13 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 20px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 20px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
@@ -146,84 +148,90 @@
 
         <div class="u-content">
             <div class="u-body">
-                @if(session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-              @endif
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />THÊM LỚP HỌC PHẦN</h3>
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />THÊM
+                            LỚP HỌC PHẦN</h3>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('importLopHP') }}" accept-charset="utf-8" enctype="multipart/form-data">
-                            @csrf      
-                              <div class="row">
-                                  <div class="col-md-12">
-                                      <div class="form-group">
-                                          <input type="file" name="file" placeholder="Choose file">
-                                      </div>
-                                      @error('file')
-                                          <div class="alert alert-danger mt-1 mb-1">{{ $status }}</div>
-                                      @enderror
-                                  </div>              
-                   
-                                  <div class="col-md-12">
-                                      <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                                  </div>
-                              </div>     
-                          </form>
+                        <form method="POST" action="{{ url('importLopHP') }}" accept-charset="utf-8"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="file" name="file" placeholder="Choose file">
+                                    </div>
+                                    @error('file')
+                                        <div class="alert alert-danger mt-1 mb-1">{{ $status }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
                         <form action="{{ route('lophp.store') }}" method="POST">
                             @csrf
                             <div class="form-row">
-                              <div class="form-group col-md-6">
-                                <label for="inputMaLop">Mã Lớp HP</label>
-                                <input type="text" class="form-control" name="malophp">
-                              </div>
-                              <div class="form-group col-md-6">
-                                <label for="inputHoTen">Tên Lớp HP</label>
-                                <input type="text" class="form-control" name="tenlophp">
-                              </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputMaLop">Mã Lớp HP</label>
+                                    <input type="text" class="form-control" name="malophp">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputHoTen">Tên Lớp HP</label>
+                                    <input type="text" class="form-control" name="tenlophp">
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                  <label for="inputMaLop">Sỉ Số</label>
-                                  <input type="number" class="form-control" name="siso" min="1">
+                                    <label for="inputMaLop">Sỉ Số</label>
+                                    <input type="number" class="form-control" name="siso" min="1">
                                 </div>
-                              </div>
+                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                  <label for="inputMaLop">Thời Gian</label>
-                                  <input type="text" class="form-control" name="thoigian">
+                                    <label for="inputMaLop">Thời Gian</label>
+                                    <input type="text" class="form-control" name="thoigian">
                                 </div>
                                 <div class="form-group col-md-6">
-                                  <label for="inputHoTen">Địa Điểm</label>
-                                  <input type="text" class="form-control" name="diadiem">
+                                    <label for="inputHoTen">Địa Điểm</label>
+                                    <input type="text" class="form-control" name="diadiem">
                                 </div>
-                              </div>
+                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputKhoa">Môn Học</label>
                                     <select name="mamh" class="form-control">
                                         <option selected>...</option>
                                         @foreach ($dataMH as $mh)
-                                        <option value="{{ $mh->MaMH }}">{{ $mh->MaMH }} - {{ $mh->TenMH }}</option>
+                                            <option value="{{ $mh->MaMH }}">{{ $mh->MaMH }} -
+                                                {{ $mh->TenMH }}</option>
                                         @endforeach
-                                      </select>
-                                  </div>
+                                    </select>
+                                </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputKhoa">Giảng viên</label>
                                     <select name="magv" class="form-control">
                                         <option selected>...</option>
                                         @foreach ($dataGV as $gv)
-                                        <option value="{{ $gv->MaGV }}">{{ $gv->MaGV }} - {{ $gv->TenGV }}</option>
+                                            <option value="{{ $gv->MaGV }}">{{ $gv->MaGV }} -
+                                                {{ $gv->TenGV }}</option>
                                         @endforeach
-                                      </select>
-                                  </div> 
+                                    </select>
+                                </div>
                             </div>
                             <div class="button-create">
-                                <button style="margin-right: 5px" type="submit" class="btn btn-success">Thêm Lớp HP</button>
-                                <button type="button" class="btn btn-danger" onclick="window.location='{{ route('lophp.index') }}'">Thoát</button>
+                                <button style="margin-right: 5px" type="submit" class="btn btn-success">Thêm Lớp
+                                    HP</button>
+                                <button type="button" class="btn btn-danger"
+                                    onclick="window.location='{{ route('lophp.index') }}'">Thoát</button>
                             </div>
                         </form>
                     </div>
@@ -241,7 +249,8 @@
     <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
     <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>

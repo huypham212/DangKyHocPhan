@@ -43,11 +43,13 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 20px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 20px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
@@ -148,59 +150,69 @@
             <div class="u-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> DANH
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
+                            DANH
                             SÁCH MÔN HỌC</h3>
                     </div>
                     <div class="card-body">
                         @foreach ($dataMH as $mh)
-                        <form action="{{ route('monhoc.update', $mh->MaMH) }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <div class="form-row">
-                              <div class="form-group col-md-6">
-                                <label for="inputMaLop">Mã Môn học</label>
-                                <input type="text" class="form-control" name="mamh" value="{{ $mh->MaMH }}">
-                              </div>
-                              <div class="form-group col-md-6">
-                                <label for="inputHoTen">Tên Môn học</label>
-                                <input type="text" class="form-control" name="tenmh" value="{{ $mh->TenMH }}">
-                              </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputHocPhi">Học Phí</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text" id="inputGroupPrepend3">VNĐ</span>
-                                        </div>
-                                        <input type="number" class="form-control" name="hocphi" aria-describedby="inputGroupPrepend3" step="1000" value="{{ $mh->HocPhi }}">
+                            <form action="{{ route('monhoc.update', $mh->MaMH) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputMaLop">Mã Môn học</label>
+                                        <input type="text" class="form-control" name="mamh"
+                                            value="{{ $mh->MaMH }}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputHoTen">Tên Môn học</label>
+                                        <input type="text" class="form-control" name="tenmh"
+                                            value="{{ $mh->TenMH }}">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputSoTC">Số tín chỉ</label>
-                                    <input type="number" class="form-control" name="sotc" min="1" max="4" value="{{ $mh->SoTC }}">
-                                  </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputKhoa">Ngành</label>
-                                    <select name="manganh" class="form-control">
-                                        <option>...</option>
-                                        @foreach ($dataNganh as $nganh)
-                                            @if ($nganh->MaNganh == $mh->MaNganh)
-                                                <option value="{{ $nganh->MaNganh }}" selected>{{ $nganh->MaNganh }} - {{ $nganh->TenNganh }}</option>
-                                            @else
-                                                <option value="{{ $nganh->MaNganh }}">{{ $nganh->MaNganh }} - {{ $nganh->TenNganh }}</option>
-                                            @endif
-                                        @endforeach
-                                      </select>
-                                  </div>
-                            </div>
-                            <div class="button-create">
-                                <button style="margin-right: 5px" type="submit" class="btn btn-success">Lưu thay đổi</button>
-                                <button type="button" class="btn btn-danger" onclick="window.location='{{ route('monhoc.index') }}'">Thoát</button>
-                            </div>
-                        </form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputHocPhi">Học Phí</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend3">VNĐ</span>
+                                            </div>
+                                            <input type="number" class="form-control" name="hocphi"
+                                                aria-describedby="inputGroupPrepend3" step="1000"
+                                                value="{{ $mh->HocPhi }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputSoTC">Số tín chỉ</label>
+                                        <input type="number" class="form-control" name="sotc" min="1" max="4"
+                                            value="{{ $mh->SoTC }}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputKhoa">Ngành</label>
+                                        <select name="manganh" class="form-control">
+                                            <option>...</option>
+                                            @foreach ($dataNganh as $nganh)
+                                                @if ($nganh->MaNganh == $mh->MaNganh)
+                                                    <option value="{{ $nganh->MaNganh }}" selected>
+                                                        {{ $nganh->MaNganh }} - {{ $nganh->TenNganh }}</option>
+                                                @else
+                                                    <option value="{{ $nganh->MaNganh }}">{{ $nganh->MaNganh }} -
+                                                        {{ $nganh->TenNganh }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="button-create">
+                                    <button style="margin-right: 5px" type="submit" class="btn btn-success">Lưu thay
+                                        đổi</button>
+                                    <button type="button" class="btn btn-danger"
+                                        onclick="window.location='{{ route('monhoc.index') }}'">Thoát</button>
+                                </div>
+                            </form>
                         @endforeach
 
                     </div>
@@ -211,22 +223,23 @@
         </div>
     </main>
 
-  <!-- Global Vendor -->
-  <script src="{{ URL::to('/') }}/assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <!-- Global Vendor -->
+    <script src="{{ URL::to('/') }}/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
-  <!-- Plugins -->
-  <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
-  <!-- Initialization  -->
-  <script src="{{ URL::to('/') }}/assets/js/sidebar-nav.js"></script>
-  <script src="{{ URL::to('/') }}/assets/js/main.js"></script>
-  <script src="{{ URL::to('/') }}/assets/js/dashboard-page-scripts.js"></script>
-  <!--<script src="assets/js/scripts.js"></script>-->
+    <!-- Plugins -->
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
+    <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
+    <!-- Initialization  -->
+    <script src="{{ URL::to('/') }}/assets/js/sidebar-nav.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/main.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/dashboard-page-scripts.js"></script>
+    <!--<script src="assets/js/scripts.js"></script>-->
 </body>
 
 </html>

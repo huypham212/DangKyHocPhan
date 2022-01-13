@@ -43,11 +43,13 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 20px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 20px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
@@ -146,74 +148,77 @@
 
         <div class="u-content">
             <div class="u-body">
-                @if(session('status'))
-        <script type="text/javascript">
-            $(window).on('load', function() {
-                $('#myModal').modal('show');
-            });
-        </script>
-        @endif
-        <div class="modal" id="myModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                @if (session('status'))
+                    <script type="text/javascript">
+                        $(window).on('load', function() {
+                            $('#myModal').modal('show');
+                        });
+                    </script>
+                @endif
+                <div class="modal" id="myModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>{{ session('status') }}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                  <p>{{session('status')}}</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> DANH
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
+                            DANH
                             SÁCH MÔN HỌC</h3>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('importMH') }}" accept-charset="utf-8" enctype="multipart/form-data">
-                            @csrf      
-                              <div class="row">
-                                  <div class="col-md-12">
-                                      <div class="form-group">
-                                          <input type="file" name="file" placeholder="Choose file">
-                                      </div>
-                                      @error('file')
-                                          <div class="alert alert-danger mt-1 mb-1">{{ $status }}</div>
-                                      @enderror
-                                  </div>              
-                   
-                                  <div class="col-md-12">
-                                      <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                                  </div>
-                              </div>     
-                          </form>
+                        <form method="POST" action="{{ url('importMH') }}" accept-charset="utf-8"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="file" name="file" placeholder="Choose file">
+                                    </div>
+                                    @error('file')
+                                        <div class="alert alert-danger mt-1 mb-1">{{ $status }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
                         <form action="{{ route('monhoc.store') }}" method="POST">
                             @csrf
                             <div class="form-row">
-                              <div class="form-group col-md-6">
-                                <label for="inputMaLop">Mã Môn học</label>
-                                <input type="text" class="form-control" name="mamh">
-                              </div>
-                              <div class="form-group col-md-6">
-                                <label for="inputHoTen">Tên Môn học</label>
-                                <input type="text" class="form-control" name="tenmh">
-                              </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputMaLop">Mã Môn học</label>
+                                    <input type="text" class="form-control" name="mamh">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputHoTen">Tên Môn học</label>
+                                    <input type="text" class="form-control" name="tenmh">
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputHocPhi">Học Phí</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                          <span class="input-group-text" id="inputGroupPrepend3">VNĐ</span>
+                                            <span class="input-group-text" id="inputGroupPrepend3">VNĐ</span>
                                         </div>
-                                        <input type="number" class="form-control" name="hocphi" aria-describedby="inputGroupPrepend3" step="1000">
+                                        <input type="number" class="form-control" name="hocphi"
+                                            aria-describedby="inputGroupPrepend3" step="1000">
                                     </div>
                                 </div>
                             </div>
@@ -221,20 +226,23 @@
                                 <div class="form-group col-md-6">
                                     <label for="inputSoTC">Số tín chỉ</label>
                                     <input type="number" class="form-control" name="sotc" min="1" max="4">
-                                  </div>
+                                </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputKhoa">Ngành</label>
                                     <select name="manganh" class="form-control">
                                         <option selected>...</option>
                                         @foreach ($dataNganh as $nganh)
-                                        <option value="{{ $nganh->MaNganh }}">{{ $nganh->MaNganh }} - {{ $nganh->TenNganh }}</option>
+                                            <option value="{{ $nganh->MaNganh }}">{{ $nganh->MaNganh }} -
+                                                {{ $nganh->TenNganh }}</option>
                                         @endforeach
-                                      </select>
-                                  </div>
+                                    </select>
+                                </div>
                             </div>
                             <div class="button-create">
-                                <button style="margin-right: 5px" type="submit" class="btn btn-success">Thêm Môn học</button>
-                                <button type="button" class="btn btn-danger" onclick="window.location='{{ route('giangvien.index') }}'">Thoát</button>
+                                <button style="margin-right: 5px" type="submit" class="btn btn-success">Thêm Môn
+                                    học</button>
+                                <button type="button" class="btn btn-danger"
+                                    onclick="window.location='{{ route('giangvien.index') }}'">Thoát</button>
                             </div>
                         </form>
 
@@ -246,22 +254,23 @@
         </div>
     </main>
 
-  <!-- Global Vendor -->
-  <script src="{{ URL::to('/') }}/assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <!-- Global Vendor -->
+    <script src="{{ URL::to('/') }}/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
-  <!-- Plugins -->
-  <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
-  <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
-  <!-- Initialization  -->
-  <script src="{{ URL::to('/') }}/assets/js/sidebar-nav.js"></script>
-  <script src="{{ URL::to('/') }}/assets/js/main.js"></script>
-  <script src="{{ URL::to('/') }}/assets/js/dashboard-page-scripts.js"></script>
-  <!--<script src="assets/js/scripts.js"></script>-->
+    <!-- Plugins -->
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
+    <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
+    <!-- Initialization  -->
+    <script src="{{ URL::to('/') }}/assets/js/sidebar-nav.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/main.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/dashboard-page-scripts.js"></script>
+    <!--<script src="assets/js/scripts.js"></script>-->
 </body>
 
 </html>

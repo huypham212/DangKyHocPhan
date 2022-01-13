@@ -68,7 +68,8 @@
             <div class="u-sidebar-inner bg-gradient bdrs-30">
                 <header class="u-sidebar-header">
                     <a class="u-sidebar-logo" href="#">
-                        <img class="img-fluid" src="{{ URL::to('/') }}/assets/img/logo.png" width="124" alt="Stream Dashboard">
+                        <img class="img-fluid" src="{{ URL::to('/') }}/assets/img/logo.png" width="124"
+                            alt="Stream Dashboard">
                     </a>
                 </header>
 
@@ -150,29 +151,31 @@
             <div class="u-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> THÊM SINH VIÊN</h3>
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
+                            THÊM SINH VIÊN</h3>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ url('importSV') }}" accept-charset="utf-8" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('importSV') }}" accept-charset="utf-8"
+                            enctype="multipart/form-data">
 
                             @csrf
-                                    
-                              <div class="row">
-                  
-                                  <div class="col-md-12">
-                                      <div class="form-group">
-                                          <input type="file" name="file" placeholder="Choose file">
-                                      </div>
-                                      @error('file')
-                                          <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                      @enderror
-                                  </div>              
-                   
-                                  <div class="col-md-12">
-                                      <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                                  </div>
-                              </div>     
-                          </form>
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="file" name="file" placeholder="Choose file">
+                                    </div>
+                                    @error('file')
+                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
                         <form action="{{ route('sinhvien.store') }}" method="POST">
                             @csrf
                             <div class="form-row">
@@ -182,8 +185,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputHoTen">Họ và tên</label>
-                                    <input type="text" class="form-control" name="tensv"
-                                        placeholder="Nguyễn Văn A">
+                                    <input type="text" class="form-control" name="tensv" placeholder="Nguyễn Văn A">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -201,16 +203,12 @@
                                     <label for="inputGioiTinh">Giới tính</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio"
-                                                name="gioitinh" value="Nam">
-                                            <label class="form-check-label"
-                                                for="inlineRdNam">Nam</label>
+                                            <input class="form-check-input" type="radio" name="gioitinh" value="Nam">
+                                            <label class="form-check-label" for="inlineRdNam">Nam</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio"
-                                                name="gioitinh" value="Nu">
-                                            <label class="form-check-label"
-                                                for="inlineRdNu">Nữ</label>
+                                            <input class="form-check-input" type="radio" name="gioitinh" value="Nu">
+                                            <label class="form-check-label" for="inlineRdNu">Nữ</label>
                                         </div>
                                     </div>
                                 </div>
@@ -222,8 +220,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputMatKhau">Mật khẩu</label>
-                                    <input type="password" name="matkhau"
-                                        class="form-control">
+                                    <input type="password" name="matkhau" class="form-control">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -249,8 +246,10 @@
                                 </div>
                             </div>
                             <div class="button-create">
-                                <button style="margin-right: 5px" type="submit" class="btn btn-success">Thêm sinh viên</button>
-                                <button type="button" class="btn btn-danger" onclick="window.location='{{ route('sinhvien.index') }}'">Thoát</button>
+                                <button style="margin-right: 5px" type="submit" class="btn btn-success">Thêm sinh
+                                    viên</button>
+                                <button type="button" class="btn btn-danger"
+                                    onclick="window.location='{{ route('sinhvien.index') }}'">Thoát</button>
                             </div>
                         </form>
                     </div>
@@ -266,7 +265,8 @@
     <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
     <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>

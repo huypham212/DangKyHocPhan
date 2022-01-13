@@ -43,11 +43,13 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 20px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 20px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
@@ -148,26 +150,30 @@
             <div class="u-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> THÊM LỚP</h3>
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
+                            THÊM LỚP</h3>
                     </div>
                     <div class="card-body">
                         @foreach ($dataLop as $lop)
                             <form action="{{ route('lop.update', $lop->MaLop) }}" method="POST">
                                 @csrf
                                 <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputMaLop">Mã Lớp</label>
-                                    <input type="text" class="form-control" name="malop" value="{{ $lop->MaLop }}">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputHoTen">Tên Lớp</label>
-                                    <input type="text" class="form-control" name="tenlop" value="{{ $lop->TenLop }}">
-                                </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputMaLop">Mã Lớp</label>
+                                        <input type="text" class="form-control" name="malop"
+                                            value="{{ $lop->MaLop }}">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputHoTen">Tên Lớp</label>
+                                        <input type="text" class="form-control" name="tenlop"
+                                            value="{{ $lop->TenLop }}">
+                                    </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputEmail">Niên Khoá</label>
-                                        <input type="text" class="form-control" name="nienkhoa" value="{{ $lop->NienKhoa }}">
+                                        <input type="text" class="form-control" name="nienkhoa"
+                                            value="{{ $lop->NienKhoa }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputKhoa">Khoa</label>
@@ -175,20 +181,24 @@
                                             <option>...</option>
                                             @foreach ($dataKhoa as $khoa)
                                                 @if ($khoa->MaKhoa == $lop->MaKhoa)
-                                                    <option value="{{ $khoa->MaKhoa }}" selected>{{ $khoa->MaKhoa }} - {{ $khoa->TenKhoa }}</option>
+                                                    <option value="{{ $khoa->MaKhoa }}" selected>
+                                                        {{ $khoa->MaKhoa }} - {{ $khoa->TenKhoa }}</option>
                                                 @else
-                                                    <option value="{{ $khoa->MaKhoa }}">{{ $khoa->MaKhoa }} - {{ $khoa->TenKhoa }}</option>
+                                                    <option value="{{ $khoa->MaKhoa }}">{{ $khoa->MaKhoa }} -
+                                                        {{ $khoa->TenKhoa }}</option>
                                                 @endif
                                             @endforeach
-                                          </select>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="button-create">
-                                    <button style="margin-right: 5px" type="submit" class="btn btn-success">Lưu thay đổi</button>
-                                    <button type="button" class="btn btn-danger" onclick="window.location='{{ route('lop.index') }}'">Thoát</button>
+                                    <button style="margin-right: 5px" type="submit" class="btn btn-success">Lưu thay
+                                        đổi</button>
+                                    <button type="button" class="btn btn-danger"
+                                        onclick="window.location='{{ route('lop.index') }}'">Thoát</button>
                                 </div>
                             </form>
-                            
+
                         @endforeach
                     </div>
                 </div>
@@ -198,22 +208,23 @@
         </div>
     </main>
 
-      <!-- Global Vendor -->
-      <script src="{{ URL::to('/') }}/assets/vendor/jquery/dist/jquery.min.js"></script>
-      <script src="{{ URL::to('/') }}/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-      <script src="{{ URL::to('/') }}/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-      <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
-  
-      <!-- Plugins -->
-      <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
-      <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
-      <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
-      <!-- Initialization  -->
-      <script src="{{ URL::to('/') }}/assets/js/sidebar-nav.js"></script>
-      <script src="{{ URL::to('/') }}/assets/js/main.js"></script>
-      <script src="{{ URL::to('/') }}/assets/js/dashboard-page-scripts.js"></script>
-      <!--<script src="assets/js/scripts.js"></script>-->
+    <!-- Global Vendor -->
+    <script src="{{ URL::to('/') }}/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
+    <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
+    <!-- Initialization  -->
+    <script src="{{ URL::to('/') }}/assets/js/sidebar-nav.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/main.js"></script>
+    <script src="{{ URL::to('/') }}/assets/js/dashboard-page-scripts.js"></script>
+    <!--<script src="assets/js/scripts.js"></script>-->
 </body>
 
 </html>

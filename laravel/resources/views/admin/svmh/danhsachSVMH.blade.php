@@ -43,11 +43,13 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light menu-header">
             <a class="navbar-brand logo-header" href="#">
-                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px" style="margin-left: 20px; margin-right: 26px;" alt="logo" />
+                <img src="{{ URL::to('/') }}/img/logo.png" width="27px" height="45px"
+                    style="margin-left: 20px; margin-right: 26px;" alt="logo" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="left-menu-header">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập từ khoá để tìm kiếm"
+                        aria-label="Search">
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="right-menu-header">
@@ -148,87 +150,101 @@
             <div class="u-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> TRẠNG THÁI MÔN HỌC CỦA SINH VIÊN</h3>
+                        <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
+                            TRẠNG THÁI MÔN HỌC CỦA SINH VIÊN</h3>
                     </div>
                     <div class="card-body">
                         <div class="nav-danhsach justify-content-between">
                             <div class="nav-danhsach-left">
-                                <input class="form-control mr-sm-2" style="width: 300px" type="search" placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
+                                <input class="form-control mr-sm-2" style="width: 300px" type="search"
+                                    placeholder="Nhập từ khoá để tìm kiếm" aria-label="Search">
                                 <i class="fas fa-search"></i>
                             </div>
                         </div>
 
-                        @foreach ($dataSV as $sv) 
-                        <div style="width: 100%;">
-                            <button type="button" class="collapse-button" data-toggle="collapse"
-                                data-target="#_{{ $sv->MaSV }}">
-                                <p class="collapse-button-text">{{ $sv->MaSV }} - {{ $sv->TenSV }}</p>
-                                <i class="fas fa-caret-right collapse-button-icon"></i></button>
-                            <div id="_{{ $sv->MaSV }}" class="collapse table-wrapper-scroll-y my-custom-scrollbar">
-                                <table class="table table-hover table-striped mb-0">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                STT</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Mã môn học</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Tên môn học</th>
-                                            <th style='text-align:center; font-size:14px; font-weight:bold' scope="col">
-                                                Trạng thái</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <p hidden>{{ $index = 1 }}</p>
-                                        @foreach ($dataSVMH as $svmh)
-                                            @if ($svmh->MaSV == $sv->MaSV)
+                        @foreach ($dataSV as $sv)
+                            <div style="width: 100%;">
+                                <button type="button" class="collapse-button" data-toggle="collapse"
+                                    data-target="#_{{ $sv->MaSV }}">
+                                    <p class="collapse-button-text">{{ $sv->MaSV }} - {{ $sv->TenSV }}</p>
+                                    <i class="fas fa-caret-right collapse-button-icon"></i>
+                                </button>
+                                <div id="_{{ $sv->MaSV }}"
+                                    class="collapse table-wrapper-scroll-y my-custom-scrollbar">
+                                    <table class="table table-hover table-striped mb-0">
+                                        <thead class="thead-light">
                                             <tr>
-                                                <td class="align-middle" style='text-align:center; font-size:14px'>{{ $index++ }}</td>
-                                                <td class="align-middle" style='text-align:center; font-size:14px'>{{ $svmh->MaMH }}</td>
-                                                @foreach ($dataMH as $mh)
-                                                    @if ($mh->MaMH == $svmh->MaMH)
-                                                    <td class="align-middle" style='text-align:center; font-size:14px'>{{ $mh->TenMH }}</td>
-                                                    @endif
-                                                @endforeach
-                                                <td class="align-middle" style='text-align:center'>
-                                                    <select class="form-control" id="stateSelect" disabled>
-                                                        @if ($svmh->TrangThai == "Đã hoàn thành")
-                                                        <option selected>Đã hoàn thành</option>
-                                                        <option>Đang hoàn thành</option>
-                                                        <option>Đã trượt</option>
-                                                        <option>Đã huỷ</option>
-                                                        @else
-                                                            @if ($svmh->TrangThai == "Đã huỷ")
-                                                                <option>Đã hoàn thành</option>
-                                                                <option>Đang hoàn thành</option>
-                                                                <option>Đã trượt</option>
-                                                                <option selected>Đã huỷ</option>
-                                                            @else
-                                                                @if ($svmh->TrangThai == "Đang hoàn thành")
-                                                                    <option>Đã hoàn thành</option>
-                                                                    <option selected>Đang hoàn thành</option>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    STT</th>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    Mã môn học</th>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    Tên môn học</th>
+                                                <th style='text-align:center; font-size:14px; font-weight:bold'
+                                                    scope="col">
+                                                    Trạng thái</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <p hidden>{{ $index = 1 }}</p>
+                                            @foreach ($dataSVMH as $svmh)
+                                                @if ($svmh->MaSV == $sv->MaSV)
+                                                    <tr>
+                                                        <td class="align-middle"
+                                                            style='text-align:center; font-size:14px'>
+                                                            {{ $index++ }}</td>
+                                                        <td class="align-middle"
+                                                            style='text-align:center; font-size:14px'>
+                                                            {{ $svmh->MaMH }}</td>
+                                                        @foreach ($dataMH as $mh)
+                                                            @if ($mh->MaMH == $svmh->MaMH)
+                                                                <td class="align-middle"
+                                                                    style='text-align:center; font-size:14px'>
+                                                                    {{ $mh->TenMH }}</td>
+                                                            @endif
+                                                        @endforeach
+                                                        <td class="align-middle" style='text-align:center'>
+                                                            <select class="form-control" id="stateSelect" disabled>
+                                                                @if ($svmh->TrangThai == 'Đã hoàn thành')
+                                                                    <option selected>Đã hoàn thành</option>
+                                                                    <option>Đang hoàn thành</option>
                                                                     <option>Đã trượt</option>
                                                                     <option>Đã huỷ</option>
                                                                 @else
-                                                                    <option>Đã hoàn thành</option>
-                                                                    <option>Đang hoàn thành</option>
-                                                                    <option selected>Đã trượt</option>
-                                                                    <option>Đã huỷ</option>
+                                                                    @if ($svmh->TrangThai == 'Đã huỷ')
+                                                                        <option>Đã hoàn thành</option>
+                                                                        <option>Đang hoàn thành</option>
+                                                                        <option>Đã trượt</option>
+                                                                        <option selected>Đã huỷ</option>
+                                                                    @else
+                                                                        @if ($svmh->TrangThai == 'Đang hoàn thành')
+                                                                            <option>Đã hoàn thành</option>
+                                                                            <option selected>Đang hoàn thành</option>
+                                                                            <option>Đã trượt</option>
+                                                                            <option>Đã huỷ</option>
+                                                                        @else
+                                                                            <option>Đã hoàn thành</option>
+                                                                            <option>Đang hoàn thành</option>
+                                                                            <option selected>Đã trượt</option>
+                                                                            <option>Đã huỷ</option>
+                                                                        @endif
+                                                                    @endif
                                                                 @endif
-                                                            @endif
-                                                        @endif
-                                                      </select>
-                                                </td>
-                                            </tr>
-                                            @endif
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
 
-                        
+
 
                     </div>
                 </div>
@@ -245,7 +261,8 @@
     <script src="{{ URL::to('/') }}/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- Plugins -->
-    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="{{ URL::to('/') }}/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js">
+    </script>
     <script src="{{ URL::to('/') }}/assets/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery.nice-select.min.js"></script>
     <script src="{{ URL::to('/') }}/assets/js/jquery-ui.min.js"></script>
