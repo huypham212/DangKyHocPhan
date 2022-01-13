@@ -206,7 +206,7 @@
                                                 @endif
                                             @endforeach
                                             <td class="align-middle" style='text-align:center; font-size:14px'>
-                                                20/{{ $lophp->SiSo }}</td>
+                                                {{ $lophp->SiSo }}/30</td>
                                             <td class="align-middle" style='text-align:center'>
                                                 <form action="{{ route('lophp.destroy', $lophp->MaLopHP) }}" method="POST">
                                                     @csrf
