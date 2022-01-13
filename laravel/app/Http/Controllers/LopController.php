@@ -97,7 +97,7 @@ class LopController extends Controller
             'makhoa' => $request->input('makhoa')
         ]);
 
-        return redirect('/lop');
+        return redirect('/lop')->with('status', "Thay đổi thành công thông tin môn học $malop");
     }
 
     /**
@@ -110,6 +110,6 @@ class LopController extends Controller
     {
         $lop = Lop::where('MaLop', $malop)->delete();
 
-        return redirect('/lop');
+        return redirect('/lop')->with('status', "Xoá thành công môn học $malop");
     }
 }

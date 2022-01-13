@@ -148,6 +148,11 @@
 
         <div class="u-content">
             <div class="u-body">
+                @if(session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+                @endif
                 <div class="card">
                     <div class="card-header">
                         <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
@@ -203,7 +208,7 @@
                                 <button style="margin-right: 5px" type="submit" class="btn btn-success">Thêm
                                     Lớp</button>
                                 <button type="button" class="btn btn-danger"
-                                    onclick="window.location='{{ route('giangvien.index') }}'">Thoát</button>
+                                    onclick="window.location='{{ route('lop.index') }}'">Thoát</button>
                             </div>
                         </form>
                     </div>

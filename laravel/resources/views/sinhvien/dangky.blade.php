@@ -120,7 +120,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
         <div class="card">
             <div class="card-header">
                 <h6><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> Chương

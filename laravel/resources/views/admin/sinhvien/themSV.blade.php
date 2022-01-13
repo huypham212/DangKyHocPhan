@@ -149,6 +149,11 @@
 
         <div class="u-content">
             <div class="u-body">
+                @if(session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+                @endif
                 <div class="card">
                     <div class="card-header">
                         <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
@@ -157,11 +162,8 @@
                     <div class="card-body">
                         <form method="POST" action="{{ url('importSV') }}" accept-charset="utf-8"
                             enctype="multipart/form-data">
-
                             @csrf
-
                             <div class="row">
-
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <input type="file" name="file" placeholder="Choose file">

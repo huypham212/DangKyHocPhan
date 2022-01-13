@@ -98,7 +98,7 @@ class GiangvienController extends Controller
             'makhoa' => $request->input('makhoa')
         ]);
 
-        return redirect('/giangvien');
+        return redirect('/giangvien')->with('status', "Thay đổi thành công thông tin môn học $magv");
     }
 
     /**
@@ -111,6 +111,6 @@ class GiangvienController extends Controller
     {
         $sv = Giangvien::where('MaGV', $magv)->delete();
 
-        return redirect('/giangvien');
+        return redirect('/giangvien')->with('status', "Xoá thành công môn học $magv");
     }
 }

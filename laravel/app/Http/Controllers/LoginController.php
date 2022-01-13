@@ -37,7 +37,7 @@ class LoginController extends Controller
 
                     SESSION::put('masv', $masv);
                     if ($check_sv[0]->isFirstLogin == 0) {
-                        return redirect('password');
+                        return redirect('password')->with('status', "Vui lòng đổi mật khẩu cho lần đăng nhập đầu tiên!");
                     } else {
                         return redirect('dangky');
                     }

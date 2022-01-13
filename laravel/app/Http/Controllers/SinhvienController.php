@@ -129,7 +129,7 @@ class SinhvienController extends Controller
             'isfirstlogin' => 0
         ]);
 
-        return redirect('/sinhvien');
+        return redirect('/sinhvien')->with('status', "Thay đổi thành công thông tin môn học $masv");
     }
 
     /**
@@ -143,6 +143,6 @@ class SinhvienController extends Controller
         $sv = Sinhvien::where('MaSV', $masv)->delete();
 
 
-        return redirect('/sinhvien');
+        return redirect('/sinhvien')->with('status', "Xoá thành công môn học $masv");
     }
 }

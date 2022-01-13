@@ -114,7 +114,7 @@ class LopHPController extends Controller
             'mamh' => $request->input('mamh')
         ]);
 
-        return redirect('/lophp');
+        return redirect('/lophp')->with('status', "Thay đổi thành công thông tin môn học $malophp");
     }
 
     /**
@@ -127,6 +127,6 @@ class LopHPController extends Controller
     {
         $lophp = LopHP::where('MaLopHP', $malophp)->delete();
 
-        return redirect('/lophp');
+        return redirect('/lophp')->with('status', "Xoá thành công môn học $malophp");
     }
 }

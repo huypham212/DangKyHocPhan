@@ -116,6 +116,6 @@ class MonhocController extends Controller
     {
         $mh = Monhoc::where('MaMH', $mamh)->delete();
 
-        return redirect('/monhoc')->with('status', "Xoá thành công môn học $mamh");
+        return back()->with('status', "Xoá thành công môn học $mamh");
     }
 }

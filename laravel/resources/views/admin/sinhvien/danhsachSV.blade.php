@@ -148,6 +148,11 @@
 
         <div class="u-content">
             <div class="u-body">
+                @if(session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+                @endif
                 <div class="card">
                     <div class="card-header">
                         <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />

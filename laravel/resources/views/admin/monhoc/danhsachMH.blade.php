@@ -148,11 +148,15 @@
 
         <div class="u-content">
             <div class="u-body">
+                @if(session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+              @endif
                 <div class="card">
                     <div class="card-header">
                         <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
-                            DANH
-                            SÁCH MÔN HỌC</h3>
+                            DANH SÁCH MÔN HỌC</h3>
                     </div>
                     <div class="card-body">
                         <div class="nav-danhsach justify-content-between">
@@ -202,8 +206,7 @@
                                             <td class="align-middle" style='text-align:center; font-size:14px'>
                                                 {{ $mh->MaNganh }}</td>
                                             <td class="align-middle" style='text-align:center'>
-                                                <form action="{{ route('monhoc.destroy', $mh->MaMH) }}"
-                                                    method="POST">
+                                                <form action="{{ route('monhoc.destroy', $mh->MaMH) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button
