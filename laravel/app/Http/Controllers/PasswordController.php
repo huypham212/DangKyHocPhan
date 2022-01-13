@@ -25,14 +25,12 @@ class PasswordController extends Controller
         $check_pass = DB::table('sinhvien')->where('MaSV', $masv)->select('MatKhau')->get();
         $pass = implode(" ", array_column(json_decode($check_pass, true), 'MatKhau'));
 
-        if($old_pass != $pass){
+        if ($old_pass != $pass) {
             return redirect()->back();
-        } 
-        else {
-            if($new__pass != $cfr_pass) {
+        } else {
+            if ($new__pass != $cfr_pass) {
                 return redirect()->back();
-            }
-            else {
+            } else {
                 $sv = Sinhvien::where('MaSV', $masv)->update([
                     'matkhau' => $cfr_pass,
                     'isfirstlogin' => 1

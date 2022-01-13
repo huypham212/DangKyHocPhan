@@ -29,15 +29,15 @@ class DangKyController extends Controller
         $lop = implode(" ", array_column(json_decode($lop_raw, true), 'MaLop'));
 
         $exist_lophp = DB::table('lop_hp')
-                        ->select(array('monhoc.mamh', DB::raw('COUNT(lop_hp.malophp) as soluong')))
-                        ->join('monhoc', 'monhoc.mamh', '=', 'lop_hp.mamh')
-                        ->groupBy('monhoc.mamh')
-                        ->get();
+            ->select(array('monhoc.mamh', DB::raw('COUNT(lop_hp.malophp) as soluong')))
+            ->join('monhoc', 'monhoc.mamh', '=', 'lop_hp.mamh')
+            ->groupBy('monhoc.mamh')
+            ->get();
 
         $dataLopHP = LopHP::all();
         $dataMH = Monhoc::all();
         $dataGV = Giangvien::all();
-        $dataSVMH = SVMH::where('MaSV', $masv)->get(); 
+        $dataSVMH = SVMH::where('MaSV', $masv)->get();
 
         //dd($dataMH, $dataSVMH, $exist_lophp);
 
@@ -76,7 +76,7 @@ class DangKyController extends Controller
         $malophp = $request->input('malophp');
         $get_mamh = LopHP::where('MaLopHP', $malophp)->select('MaMH')->get();
         $mamh = implode(" ", array_column(json_decode($get_mamh, true), 'MaMH'));
-        
+
         //dd($masv, $malophp, $mamh);
         $dsdk = DSDK::create([
             'masv' => $masv,
@@ -125,11 +125,7 @@ class DangKyController extends Controller
      */
     public function update(Request $request, $malophp)
     {
-        $current_siso = LopHP::where('MaLopHP', $malophp)->select('SiSo')->get();
-
-        $lophp = LopHP::where('MaLopHP', $malophp).update([
-            'siso' => $current_siso + 1
-        ]);
+        //
     }
 
     /**

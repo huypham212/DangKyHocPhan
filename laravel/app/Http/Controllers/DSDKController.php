@@ -42,9 +42,8 @@ class DSDKController extends Controller
             'hocky' => 1,
             'namhoc' => 2018
         ]);
-        
+
         return route('dangky.index');
-        
     }
 
     /**

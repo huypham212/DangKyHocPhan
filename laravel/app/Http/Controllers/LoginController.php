@@ -24,37 +24,32 @@ class LoginController extends Controller
         $masv = $request->input('masv');
         $password = $request->input('password');
 
-        if($masv == 'admin' && $password == 'admin') {
+        if ($masv == 'admin' && $password == 'admin') {
             return redirect(route('sinhvien.index'));
-        }
-        else{
+        } else {
             $check_sv = DB::table('sinhvien')->where('MaSV', $masv)->get()->toArray();
 
-            if($check_sv == null) {
+            if ($check_sv == null) {
                 return back()->with('status', 'Không tồn tại mã sinh viên này!');
-            }
-            else {
-                
-                if($check_sv[0]->MatKhau == $password) {
+            } else {
+
+                if ($check_sv[0]->MatKhau == $password) {
 
                     SESSION::put('masv', $masv);
-                    if($check_sv[0]->isFirstLogin == 0) {
+                    if ($check_sv[0]->isFirstLogin == 0) {
                         return redirect('password');
-                    }
-                    else{
+                    } else {
                         return redirect('dangky');
                     }
-                    
-                }
-                else {
+                } else {
                     return back()->with('status', 'Sai mật khẩu!');
                 }
-
             }
         }
     }
 
-    public function log_out() {
+    public function log_out()
+    {
         SESSION::put('masv', null);
 
         return redirect('login');

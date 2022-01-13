@@ -14,7 +14,7 @@ class LopController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $data = Lop::all();
         return view('admin.lop.danhsachLop', [
             'data' => $data,

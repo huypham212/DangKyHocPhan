@@ -43,7 +43,7 @@ class MonhocController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $mamh = $request->input('mamh');
         //dd($request->all());
         $mh = Monhoc::create([

@@ -26,7 +26,7 @@ class ImportMHController extends Controller
         ]);
 
         $res = Excel::import(new MonhocsImport, $request->file('file'));
-        
+
         return back()->with('status', "Import dữ liệu thành công!");
     }
 }

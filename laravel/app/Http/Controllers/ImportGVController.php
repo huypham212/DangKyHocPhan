@@ -24,7 +24,7 @@ class ImportGVController extends Controller
             'file' => 'required',
         ]);
 
-        Excel::import(new GiangviensImport,$request->file('file'));
+        Excel::import(new GiangviensImport, $request->file('file'));
 
         return back();
     }

@@ -18,15 +18,15 @@ class SinhvienController extends Controller
     public function index()
     {
         $exist_sv = DB::table('sinhvien')
-                        ->select(array('lop.malop', DB::raw('COUNT(sinhvien.masv) as siso')))
-                        ->join('lop', 'lop.malop', '=', 'sinhvien.malop')
-                        ->groupBy('lop.malop')
-                        ->get(); 
-        
+            ->select(array('lop.malop', DB::raw('COUNT(sinhvien.masv) as siso')))
+            ->join('lop', 'lop.malop', '=', 'sinhvien.malop')
+            ->groupBy('lop.malop')
+            ->get();
+
         $dataNganh = Nganh::all();
         $dataSV = Sinhvien::all();
         $dataLop = Lop::all();
-        
+
         return view('admin.sinhvien.danhsachSV', [
             'dataSV' => $dataSV,
             'dataLop' => $dataLop,
@@ -104,7 +104,6 @@ class SinhvienController extends Controller
             'dataLop' => $dataLop,
             'dataNganh' => $dataNganh,
         ]);
-        
     }
 
     /**

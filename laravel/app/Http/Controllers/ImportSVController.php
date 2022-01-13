@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\DB;
 
 class ImportSVController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $dataNganh = Nganh::all();
         $dataLop = Lop::all();
-        
+
         return view('admin.sinhvien.themSV', [
             'dataLop' => $dataLop,
             'dataNganh' => $dataNganh
@@ -28,8 +29,8 @@ class ImportSVController extends Controller
         $validatedData = $request->validate([
             'file' => 'required',
         ]);
-        
-        Excel::import(new SinhviensImport,$request->file('file'));
+
+        Excel::import(new SinhviensImport, $request->file('file'));
 
         return back();
     }

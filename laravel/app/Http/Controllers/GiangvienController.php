@@ -14,7 +14,7 @@ class GiangvienController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $dataGV = Giangvien::all();
         return view('admin.giangvien.danhsachGV', [
             'dataGV' => $dataGV,

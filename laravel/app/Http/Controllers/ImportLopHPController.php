@@ -32,7 +32,7 @@ class ImportLopHPController extends Controller
             'file' => 'required',
         ]);
 
-        Excel::import(new LopHPsImport,$request->file('file'));
+        Excel::import(new LopHPsImport, $request->file('file'));
 
         return back()->with('status', 'Import thành công các lớp học phần');
     }
