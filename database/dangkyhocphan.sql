@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 10:01 AM
+-- Generation Time: Jan 15, 2022 at 06:50 AM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `ds_dangky` (
   `MaSV` varchar(10) NOT NULL,
-  `MaLopHP` varchar(10) NOT NULL,
+  `MaLopHP` varchar(20) NOT NULL,
   `HocKy` varchar(3) NOT NULL,
-  `NamHoc` year(4) NOT NULL
+  `NamHoc` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -54,9 +54,15 @@ CREATE TABLE `giangvien` (
 
 INSERT INTO `giangvien` (`MaGV`, `TenGV`, `GioiTinh`, `Email`, `MaKhoa`) VALUES
 ('GV001', 'Nguyễn Văn Hoàn', 'Nam', 'hoannguyen@gmail.com', 'CNTT-TCKGM'),
-('GV002', 'Vũ Văn Cảnh', 'Nam', 'canhvan@gmail.com', 'CNTT-TCKGM'),
-('GV003', 'Đỗ Văn Tuấn', 'Nam', 'vantuan@gmail.com', 'CNTT-TCKGM'),
-('GV004', 'Trương Phi Hồ', 'Nam', 'phiho@gmail.com', 'CNTT-TCKGM');
+('GV002', 'Vũ Văn Cảnh', 'Nam', 'canhvuvan@gmail.com', 'CNTT-TCKGM'),
+('GV003', 'Hồ Kim Giàu', 'Nam', 'kimgiau@gmail.com', 'DTVT'),
+('GV004', 'Lê Võ Đại', 'Nam', 'daivo@gmail.com', 'KCB'),
+('GV005', 'Đặng Thế Hiếu', 'Nam', 'dangthehieu@gmail.com', 'KCB'),
+('GV006', 'Võ Văn Tuấn', 'Nam', 'tuanvo@gmail.com', 'DTVT'),
+('GV007', 'Nguyễn Tuấn Anh', 'Nam', 'tuananh@gmail.com', 'KCS'),
+('GV008', 'Nguyễn Kim Chi', 'Nữ', 'kimchi@gmail.com', 'KCS'),
+('GV009', 'Bùi Công Nam', 'Nam', 'congnam@gmail.com', 'CNTT-TCKGM'),
+('GV010', 'Lê Thị Giang', 'Nữ', 'legiang@gmail.com', 'CNTT-TCKGM');
 
 -- --------------------------------------------------------
 
@@ -76,7 +82,8 @@ CREATE TABLE `khoa` (
 INSERT INTO `khoa` (`MaKhoa`, `TenKhoa`) VALUES
 ('CNTT-TCKGM', 'Khoa Công nghệ thông tin - Tác chiến Không gian mạng'),
 ('DTVT', 'Điện tử viễn thông'),
-('KCB', 'Khoa Cơ bản');
+('KCB', 'Khoa Cơ bản'),
+('KCS', 'Khoa Cơ sở');
 
 -- --------------------------------------------------------
 
@@ -110,7 +117,7 @@ INSERT INTO `lop` (`MaLop`, `TenLop`, `NienKhoa`, `MaKhoa`) VALUES
 --
 
 CREATE TABLE `lop_hp` (
-  `MaLopHP` varchar(10) NOT NULL,
+  `MaLopHP` varchar(20) NOT NULL,
   `TenLopHP` varchar(100) NOT NULL,
   `SiSo` tinyint(4) NOT NULL,
   `ThoiGian` varchar(100) NOT NULL,
@@ -124,10 +131,19 @@ CREATE TABLE `lop_hp` (
 --
 
 INSERT INTO `lop_hp` (`MaLopHP`, `TenLopHP`, `SiSo`, `ThoiGian`, `DiaDiem`, `MaGV`, `MaMH`) VALUES
-('CSDL-L01', 'Nhập môn cơ sở dữ liệu - L01', 30, 'Thứ 4 - Tiết 3, 4, 5', 'Phòng C203', 'GV003', 'MH002'),
-('CSDL-L02', 'Nhập môn cơ sở dữ liệu - L02', 30, 'Thứ 4 - Tiết 3, 4, 5', 'Phòng B203', 'GV004', 'MH002'),
-('LTC-L01', 'Lập trình C - L01', 30, 'Thứ 2 - Tiết 1, 2, 3', 'Phòng B302', 'GV001', 'MH001'),
-('LTC-L02', 'Lập trình C - L02', 30, 'Thứ 2 - Tiết 6, 7, 8', 'Phòng B304', 'GV002', 'MH001');
+('MH001-LHP001', 'Hệ thống nhúng-L01', 0, 'Thứ 2 - Tiết1,2,3', 'Phòng B202', 'GV003', 'MH001'),
+('MH001-LHP002', 'Hệ thống nhúng-L02', 0, 'Thứ 2 - Tiết1,2,3', 'Phòng B203', 'GV006', 'MH001'),
+('MH003-LHP001', 'Kiến trúc máy tính-L01', 0, 'Thứ 2 - Tiết 4,5,6', 'Phòng B302', 'GV001', 'MH003'),
+('MH003-LHP002', 'Kiến trúc máy tính-L02', 0, 'Thứ 3 - Tiết 1,2,3', 'Phòng B202', 'GV002', 'MH003'),
+('MH005-LHP001', 'Quản trị hệ thống mạng-L01', 0, 'Thứ 3 - Tiết 1,2,3', 'Phòng B203', 'GV001', 'MH005'),
+('MH005-LHP002', 'Quản trị hệ thống mạng-L02', 0, 'Thứ 4 - Tiết 1,2,3', 'Phòng B203', 'GV009', 'MH005'),
+('MH007-LHP001', 'Lập trình web-L01', 0, 'Thứ 4 - Tiết 1,2,3', 'Phòng B202', 'GV010', 'MH007'),
+('MH007-LHP002', 'Lập trình web-L02', 0, 'Thứ 5 - Tiết 4,5,6', 'Phòng B202', 'GV002', 'MH007'),
+('MH009-LHP001', 'Đại số tuyến tính-L01', 0, 'Thứ 5 - Tiết 1,2,3', 'Phòng B302', 'GV004', 'MH009'),
+('MH009-LHP002', 'Đại số tuyến tính-L02', 0, 'Thứ 6 - Tiết 1,2,3', 'Phòng B302', 'GV005', 'MH009'),
+('MH011-LHP001', 'Vật Lý1-L01', 0, 'Thứ 6 - Tiết 1,2,3', 'Phòng B202', 'GV004', 'MH011'),
+('MH011-LHP002', 'Vật Lý1-L02', 0, 'Thứ 3 - Tiết 4,5,6', 'Phòng B304', 'GV005', 'MH011'),
+('MH012-LHP001', 'KT chế tạo vô tuyến-L01', 0, 'Thứ 2 - Tiết 4,5,6', 'Phòng B202', 'GV003', 'MH012');
 
 -- --------------------------------------------------------
 
@@ -139,7 +155,7 @@ CREATE TABLE `monhoc` (
   `MaMH` varchar(10) NOT NULL,
   `TenMH` varchar(100) NOT NULL,
   `SoTC` smallint(6) NOT NULL,
-  `HocPhi` mediumint(4) NOT NULL,
+  `HocPhi` int(11) NOT NULL,
   `MaNganh` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -148,8 +164,18 @@ CREATE TABLE `monhoc` (
 --
 
 INSERT INTO `monhoc` (`MaMH`, `TenMH`, `SoTC`, `HocPhi`, `MaNganh`) VALUES
-('MH001', 'Lập trình C', 3, 280000, 'KTPM'),
-('MH002', 'Nhập môn cơ sở dữ liệu', 3, 280000, 'KTPM');
+('MH001', 'Hệ thống nhúng', 3, 690000, 'HTIOT'),
+('MH002', 'Lập trình và điều khiển thiết bị ngoại vi', 3, 690000, 'HTIOT'),
+('MH003', 'Kiến trúc máy tính', 3, 690000, 'KHMT'),
+('MH004', 'Machine Learning', 2, 460000, 'KHMT'),
+('MH005', 'Quản trị hệ thống mạng', 3, 690000, 'KTM'),
+('MH006', 'Nhập môn kỹ thuật mạng', 2, 460000, 'KTM'),
+('MH007', 'Lập trình web', 3, 690000, 'KTPM'),
+('MH008', 'lập trình thiết bị di động', 3, 690000, 'KTPM'),
+('MH009', 'Đại số tuyến tính', 3, 690000, 'TDC'),
+('MH010', 'Xác suất thống kê', 2, 460000, 'TDC'),
+('MH011', 'Vật lý 1', 2, 460000, 'VLDC'),
+('MH012', 'Kỹ thuật chế tạo vô tuyến', 2, 460000, 'VTDD');
 
 -- --------------------------------------------------------
 
@@ -201,7 +227,9 @@ CREATE TABLE `sinhvien` (
 --
 
 INSERT INTO `sinhvien` (`MaSV`, `TenSV`, `DoB`, `GioiTinh`, `DiaChi`, `Email`, `MatKhau`, `MaLop`, `MaNganh`, `isFirstLogin`) VALUES
-('18DC010', 'Phạm Nguyễn Thanh Huy', '2000-01-02', 'Nam', 'Khánh Hoà', 'thanhhuy2120@gmail.com', '18DC010', 'DHCN5', 'KTPM', b'0');
+('18DC003', 'Trần Thành Danh', '2000-06-13', 'Nam', 'Khánh Hoà', 'thanhdanh@gmail.com', '18DC003', 'DHCN5', 'KHMT', b'0'),
+('18DC010', 'Phạm Nguyễn Thanh Huy', '2000-01-02', 'Nam', 'Khánh Hoà', 'thanhhuy2120@gmail.com', 'huy2120', 'DHCN5', 'KTPM', b'1'),
+('18DC012', 'Lưu Hoàng Long', '2000-06-19', 'Nam', 'Khánh Hoà', 'longluu@gmail.com', '18DC012', 'DHCN5', 'HTIOT', b'0');
 
 -- --------------------------------------------------------
 
