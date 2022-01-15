@@ -59,6 +59,7 @@ class SinhvienController extends Controller
      */
     public function store(Request $request)
     {
+        $masv = $request->input('masv');
         //dd($request->all());
         $sv = Sinhvien::create([
             'masv' => $request->input('masv'),

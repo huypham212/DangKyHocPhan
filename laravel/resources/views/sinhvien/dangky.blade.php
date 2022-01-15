@@ -46,7 +46,7 @@
                 <p>Mã sinh viên: {{ $masv }}</p>
                 <div class="info-tag">
                     <p class="info-tag-1">Khoá: {{ $lop }}</p>
-                    <p class="info-tag-2">Lớp học: 0</p>
+                    <p class="info-tag-2">Lớp học: {{ $count_totalLop }}</p>
                 </div>
 
             </div>
@@ -63,7 +63,7 @@
     <div class="main">
         <div class="card">
             <div class="card-header">
-                <h6><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> Thông tin
+                <h6><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />Thông tin
                     đăng ký</h6>
             </div>
             <div class="card-body">
@@ -120,7 +120,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="card">
             <div class="card-header">
                 <h6><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> Chương
@@ -135,95 +135,97 @@
                 </div>
 
                 @foreach ($dataMH as $mh)
-                    @foreach ($exist_lophp as $item)
-                        @if ($item->mamh == $mh->MaMH)
-                            <div style="width: 100%;">
-                                <button type="button" class="collapse-button" data-toggle="collapse"
-                                    data-target="#{{ $mh->MaMH }}">
+                    {{-- @foreach ($list_exist_mh as $exist_mh)
+                        @if ($exist_mh->mamh != $mh->MaMH) --}}
+                            @foreach ($exist_lophp as $item)
+                                @if ($item->mamh == $mh->MaMH)
+                                <div style="width: 100%;">
+                                    <button type="button" class="collapse-button" data-toggle="collapse"
+                                        data-target="#{{ $mh->MaMH }}">
                                     <p class="collapse-button-text">{{ $mh->MaMH }} - {{ $mh->TenMH }}</p>
                                     <i class="fas fa-caret-right collapse-button-icon"></i>
-                                </button></button>
-                                <div id="{{ $mh->MaMH }}" class="collapse">
-                                    <table class="table table-hover">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th style='text-align:center' scope="col">STT</th>
-                                                <th style='text-align:center' scope="col">Mã lớp học phần</th>
-                                                <th style='text-align:center' scope="col">Tên lớp học phần</th>
-                                                <th style='text-align:center' scope="col">Số tín chỉ</th>
-                                                <th style='text-align:center' scope="col">Thời gian & Địa điểm</th>
-                                                <th style='text-align:center' scope="col">Giảng viên</th>
-                                                <th style='text-align:center' scope="col">Sỉ số</th>
-                                                <th style='text-align:center' scope="col">Trạng thái</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <p hidden>{{ $index = 1 }}</p>
-                                            @foreach ($dataLopHP as $lophp)
-                                                @if ($lophp->MaMH == $mh->MaMH)
-                                                    <tr>
-                                                        <td class="align-middle"
-                                                            style='text-align:center; font-size:14px'>
-                                                            {{ $index++ }}</td>
-                                                        <td class="align-middle"
-                                                            style='text-align:center; font-size:14px'>
-                                                            {{ $lophp->MaLopHP }}</td>
-                                                        <td class="align-middle"
-                                                            style='text-align:center; font-size:14px'>
-                                                            {{ $lophp->TenLopHP }}</td>
-                                                        <td class="align-middle"
-                                                            style='text-align:center; font-size:14px'>
-                                                            {{ $mh->SoTC }}</td>
-                                                        <td class="align-middle"
-                                                            style='text-align:center; font-size:14px'>
-                                                            <p style="color: #000000;">{{ $lophp->ThoiGian }} -
-                                                                {{ $lophp->DiaDiem }}</p>
-                                                        </td>
-                                                        @foreach ($dataGV as $gv)
-                                                            @if ($gv->MaGV == $lophp->MaGV)
-                                                                <td class="align-middle"
-                                                                    style='text-align:center; font-size:14px'>
-                                                                    {{ $gv->TenGV }}</td>
-                                                            @endif
-                                                        @endforeach
-                                                        <td class="align-middle"
-                                                            style='text-align:center; font-size:14px'>
-                                                            {{ $lophp->SiSo }}/30</td>
-                                                        <td class="align-middle" style='text-align:center'>
-                                                            <form action="{{ route('dangky.store') }}" method="POST">
-                                                                @csrf
-                                                                <div class="form-group">
-                                                                    <input type="hidden" class="form-control"
-                                                                        name="malophp" value="{{ $lophp->MaLopHP }}">
-                                                                </div>
-                                                                <button type="submit"
-                                                                    class="btn btn-outline-danger"><b>Đăng
-                                                                        ký</b></button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                @endif
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                                    </button>
+                                    <div id="{{ $mh->MaMH }}" class="collapse">
+                                        <table class="table table-hover">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th style='text-align:center' scope="col">STT</th>
+                                                    <th style='text-align:center' scope="col">Mã lớp học phần</th>
+                                                    <th style='text-align:center' scope="col">Tên lớp học phần</th>
+                                                    <th style='text-align:center' scope="col">Số tín chỉ</th>
+                                                    <th style='text-align:center' scope="col">Thời gian & Địa điểm</th>
+                                                    <th style='text-align:center' scope="col">Giảng viên</th>
+                                                    <th style='text-align:center' scope="col">Sỉ số</th>
+                                                    <th style='text-align:center' scope="col">Trạng thái</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <p hidden>{{ $index = 1 }}</p>
+                                                @foreach ($dataLopHP as $lophp)
+                                                    @if ($lophp->MaMH == $mh->MaMH)
+                                                        <tr>
+                                                            <td class="align-middle"
+                                                                style='text-align:center; font-size:14px'>
+                                                                {{ $index++ }}</td>
+                                                            <td class="align-middle"
+                                                                style='text-align:center; font-size:14px'>
+                                                                {{ $lophp->MaLopHP }}</td>
+                                                            <td class="align-middle"
+                                                                style='text-align:center; font-size:14px'>
+                                                                {{ $lophp->TenLopHP }}</td>
+                                                            <td class="align-middle"
+                                                                style='text-align:center; font-size:14px'>
+                                                                0{{ $mh->SoTC }}</td>
+                                                            <td class="align-middle"
+                                                                style='text-align:center; font-size:14px'>
+                                                                <p style="color: #000000;">{{ $lophp->ThoiGian }} -
+                                                                    {{ $lophp->DiaDiem }}</p>
+                                                            </td>
+                                                            @foreach ($dataGV as $gv)
+                                                                @if ($gv->MaGV == $lophp->MaGV)
+                                                                    <td class="align-middle"
+                                                                        style='text-align:center; font-size:14px'>
+                                                                        {{ $gv->TenGV }}</td>
+                                                                @endif
+                                                            @endforeach
+                                                            <td class="align-middle"
+                                                                style='text-align:center; font-size:14px'>
+                                                                {{ $lophp->SiSo }}/30</td>
+                                                            <td class="align-middle" style='text-align:center'>
+                                                                <form action="{{ route('dangky.store') }}" method="POST">
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <input type="hidden" class="form-control"
+                                                                            name="malophp" value="{{ $lophp->MaLopHP }}">
+                                                                    </div>
+                                                                    <button type="submit"
+                                                                        class="btn btn-outline-danger"><b>Đăng
+                                                                            ký</b></button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
-                        @endif
-                    @endforeach
+                                @endif
+                            @endforeach
+                        {{-- @endif
+                    @endforeach --}}
                 @endforeach
             </div>
         </div>
-
-
         <div class="card">
             <div class="card-header">
-                <h6><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" /> Kết quả
+                <h6><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />Kết quả
                     đăng ký học phần</h6>
             </div>
             <div class="card-body">
                 <div>
-                    <h5 style="padding-left: 25px;">NĂM HỌC 2020-2021, HỌC KỲ 1</h5>
-                    <p style="padding-left: 100px;">Số học phần đã đăng ký: 3</p>
+                    <h5 style="padding-left: 25px;">NĂM HỌC {{$namhoc}}, HỌC KỲ {{$hk}}</h5>
+                    <p style="padding-left: 100px;">Số học phần đã đăng ký: {{ $count_lophp }}</p>
                     <p style="padding-left: 100px;">Số tín chỉ học tập đã đăng ký: 9</p>
                     <hr class="solid" width="100%">
                 </div>
@@ -254,45 +256,44 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="align-middle" style='text-align:center;'>1</td>
-                            <td class="align-middle" style='text-align:center'>4203</td>
-                            <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                            <td class="align-middle" style='text-align:center'>03</td>
-                            <td class="align-middle" style='text-align:center; color: #979797;'>
-                                Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng
-                                    B302</p>
-                            </td>
-                            <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                            <td class="align-middle" style='text-align:center'>10/30</td>
-                            <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle" style='text-align:center;'>1</td>
-                            <td class="align-middle" style='text-align:center'>4203</td>
-                            <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                            <td class="align-middle" style='text-align:center'>03</td>
-                            <td class="align-middle" style='text-align:center; color: #979797;'>
-                                Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng
-                                    B302</p>
-                            </td>
-                            <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                            <td class="align-middle" style='text-align:center'>10/30</td>
-                            <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle" style='text-align:center;'>1</td>
-                            <td class="align-middle" style='text-align:center'>4203</td>
-                            <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                            <td class="align-middle" style='text-align:center'>03</td>
-                            <td class="align-middle" style='text-align:center; color: #979797;'>
-                                Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng
-                                    B302</p>
-                            </td>
-                            <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                            <td class="align-middle" style='text-align:center'>10/30</td>
-                            <td class="align-middle" style='text-align:center'><i class="fas fa-trash-alt"></i></td>
-                        </tr>
+                        <p hidden>{{ $index = 1 }}</p>
+                        @foreach ($current_lophp as $lhp)
+                                <tr>
+                                    <td class="align-middle" style='text-align:center; font-size:14px'>
+                                        {{ $index++ }}</td>
+                                    <td class="align-middle" style='text-align:center; font-size:14px'>
+                                        {{ $lhp->MaMH }}</td>
+                                    <td class="align-middle" style='text-align:center; font-size:14px'>
+                                        {{ $lhp->TenLopHP }}</td>
+                                    @foreach ($dataMH as $mh)
+                                        @if ($mh->MaMH == $lhp->MaMH)
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>
+                                                0{{ $mh->SoTC }}</td>
+                                        @endif  
+                                    @endforeach
+                                    <td class="align-middle" style='text-align:center; font-size:14px'>
+                                        <p style="color: #000000;">{{ $lhp->ThoiGian }} -
+                                            {{ $lhp->DiaDiem }}</p>
+                                    </td>
+                                    @foreach ($dataGV as $gv)
+                                        @if ($gv->MaGV == $lhp->MaGV)
+                                            <td class="align-middle" style='text-align:center; font-size:14px'>
+                                                {{ $gv->TenGV }}</td>
+                                        @endif
+                                    @endforeach
+                                    <td class="align-middle" style='text-align:center; font-size:14px'>
+                                        {{ $lhp->SiSo }}/30</td>
+                                    <td class="align-middle" style='text-align:center'>
+                                        <form action="{{ route('dangky.destroy', $lhp->MaLopHP) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button style="width: 30px; height: 30px; padding-left: 7px; padding-top: 2px;" type="submit" class="btn btn-danger" title="Delete">
+                                                <i class="far fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -178,11 +178,11 @@
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="inputMaLop">Mã Môn học</label>
-                                <input type="text" class="form-control" name="mamh">
+                                <input type="text" class="form-control" name="mamh" required>
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="inputHoTen">Tên Môn học</label>
-                                <input type="text" class="form-control" name="tenmh">
+                                <input type="text" class="form-control" name="tenmh" required>
                               </div>
                             </div>
                             <div class="form-row">
@@ -192,18 +192,18 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" id="inputGroupPrepend3">VNĐ</span>
                                         </div>
-                                        <input type="number" class="form-control" name="hocphi" aria-describedby="inputGroupPrepend3" step="1000">
+                                        <input type="number" class="form-control" name="hocphi" aria-describedby="inputGroupPrepend3" step="1000" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputSoTC">Số tín chỉ</label>
-                                    <input type="number" class="form-control" name="sotc" min="1" max="4">
+                                    <input type="number" class="form-control" name="sotc" min="1" max="4" required>
                                   </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputKhoa">Ngành</label>
-                                    <select name="manganh" class="form-control">
+                                    <select name="manganh" class="form-control" required>
                                         <option selected>...</option>
                                         @foreach ($dataNganh as $nganh)
                                         <option value="{{ $nganh->MaNganh }}">{{ $nganh->MaNganh }} - {{ $nganh->TenNganh }}</option>

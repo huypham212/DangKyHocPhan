@@ -251,7 +251,6 @@
                                                                     style='text-align:center; font-size:14px'>
                                                                     {{ $sv->MaNganh }}</td>
                                                                 <td class="align-middle" style='text-align:center'>
-
                                                                     <form
                                                                         action="{{ route('sinhvien.destroy', $sv->MaSV) }}"
                                                                         method="POST">
