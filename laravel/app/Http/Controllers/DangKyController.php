@@ -23,30 +23,35 @@ class DangKyController extends Controller
     {
         $masv = SESSION::get('masv');
 
+        //Lấy tên sinh viên
         $tensv_raw = DB::table('sinhvien')->where('MaSV', $masv)->select('TenSV')->get();
         $tensv = implode(" ", array_column(json_decode($tensv_raw, true), 'TenSV'));
 
+        //Lấy mã lớp
         $lop_raw = DB::table('sinhvien')->where('MaSV', $masv)->select('MaLop')->get();
         $lop = implode(" ", array_column(json_decode($lop_raw, true), 'MaLop'));
 
+        //Lấy các môn học đã có lớp
         $exist_lophp = DB::table('lop_hp')
                         ->select(array('monhoc.mamh', DB::raw('COUNT(lop_hp.malophp) as soluong')))
                         ->join('monhoc', 'monhoc.mamh', '=', 'lop_hp.mamh')
                         ->groupBy('monhoc.mamh')
                         ->get();
         
+        //Lấy các môn học mà sinh viên đã đăng ký
         $list_exist_mh = DB::table('ds_dangky')->join('lop_hp', 'lop_hp.malophp', '=', 'ds_dangky.malophp')
                                 ->select('lop_hp.mamh')
                                 ->where('ds_dangky.masv', '=', $masv)
                                 ->get();
 
-        $currentDate = Carbon::now();
-
+        //Lấy tất cả các lớp học phần mà sinh viên đã đăng ký
         $count_totalLop = DB::table("ds_dangky")->join('lop_hp', 'lop_hp.malophp', '=', 'ds_dangky.malophp')
                                 ->select("lop_hp.malophp")
                                 ->where("ds_dangky.masv", "=", $masv)
                                 ->get();
-
+        
+        //Tính năm học, học kỳ và lấy danh sách các lớp học phần đã đăng ký ở hiện tại
+        $currentDate = Carbon::now();
         switch($currentDate->month)
         {
             case 2:
@@ -171,8 +176,8 @@ class DangKyController extends Controller
                 break;
         }
 
-        //dd($masv, $malophp, $mamh);
-        if($check_mh == null){
+        //dd($check_mh);
+        if(count($check_mh) == 0){
             $dsdk = DSDK::create([
                 'masv' => $masv,
                 'malophp' => $malophp,

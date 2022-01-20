@@ -27,6 +27,7 @@ Route::get('/login', 'DashboardController@login')->name('login');
 Route::post('/login', 'LoginController@valid_login');
 Route::get('/log_out', 'LoginController@log_out')->name('logout');
 Route::get('/dangky', 'LoginController@dangky')->name('dangky');
+Route::get('/index', 'LoginController@index')->name('huy');
 
 
 //Route to reset password

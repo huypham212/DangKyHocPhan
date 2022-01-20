@@ -174,7 +174,7 @@
                         </div>
 
                         @foreach ($dataLop as $lop)
-                            @foreach ($exist_sv as $item)
+                            @foreach ($exist_sv as $item) 
                                 @if ($item->malop == $lop->MaLop)
                                     <div style="width: 100%;">
                                         <button type="button" class="collapse-button" data-toggle="collapse"
