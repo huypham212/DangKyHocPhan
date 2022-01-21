@@ -49,7 +49,8 @@ class KetQuaController extends Controller
             'namhoc' => $getNamHoc,
             'totalLopHP' => $totalLopHP,
             'dataIndex' => 1,
-            'collapseIndex' => 0
+            'collapseIndex' => 0,
+            'totalMoney' => 0
         ]);
     }
 

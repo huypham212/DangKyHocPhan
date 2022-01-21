@@ -22,10 +22,35 @@ class LichSuController extends Controller
         $lop_raw = DB::table('sinhvien')->where('MaSV', $masv)->select('MaLop')->get();
         $lop = implode(" ", array_column(json_decode($lop_raw, true), 'MaLop'));
 
+        $monhoc = DB::table('monhoc')->select('*')->get();
+
+        $giangvien = DB::table('giangvien')->select('*')->get();
+
+        $totalLopHP = DB::table("ds_dangky")->join('lop_hp', 'lop_hp.malophp', '=', 'ds_dangky.malophp')
+                                ->select("*")
+                                ->where("ds_dangky.masv", "=", $masv)
+                                ->get();
+
+        $getNamHoc = DB::table("ds_dangky")
+                        ->select("namhoc")->distinct()
+                        ->where("masv", "=", $masv)
+                        ->get();
+
         return view('sinhvien.lichsu', [
             'masv' => $masv,
             'tensv' => $tensv,
-            'lop' => $lop
+            'lop' => $lop,
+            'masv' => $masv,
+            'tensv' => $tensv,
+            'lop' => $lop,
+            'monhoc' => $monhoc,
+            'giangvien' => $giangvien,
+            'count_totalLop' => count($totalLopHP),
+            'namhoc' => $getNamHoc,
+            'totalLopHP' => $totalLopHP,
+            'dataIndex' => 1,
+            'collapseIndex' => 0,
+            'totalMoney' => 0
         ]);
     }
 
