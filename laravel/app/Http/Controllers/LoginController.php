@@ -21,7 +21,7 @@ class LoginController extends Controller
 
     public function valid_login(Request $request)
     {
-        $masv = $request->input('masv');
+        $masv = $request->input('masv'); 
         $password = $request->input('password');
 
         if ($masv == 'admin' && $password == 'admin') {

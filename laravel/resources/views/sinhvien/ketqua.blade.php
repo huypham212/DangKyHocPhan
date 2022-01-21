@@ -45,7 +45,7 @@
                 <p>Mã sinh viên: {{ $masv }}</p>
                 <div class="info-tag">
                     <p class="info-tag-1">Khoá: {{ $lop }}</p>
-                    <p class="info-tag-2">Lớp học: 0</p>
+                    <p class="info-tag-2">Lớp học: {{ $count_totalLop }}</p>
                 </div>
 
             </div>
@@ -60,12 +60,13 @@
         </ul>
     </nav>
     <div class="main">
+        @foreach ($namhoc as $nh)
         <div style="width: 100%;">
-            <button type="button" class="collapse-button" data-toggle="collapse" data-target="#demo1">NĂM HỌC
-                2020-2021<i class="fas fa-caret-right"></i></button>
-            <div id="demo1" class="collapse" style="background-color: #FFFFFF;">
+            <button type="button" class="collapse-button" data-toggle="collapse" data-target="#demo-{{$nh->namhoc}}">NĂM HỌC
+                {{$nh->namhoc}}<i class="fas fa-caret-right"></i></button>
+            <div id="demo-{{$nh->namhoc}}" class="collapse" style="background-color: #FFFFFF;">
                 <div style="background-color: #FFFFFF; padding-top: 28px; padding-left: 48px">
-                    <h5 style="padding-left: 25px;">NĂM HỌC 2020-2021, HỌC KỲ 1</h5>
+                    <h5 style="padding-left: 25px;">NĂM HỌC {{$nh->namhoc}}, HỌC KỲ 1</h5>
                     <p style="padding-left: 100px;">Số học phần đã đăng ký: 3</p>
                     <p style="padding-left: 100px;">Số tín chỉ học tập đã đăng ký: 9</p>
                 </div>
@@ -84,56 +85,50 @@
                         </tr>
                     </thead>
                     <tbody style="border: 1px solid #DDE4EF">
+                        <p hidden>{{ $index = 1 }}</p>
+                        @foreach ($totalLopHP as $lophp)
+                        @if ($lophp->NamHoc == $nh->namhoc)
                         <tr>
-                            <td class="align-middle" style='text-align:center;'>1</td>
-                            <td class="align-middle" style='text-align:center'>4203</td>
-                            <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                            <td class="align-middle" style='text-align:center'>03</td>
+                            <td class="align-middle" style='text-align:center;'>{{ $index++ }}</td>
+                            <td class="align-middle" style='text-align:center'>{{$lophp->MaMH}}</td>
+                            <td class="align-middle" style='text-align:center'>{{$lophp->TenLopHP}}</td>
+                            @foreach ($monhoc as $mh)
+                            @if ($mh->MaMH == $lophp->MaMH)
+                                <td class="align-middle" style='text-align:center'>0{{$mh->SoTC}}</td>
+                            @endif
+                            @endforeach
                             <td class="align-middle" style='text-align:center; color: #979797;'>
-                                Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng
-                                    B302</p>
+                                <p style="color: #000000;">{{ $lophp->ThoiGian }} -
+                                    {{ $lophp->DiaDiem }}</p>
                             </td>
-                            <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                            <td class="align-middle" style='text-align:center'>10/30</td>
-                            <td class="align-middle" style='text-align:center'>830.000</td>
+                            @foreach ($giangvien as $gv)
+                                @if ($gv->MaGV == $lophp->MaGV)
+                                    <td class="align-middle" style='text-align:center'>{{$gv->TenGV}}</td>
+                                @endif
+                            @endforeach
+                            <td class="align-middle" style='text-align:center'>{{$lophp->SiSo}}/30</td>
+                            @foreach ($monhoc as $mh)
+                            @if ($mh->MaMH == $lophp->MaMH)
+                            <td class="align-middle" style='text-align:center'>{{$mh->HocPhi}}</td>
+                            @endif
+                            @endforeach
                             <td class="align-middle" style='text-align:center'></td>
                         </tr>
-                        <tr>
-                            <td class="align-middle" style='text-align:center;'>1</td>
-                            <td class="align-middle" style='text-align:center'>4203</td>
-                            <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                            <td class="align-middle" style='text-align:center'>03</td>
-                            <td class="align-middle" style='text-align:center; color: #979797;'>
-                                Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng
-                                    B302</p>
-                            </td>
-                            <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                            <td class="align-middle" style='text-align:center'>10/30</td>
-                            <td class="align-middle" style='text-align:center'>830.000</td>
-                            <td class="align-middle" style='text-align:center'></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle" style='text-align:center;'>1</td>
-                            <td class="align-middle" style='text-align:center'>4203</td>
-                            <td class="align-middle" style='text-align:center'>Cơ sở dữ liệu(L01)</td>
-                            <td class="align-middle" style='text-align:center'>03</td>
-                            <td class="align-middle" style='text-align:center; color: #979797;'>
-                                Từ 11/10/2021 đến 25/12/2021 <p style="color: #000000;">Thứ 2 - Tiết 1, 2, 3 - Phòng
-                                    B302</p>
-                            </td>
-                            <td class="align-middle" style='text-align:center'>Đỗ Văn Tuấn</td>
-                            <td class="align-middle" style='text-align:center'>10/30</td>
-                            <td class="align-middle" style='text-align:center'>830.000</td>
-                            <td class="align-middle" style='text-align:center'></td>
-                        </tr>
+                        @endif
+                        @endforeach
                     </tbody>
                 </table>
                 <div class="fee">
+                    @foreach ($totalLopHP as $lophp)
+                        
+                    @endforeach
                     <p><b>Học phí: 2.490.000 đồng</b></p>
                     <button type="button" class="btn btn-outline-danger"><b>In lịch học</b></button>
                 </div>
             </div>
         </div>
+        
+        @endforeach
     </div>
 
     <div class="footer">

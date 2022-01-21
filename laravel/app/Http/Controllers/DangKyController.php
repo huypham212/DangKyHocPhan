@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Models\LopHP;
 use App\Models\Monhoc;
@@ -22,34 +23,100 @@ class DangKyController extends Controller
     {
         $masv = SESSION::get('masv');
 
+        //Lấy tên sinh viên
         $tensv_raw = DB::table('sinhvien')->where('MaSV', $masv)->select('TenSV')->get();
         $tensv = implode(" ", array_column(json_decode($tensv_raw, true), 'TenSV'));
 
+        //Lấy mã lớp
         $lop_raw = DB::table('sinhvien')->where('MaSV', $masv)->select('MaLop')->get();
         $lop = implode(" ", array_column(json_decode($lop_raw, true), 'MaLop'));
 
+        //Lấy các môn học đã có lớp
         $exist_lophp = DB::table('lop_hp')
-            ->select(array('monhoc.mamh', DB::raw('COUNT(lop_hp.malophp) as soluong')))
-            ->join('monhoc', 'monhoc.mamh', '=', 'lop_hp.mamh')
-            ->groupBy('monhoc.mamh')
-            ->get();
+                        ->select(array('monhoc.mamh', DB::raw('COUNT(lop_hp.malophp) as soluong')))
+                        ->join('monhoc', 'monhoc.mamh', '=', 'lop_hp.mamh')
+                        ->groupBy('monhoc.mamh')
+                        ->get();
+        
+        //Lấy các môn học mà sinh viên đã đăng ký
+        $list_exist_mh = DB::table('ds_dangky')->join('lop_hp', 'lop_hp.malophp', '=', 'ds_dangky.malophp')
+                                ->select('lop_hp.mamh')
+                                ->where('ds_dangky.masv', '=', $masv)
+                                ->get();
+
+        //Lấy tất cả các lớp học phần mà sinh viên đã đăng ký
+        $count_totalLop = DB::table("ds_dangky")->join('lop_hp', 'lop_hp.malophp', '=', 'ds_dangky.malophp')
+                                ->select("lop_hp.malophp")
+                                ->where("ds_dangky.masv", "=", $masv)
+                                ->get();
+        
+        //Tính năm học, học kỳ và lấy danh sách các lớp học phần đã đăng ký ở hiện tại
+        $currentDate = Carbon::now();
+        switch($currentDate->month)
+        {
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                $hk = 2;
+                $get_year = $currentDate->year - 1;
+                $namhoc = $get_year.'-' .$currentDate->year;
+                $current_lophp = DB::table("ds_dangky")->join('lop_hp', 'lop_hp.malophp', '=', 'ds_dangky.malophp')
+                                ->select("lop_hp.*")
+                                ->where("ds_dangky.masv", "=", $masv)
+                                ->where("ds_dangky.hocky", "=", 2)
+                                ->where("ds_dangky.namhoc", "=", $namhoc)
+                                ->get();
+                break;
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+                $hk = 1;
+                $get_year = $currentDate->year + 1;
+                $namhoc = $currentDate->year.'-' .$get_year;
+                $current_lophp = DB::table("ds_dangky")->join('lop_hp', 'lop_hp.malophp', '=', 'ds_dangky.malophp')
+                                    ->select("lop_hp.*")
+                                    ->where("ds_dangky.masv", "=", $masv)
+                                    ->where("ds_dangky.hocky", "=", $hk)
+                                    ->where("ds_dangky.namhoc", "=", $namhoc)
+                                    ->get();
+                break;
+            case 1:
+                $hk = 1;
+                $get_year = $currentDate->year - 1;
+                $namhoc = $get_year.'-' .$currentDate->year;
+                $current_lophp = DB::table("ds_dangky")->join('lop_hp', 'lop_hp.malophp', '=', 'ds_dangky.malophp')
+                                    ->select("lop_hp.*")
+                                    ->where("ds_dangky.masv", "=", $masv)
+                                    ->where("ds_dangky.hocky", "=", $hk)
+                                    ->where("ds_dangky.namhoc", "=", $namhoc)
+                                    ->get();
+                break;
+        }
 
         $dataLopHP = LopHP::all();
         $dataMH = Monhoc::all();
         $dataGV = Giangvien::all();
         $dataSVMH = SVMH::where('MaSV', $masv)->get();
 
-        //dd($dataMH, $dataSVMH, $exist_lophp);
+        //dd($list_exist_mh);
 
         return view('sinhvien.dangky', [
             'masv' => $masv,
             'tensv' => $tensv,
             'lop' => $lop,
+            'hk' => $hk,
+            'namhoc' => $namhoc,
             'dataLopHP' => $dataLopHP,
             'dataMH' => $dataMH,
             'dataGV' => $dataGV,
             'dataSVMH' => $dataSVMH,
             'exist_lophp' => $exist_lophp,
+            'current_lophp' => $current_lophp,
+            'count_totalLop' => count($count_totalLop),
+            'count_lophp' => count($current_lophp),
+            'list_exist_mh' => $list_exist_mh,
             'index' => 1
         ]);
     }
@@ -77,21 +144,60 @@ class DangKyController extends Controller
         $get_mamh = LopHP::where('MaLopHP', $malophp)->select('MaMH')->get();
         $mamh = implode(" ", array_column(json_decode($get_mamh, true), 'MaMH'));
 
-        //dd($masv, $malophp, $mamh);
-        $dsdk = DSDK::create([
-            'masv' => $masv,
-            'malophp' => $malophp,
-            'hocky' => 1,
-            'namhoc' => '2018-2019'
-        ]);
+        $check_mh = SVMH::where('masv', '=', $masv)
+                        ->where('mamh', '=', $mamh)
+                        ->get();
 
-        $svmh = SVMH::create([
-            'masv' => $masv,
-            'mamh' => $mamh,
-            'trangthai' => 'Đang hoàn thành'
-        ]);
+        $currentDate = Carbon::now();
 
-        return back()->with('status', "Bạn đã đăng ký thành công vào lớp $malophp");
+        switch($currentDate->month)
+        {
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                $hk = 2;
+                $get_year = $currentDate->year - 1;
+                $namhoc = $get_year.'-' .$currentDate->year;
+
+                break;
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+                $hk = 1;
+                $get_year = $currentDate->year + 1;
+                $namhoc = $currentDate->year.'-' .$get_year;
+                break;
+            case 1:
+                $hk = 1;
+                $get_year = $currentDate->year - 1;
+                $namhoc = $get_year.'-' .$currentDate->year;
+                break;
+        }
+
+        //dd($check_mh);
+        if(count($check_mh) == 0){
+            $dsdk = DSDK::create([
+                'masv' => $masv,
+                'malophp' => $malophp,
+                'hocky' => $hk,
+                'namhoc' => $namhoc
+            ]);
+    
+            $svmh = SVMH::create([
+                'masv' => $masv,
+                'mamh' => $mamh,
+                'trangthai' => 'Đang hoàn thành'
+            ]);
+
+            return back()->with('status', "Đăng ký thành công vào lớp $malophp");
+        }
+        else{
+            return back()->with('status', "Bạn đã đăng ký lớp cho môn học $mamh");
+        }
+
+        
     }
 
     /**
@@ -134,8 +240,20 @@ class DangKyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($malophp)
+    {   
+        $masv = SESSION::get('masv');
+        $get_mamh = LopHP::where('MaLopHP', $malophp)->select('MaMH')->get();
+        $mamh = implode(" ", array_column(json_decode($get_mamh, true), 'MaMH'));
+        
+        $dsdk = DSDK::where('malophp', '=', $malophp)
+                    ->where('masv', '=', $masv)
+                    ->delete();
+
+        $sv_mh = SVMH::where('masv', '=', $masv)
+                    ->where('mamh', '=', $mamh)
+                    ->delete();
+
+        return back()->with('status', "Bạn đã huỷ đăng ký lớp $malophp");
     }
 }

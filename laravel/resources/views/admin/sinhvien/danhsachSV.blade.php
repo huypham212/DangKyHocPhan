@@ -174,7 +174,7 @@
                         </div>
 
                         @foreach ($dataLop as $lop)
-                            @foreach ($exist_sv as $item)
+                            @foreach ($exist_sv as $item) 
                                 @if ($item->malop == $lop->MaLop)
                                     <div style="width: 100%;">
                                         <button type="button" class="collapse-button" data-toggle="collapse"
@@ -251,7 +251,6 @@
                                                                     style='text-align:center; font-size:14px'>
                                                                     {{ $sv->MaNganh }}</td>
                                                                 <td class="align-middle" style='text-align:center'>
-
                                                                     <form
                                                                         action="{{ route('sinhvien.destroy', $sv->MaSV) }}"
                                                                         method="POST">

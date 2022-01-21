@@ -26,12 +26,12 @@ class ImportSVController extends Controller
 
     public function importSV(Request $request)
     {
-        $validatedData = $request->validate([
-            'file' => 'required',
-        ]);
+        // $validatedData = $request->validate([
+        //     'file' => 'required',
+        // ]);
 
         Excel::import(new SinhviensImport, $request->file('file'));
 
-        return back();
+        return back()->with('status', "Import thành công danh sách sinh viên");
     }
 }

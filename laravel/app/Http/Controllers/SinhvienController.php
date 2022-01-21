@@ -59,21 +59,30 @@ class SinhvienController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        $sv = Sinhvien::create([
-            'masv' => $request->input('masv'),
-            'tensv' => $request->input('tensv'),
-            'dob' => $request->input('dob'),
-            'gioitinh' => $request->input('gioitinh'),
-            'diachi' => $request->input('diachi'),
-            'email' => $request->input('email'),
-            'matkhau' => $request->input('matkhau'),
-            'malop' => $request->input('malop'),
-            'manganh' => $request->input('manganh'),
-            'isfirstlogin' => 0
-        ]);
+        $masv = $request->input('masv');
+        $check_sv = Sinhvien::where('MaSSV', $masv)->select('MaSV')->get();
 
-        return redirect('/sinhvien');
+        if(count($check_sv) == 0)
+        {
+            $sv = Sinhvien::create([
+                'masv' => $request->input('masv'),
+                'tensv' => $request->input('tensv'),
+                'dob' => $request->input('dob'),
+                'gioitinh' => $request->input('gioitinh'),
+                'diachi' => $request->input('diachi'),
+                'email' => $request->input('email'),
+                'matkhau' => $request->input('matkhau'),
+                'malop' => $request->input('malop'),
+                'manganh' => $request->input('manganh'),
+                'isfirstlogin' => 0
+            ]);
+
+            return back()->with('status', "Tạo thành công sinh viên $masv");
+        }
+        else
+        {
+            return back()->with('status', "Đã tồn tại sinh viên có mã số $masv");
+        }     
     }
 
     /**
@@ -129,7 +138,7 @@ class SinhvienController extends Controller
             'isfirstlogin' => 0
         ]);
 
-        return redirect('/sinhvien')->with('status', "Thay đổi thành công thông tin môn học $masv");
+        return redirect('/sinhvien')->with('status', "Thay đổi thành công thông tin sinh viên $masv");
     }
 
     /**
@@ -142,7 +151,6 @@ class SinhvienController extends Controller
     {
         $sv = Sinhvien::where('MaSV', $masv)->delete();
 
-
-        return redirect('/sinhvien')->with('status', "Xoá thành công môn học $masv");
+        return redirect('/sinhvien')->with('status', "Xoá thành công sinh viên $masv");
     }
 }
