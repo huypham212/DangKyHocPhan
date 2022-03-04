@@ -150,30 +150,34 @@
         <div class="u-content">
             <div class="u-body">
                 @if (session('status'))
-            <script type="text/javascript">
-                $(window).on('load', function() {
-                    $('#myModal').modal('show');
-                });
-            </script>
-        @endif
-        <div class="modal" id="myModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <div class="alert alert-success">
+                        {{ session('status') }}
                     </div>
-                    <div class="modal-body">
-                        <p>{{ session('status') }}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                @else
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                @endif
+                <div class="modal" id="myModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>{{ session('status') }}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
                 <div class="card">
                     <div class="card-header">
                         <h3><img src="{{ URL::to('/') }}/img/Vector.png" width="15px" height="15px" alt="logo" />
@@ -203,21 +207,22 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputMaSV">Mã sinh viên</label>
-                                    <input type="text" class="form-control" name="masv">
+                                    <input type="text" class="form-control" name="masv" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputHoTen">Họ và tên</label>
-                                    <input type="text" class="form-control" name="tensv" placeholder="Nguyễn Văn A">
+                                    <input type="text" class="form-control" name="tensv" placeholder="Nguyễn Văn A"
+                                        required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputDoB">Ngày sinh</label>
-                                    <input type="date" class="form-control" name="dob">
+                                    <input type="date" class="form-control" name="dob" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputDiaChi">Địa chỉ</label>
-                                    <input type="text" class="form-control" name="diachi">
+                                    <input type="text" class="form-control" name="diachi" required>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -225,30 +230,26 @@
                                     <label for="inputGioiTinh">Giới tính</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="gioitinh" value="Nam">
+                                            <input class="form-check-input" type="radio" name="gioitinh" value="Nam"
+                                                required>
                                             <label class="form-check-label" for="inlineRdNam">Nam</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="gioitinh" value="Nu">
+                                            <input class="form-check-input" type="radio" name="gioitinh" value="Nu"
+                                                required>
                                             <label class="form-check-label" for="inlineRdNu">Nữ</label>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email" name="email" class="form-control">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputMatKhau">Mật khẩu</label>
-                                    <input type="password" name="matkhau" class="form-control">
+                                    <input type="email" name="email" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputLop">Lớp</label>
-                                    <select name="malop" class="form-control">
+                                    <select name="malop" class="form-control" required>
                                         <option selected>...</option>
                                         @foreach ($dataLop as $lop)
                                             <option value="{{ $lop->MaLop }}">
@@ -258,7 +259,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputNganh">Ngành học</label>
-                                    <select name="manganh" class="form-control">
+                                    <select name="manganh" class="form-control" required>
                                         <option selected>...</option>
                                         @foreach ($dataNganh as $nganh)
                                             <option value="{{ $nganh->MaNganh }}">

@@ -7,6 +7,7 @@ use App\Models\Lop;
 use App\Models\Nganh;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class SinhvienController extends Controller
 {
@@ -60,29 +61,32 @@ class SinhvienController extends Controller
     public function store(Request $request)
     {
         $masv = $request->input('masv');
-        $check_sv = Sinhvien::where('MaSSV', $masv)->select('MaSV')->get();
+        $dob = $request->input('dob');
+        $convert_dob = Carbon::parse($dob);
+        $check_sv = Sinhvien::where('MaSV', $masv)->select('MaSV')->get();
 
-        if(count($check_sv) == 0)
-        {
-            $sv = Sinhvien::create([
-                'masv' => $request->input('masv'),
-                'tensv' => $request->input('tensv'),
-                'dob' => $request->input('dob'),
-                'gioitinh' => $request->input('gioitinh'),
-                'diachi' => $request->input('diachi'),
-                'email' => $request->input('email'),
-                'matkhau' => $request->input('matkhau'),
-                'malop' => $request->input('malop'),
-                'manganh' => $request->input('manganh'),
-                'isfirstlogin' => 0
-            ]);
+        if (count($check_sv) == 0) {
+            if (Carbon::now()->year - $convert_dob->year >= 18) {
+                $sv = Sinhvien::create([
+                    'masv' => $request->input('masv'),
+                    'tensv' => $request->input('tensv'),
+                    'dob' => $request->input('dob'),
+                    'gioitinh' => $request->input('gioitinh'),
+                    'diachi' => $request->input('diachi'),
+                    'email' => $request->input('email'),
+                    'matkhau' => $request->input('masv'),
+                    'malop' => $request->input('malop'),
+                    'manganh' => $request->input('manganh'),
+                    'isfirstlogin' => 0
+                ]);
 
-            return back()->with('status', "Tạo thành công sinh viên $masv");
+                return redirect('/sinhvien')->with('status', "Thêm thành công sinh viên $masv");
+            } else {
+                return back()->with('error', "Ngày sinh không hợp lệ!");
+            }
+        } else {
+            return back()->with('error', "Đã tồn tại sinh viên có mã số $masv");
         }
-        else
-        {
-            return back()->with('status', "Đã tồn tại sinh viên có mã số $masv");
-        }     
     }
 
     /**

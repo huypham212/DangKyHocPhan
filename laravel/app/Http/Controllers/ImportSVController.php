@@ -32,6 +32,6 @@ class ImportSVController extends Controller
 
         Excel::import(new SinhviensImport, $request->file('file'));
 
-        return back()->with('status', "Import thành công danh sách sinh viên");
+        return redirect('/sinhvien')->with('status', "Import thành công danh sách sinh viên");
     }
 }
