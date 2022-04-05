@@ -46,7 +46,7 @@ class KetQuaController extends Controller
             'monhoc' => $monhoc,
             'giangvien' => $giangvien,
             'count_totalLop' => count($totalLopHP),
-            'namhoc' => $getNamHoc,
+            'namhocmoi' => $getNamHoc,
             'totalLopHP' => $totalLopHP,
             'dataIndex' => 1,
             'collapseIndex' => 0,

@@ -60,6 +60,7 @@ class LopHPController extends Controller
      */
     public function store(Request $request)
     {
+        $malophp = $request->input('malophp');
         $lophp = LopHP::create([
             'malophp' => $request->input('malophp'),
             'tenlophp' => $request->input('tenlophp'),
@@ -70,7 +71,7 @@ class LopHPController extends Controller
             'mamh' => $request->input('mamh')
         ]);
 
-        return redirect('/lophp');
+        return redirect('/lophp')->with('status', "Tạo thành công thông tin môn học $malophp");
     }
 
     /**
